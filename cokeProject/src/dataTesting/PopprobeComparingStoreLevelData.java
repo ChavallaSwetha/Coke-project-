@@ -48,6 +48,7 @@ public class PopprobeComparingStoreLevelData {
 		Float[] iceValueXl = Readingdatafromxl.icevaLueXL;
 		login.comparingAndWritingData(rowsCountUi, totalBeforeConvertingUi, rowsXl, namesUi, storeNameXl, iceXl,
 				countryXL, dateXL, namesUIwrite, channelXL, subChannelXL, coolerXL, totalUi, iceValueXl);
+		System.out.println("For testing");
 
 	}
 
