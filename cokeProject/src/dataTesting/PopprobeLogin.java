@@ -17,6 +17,7 @@ import jxl.write.WriteException;
 
 public class PopprobeLogin {
 	
+	
 	public void logIn(WebDriver driver) throws InterruptedException {
 
 		driver.get("http://popprobe.com/login");
@@ -36,23 +37,17 @@ public class PopprobeLogin {
 	 */
 	public void selectDropDowns(WebDriver driver, String date, String country, String channel)
 			throws InterruptedException {
-		Thread.sleep(9000);
+		Thread.sleep(8000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[1]/div/button")).click(); // Date
 		// dropdown
 		Thread.sleep(9000);
 		driver.findElement(By.linkText(date)).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
-		// button
-		Thread.sleep(4000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[2]/div/button")).click(); // Country
 		// dropdown
 		Thread.sleep(3000);
 		driver.findElement(By.linkText(country)).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
-		// button
-		Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[4]/div/button")).click(); // Channel
 		// dropdown
 		Thread.sleep(3000);
@@ -67,6 +62,7 @@ public class PopprobeLogin {
 	 * Using function comparingAndWritingData() compare UI data with XL data and
 	 * show result as Match or Mismatch or Missing
 	 */
+	
 
 	public void comparingAndWritingData(int rowsCountUI, String[] totalBeforeConvertingUI, int rowsXl, String[] namesUI,
 			String[] storeNameXl, String[] iceXl, String[] countryXL, String[] dateXL, String[] namesUIwrite,
@@ -103,7 +99,6 @@ public class PopprobeLogin {
 				if ((namesUI[i].replaceAll("[ ,]", "")).equalsIgnoreCase(storeNameXl[r].replaceAll("[ ,]", ""))) {
 					Label iceFromXL = new Label(h, i + 1, iceXl[r]);
 					writeSheet.addCell(iceFromXL);
-					System.out.println("swetha");
 					Label countryFromXL = new Label(a, i + 1, countryXL[r]);
 					writeSheet.addCell(countryFromXL);
 					Label dateFromXL = new Label(b, i + 1, dateXL[r]);
