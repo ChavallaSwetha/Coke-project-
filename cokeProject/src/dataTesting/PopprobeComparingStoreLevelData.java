@@ -29,25 +29,12 @@ public class PopprobeComparingStoreLevelData {
 		login.logIn(driver);
 		login.selectDropDowns(driver, date, country, channel);
 		ReadingdatafromUI namesAndTotal = new ReadingdatafromUI();
-		namesAndTotal.readingDataFromUI(driver);
-		String[] namesUi = ReadingdatafromUI.namesUI;
-		String[] namesUIwrite = ReadingdatafromUI.namesUI;
-		int rowsCountUi = ReadingdatafromUI.rowsCountUI;
-		Float[] totalUi = ReadingdatafromUI.totalUI;
-		String[] totalBeforeConvertingUi = ReadingdatafromUI.totalBeforeConvertingUI;
-		Readingdatafromxl storeAndIce = new Readingdatafromxl();
-		storeAndIce.readingDataFromXL();
-		int rowsXl = Readingdatafromxl.rowsXL;
-		String[] countryXL = Readingdatafromxl.counTryXL;
-		String[] dateXL = Readingdatafromxl.daTeXL;
-		String[] channelXL = Readingdatafromxl.chaNnelXL;
-		String[] subChannelXL = Readingdatafromxl.subChanneLXL;
-		String[] coolerXL = Readingdatafromxl.cooLerXL;
-		String[] storeNameXl = Readingdatafromxl.storeNameXL;
-		String[] iceXl = Readingdatafromxl.iceXL;
-		Float[] iceValueXl = Readingdatafromxl.icevaLueXL;
-		login.comparingAndWritingData(rowsCountUi, totalBeforeConvertingUi, rowsXl, namesUi, storeNameXl, iceXl,
-				countryXL, dateXL, namesUIwrite, channelXL, subChannelXL, coolerXL, totalUi, iceValueXl);
+		ReadingdatafromUI dataUI =namesAndTotal.readingDataFromUI(driver);
+		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
+	     ReadingDataFromxl xldata =	storeAndIce.readingDataFromXL();
+		login.comparingAndWritingData(dataUI.getrowsCount(), dataUI.getTotalstringUI(), xldata.getRowsXL(), dataUI.getnamesUI(), xldata.getStoreNameXL(), xldata.getIceXL(),
+				xldata.getCounTryXL(), xldata.getDaTeXL(),dataUI.getnamesUI(),xldata.getChaNnelXL(), xldata.getSubChanneLXL(),xldata.getCooLerXL(), 
+				dataUI.getTotalUI(), xldata.getIcevaLueXL());
 		System.out.println("For testing");
 
 	}
