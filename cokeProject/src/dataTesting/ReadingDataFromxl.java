@@ -12,23 +12,22 @@ import jxl.Workbook;
 import jxl.WorkbookSettings;
 import jxl.read.biff.BiffException;
 
-public class Readingdatafromxl {
+public class ReadingDataFromxl {
 
 	/*
-	 * Using function readingDataFromXL() read data from XL (Storenames and ICE
-	 * values)
+	 * Using function readingDataFromXL() read data from XL (Storenames,country,date,ICE,channel,subchannel and cooler values)
 	 */
-	static String[] storeNameXL;
-	static String[] iceXL;
-	static int rowsXL;
-	static String[] cooLerXL;
-	static Float[] icevaLueXL;
-	static String[] counTryXL;
-	static String[] daTeXL;
-	static String[] chaNnelXL;
-	static String[] subChanneLXL;
+	private String[] storeNameXL;
+	private String[] iceXL;
+	private int rowsXL;
+	private String[] cooLerXL;
+	private Float[] icevaLueXL;
+	private String[] counTryXL;
+	private String[] daTeXL;
+	private String[] chaNnelXL;
+	private String[] subChanneLXL;
 
-	public Readingdatafromxl readingDataFromXL() throws BiffException, IOException {
+	public ReadingDataFromxl readingDataFromXL() throws BiffException, IOException {
 		String[] storeNameXL;
 		Float[] iceValueXL;
 		String[] channelXLbeforeconverting;
@@ -37,7 +36,7 @@ public class Readingdatafromxl {
 		String[] dateXL;
 		String[] channelXL;
 		String[] subChannelXL;
-		Readingdatafromxl xlData = new Readingdatafromxl();
+		ReadingDataFromxl xlData = new ReadingDataFromxl();
 		File fs = new File("C:/Users/Mona Lisa/Downloads/Reading file.xls");
 		Workbook wb = Workbook.getWorkbook(fs);
 		Sheet sh = wb.getSheet("Bahamas Onpremise data");
@@ -95,15 +94,88 @@ public class Readingdatafromxl {
 			}
 
 		}
-		xlData.rowsXL = rowsCountXL;
-		xlData.storeNameXL = storeNameXL;
-		xlData.iceXL = ice;
-		xlData.cooLerXL = coolerXL;
-		xlData.icevaLueXL = iceValueXL;
-		xlData.counTryXL = countryXL;
-		xlData.daTeXL = dateXL;
-		xlData.chaNnelXL = channelXL;
-		xlData.subChanneLXL = subChannelXL;
+		xlData.setRowsXL(rowsCountXL);
+		xlData.setStoreNameXL(storeNameXL);
+		xlData.setIceXL(ice);
+		xlData.setCooLerXL(coolerXL);
+		xlData.setIcevaLueXL(iceValueXL);
+		xlData.setCounTryXL(countryXL);
+		xlData.setDaTeXL(dateXL);
+		xlData.setChaNnelXL(channelXL);
+		xlData.setSubChanneLXL(subChannelXL);
 		return xlData;
 	}
+
+	public String[] getCounTryXL() {
+		return counTryXL;
+	}
+
+	public void setCounTryXL(String[] countryXL) {
+		this.counTryXL = countryXL;
+	}
+
+	public int getRowsXL() {
+		return rowsXL;
+	}
+
+	public void setRowsXL(int rowsCountXL) {
+		this.rowsXL = rowsCountXL;
+	}
+
+	public String[] getDaTeXL() {
+		return daTeXL;
+	}
+
+	public void setDaTeXL(String[] daTeXL) {
+		this.daTeXL = daTeXL;
+	}
+
+	public String[] getChaNnelXL() {
+		return chaNnelXL;
+	}
+
+	public void setChaNnelXL(String[] channelXL) {
+		this.chaNnelXL = channelXL;
+	}
+
+	public String[] getSubChanneLXL() {
+		return subChanneLXL;
+	}
+
+	public void setSubChanneLXL(String[] subChannelXL) {
+		this.subChanneLXL = subChannelXL;
+	}
+
+	public String[] getCooLerXL() {
+		return cooLerXL;
+	}
+
+	public void setCooLerXL(String[] coolerXL) {
+		this.cooLerXL = coolerXL;
+	}
+
+	public String[] getStoreNameXL() {
+		return storeNameXL;
+	}
+
+	public void setStoreNameXL(String[] storeNameXL) {
+		this.storeNameXL = storeNameXL;
+	}
+
+	public String[] getIceXL() {
+		return iceXL;
+	}
+
+	public void setIceXL(String[] ice) {
+		this.iceXL = ice;
+	}
+
+	public Float[] getIcevaLueXL() {
+		return icevaLueXL;
+	}
+
+	public void setIcevaLueXL(Float[] iceValueXL) {
+		this.icevaLueXL = iceValueXL;
+	}
+	
 }
