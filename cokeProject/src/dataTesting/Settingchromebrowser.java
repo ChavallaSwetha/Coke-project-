@@ -23,7 +23,7 @@ public class Settingchromebrowser {
 
 	
 		
-	//static WebDriver driver = new ChromeDriver();
+	static WebDriver driver = new ChromeDriver();
 		/* Login into popprobe.com */
 		
 		public static void logIn(WebDriver driver) throws InterruptedException {
@@ -103,10 +103,10 @@ public class Settingchromebrowser {
 				totalUIBeforeConvertingToString[i] = totalInUI;
 
 			}
-			dataUI.namesUI = namesUI;
+			/*dataUI.namesUI = namesUI;
 			dataUI.rowsCountUI = rowsCount;
 			dataUI.totalBeforeConvertingUI = totalUIBeforeConvertingToString;
-			dataUI.totalUI = totalUI;
+			dataUI.totalUI = totalUI;*/
 			return dataUI;
 		}
 
@@ -114,7 +114,7 @@ public class Settingchromebrowser {
 		 * Using function readingDataFromXL() read data from XL (Storenames and ICE
 		 * values)
 		 */
-		public static Readingdatafromxl readingDataFromXL() throws BiffException, IOException {
+		public static ReadingDataFromxl readingDataFromXL() throws BiffException, IOException {
 			String[] storeNameXL = null;
 			Float[] iceValueXL = null;
 			String[] channelXLbeforeconverting = null;
@@ -123,7 +123,7 @@ public class Settingchromebrowser {
 			String[] dateXL = null;
 			String[] channelXL = null;
 			String[] subChannelXL = null;
-			Readingdatafromxl xlData = new Readingdatafromxl();
+			ReadingDataFromxl xlData = new ReadingDataFromxl();
 			File fs = new File("C:/Users/Mona Lisa/Downloads/Reading file.xls");
 			Workbook wb = Workbook.getWorkbook(fs);
 			Sheet sh = wb.getSheet("Bahamas Onpremise data");
@@ -182,15 +182,15 @@ public class Settingchromebrowser {
 				}
 
 			}
-			xlData.rowsXL = rowsCountXL;
-			xlData.storeNameXL = storeNameXL;
-			xlData.iceXL = ice;
-			xlData.cooLerXL = coolerXL;
-			xlData.icevaLueXL = iceValueXL;
-			xlData.counTryXL = countryXL;
-			xlData.daTeXL = dateXL;
-			xlData.chaNnelXL = channelXL;
-			xlData.subChanneLXL = subChannelXL;
+			xlData.setRowsXL(rowsCountXL);
+			xlData.setStoreNameXL(storeNameXL);
+			xlData.setIceXL(ice);
+			xlData.setCooLerXL(coolerXL);
+			xlData.setIcevaLueXL(iceValueXL);
+			xlData.setCounTryXL(countryXL);
+			xlData.setDaTeXL(dateXL);
+			xlData.setChaNnelXL(channelXL);
+			xlData.setSubChanneLXL(subChannelXL);
 			return xlData;
 		}
 
@@ -271,16 +271,16 @@ public class Settingchromebrowser {
 			String date = "2016 - 12";
 			String country = "BAHAMAS";
 			String channel = "ON PREMISE";
-			Readingdatafromxl storeAndIce;
+			ReadingDataFromxl storeAndIce;
 			ReadingdatafromUI namesAndTotal;
 			logIn(driver);
 			selectDropDowns(driver,date, country, channel);
 			namesAndTotal = readingDataFromUI(driver);
 			storeAndIce = readingDataFromXL();
-			comparingAndWritingData(storeAndIce.rowsXL,storeAndIce.counTryXL, storeAndIce.daTeXL,namesAndTotal.namesUI,storeAndIce.chaNnelXL,
-				storeAndIce.subChanneLXL,storeAndIce.cooLerXL,namesAndTotal.totalBeforeConvertingUI,storeAndIce.storeNameXL, storeAndIce.iceXL, namesAndTotal.rowsCountUI, 
-				namesAndTotal.totalUI, storeAndIce.icevaLueXL);
-
+			/*comparingAndWritingData(storeAndIce.getRowsXL(),storeAndIce.getCounTryXL(), storeAndIce.getDaTeXL(),namesAndTotal.namesUI,storeAndIce.getChaNnelXL(),
+				storeAndIce.getSubChanneLXL(),storeAndIce.getCooLerXL(),namesAndTotal.totalBeforeConvertingUI,storeAndIce.getStoreNameXL(), storeAndIce.getIceXL(), namesAndTotal.rowsCountUI, 
+				namesAndTotal.totalUI, storeAndIce.getIcevaLueXL());
+*/
 		}
 
 

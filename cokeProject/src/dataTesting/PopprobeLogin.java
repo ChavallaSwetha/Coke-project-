@@ -21,7 +21,7 @@ public class PopprobeLogin {
 	public void logIn(WebDriver driver) throws InterruptedException {
 
 		driver.get("http://popprobe.com/login");
-		Thread.sleep(4000);
+		Thread.sleep(9000);
 		driver.findElement(By.name("email")).sendKeys("coke@bifortis.com");
 		Thread.sleep(2000);
 		driver.findElement(By.name("password")).sendKeys("coke");
