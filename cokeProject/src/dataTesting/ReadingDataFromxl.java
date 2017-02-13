@@ -27,7 +27,7 @@ public class ReadingDataFromxl {
 	private String[] chaNnelXL;
 	private String[] subChanneLXL;
 
-	public ReadingDataFromxl readingDataFromXL() throws BiffException, IOException {
+	public ReadingDataFromxl readingDataFromXL(String readingFile) throws BiffException, IOException {
 		String[] storeNameXL;
 		Float[] iceValueXL;
 		String[] channelXLbeforeconverting;
@@ -37,7 +37,7 @@ public class ReadingDataFromxl {
 		String[] channelXL;
 		String[] subChannelXL;
 		ReadingDataFromxl xlData = new ReadingDataFromxl();
-		File fs = new File("C:/Users/Mona Lisa/Downloads/Reading file.xls");
+		File fs = new File(readingFile);
 		Workbook wb = Workbook.getWorkbook(fs);
 		Sheet sh = wb.getSheet("Bahamas Onpremise data");
 		int row = sh.getRows();
