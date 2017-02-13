@@ -22,9 +22,9 @@ import jxl.write.biff.RowsExceededException;
 
 public class PopprobeComparingCountryLevelDataWithCooler {
 
-	public static void main(String[] args) throws InterruptedException, BiffException, IOException, RowsExceededException, WriteException {
-		WebDriver driver = new FirefoxDriver();
-		PopprobeLogin login = new PopprobeLogin();
+	//public static void main(String[] args) throws InterruptedException, BiffException, IOException, RowsExceededException, WriteException {
+		//WebDriver driver = new FirefoxDriver();
+		/*PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
 		String date = "2016 - 12";
 		String country = "BAHAMAS";
@@ -44,7 +44,9 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 		// dropdown
 		Thread.sleep(3000);
 		driver.findElement(By.linkText(channel)).click();
-		Thread.sleep(3000);
+		Thread.sleep(3000);*/
+		public void comparingCountryLevelDataWithCooler(WebDriver driver,String readFilePath,String writeFilePath) throws InterruptedException, BiffException, IOException, RowsExceededException, WriteException{
+			Thread.sleep(8000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[6]/div/button")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.linkText("YES")).click();
@@ -71,9 +73,7 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 		Float commexFt = Float.parseFloat(commexSt);
 		String priceSt = columns.get(5).getText();
 		Float priceFt = Float.parseFloat(priceSt);
-		String freshSt = columns.get(6).getText();
-		Float freshFt = Float.parseFloat(freshSt);
-		File readFile = new File("C:/Users/Mona Lisa/Desktop/Datafor countrylevel testing.xls");
+		File readFile = new File(readFilePath);
 		Workbook wb = Workbook.getWorkbook(readFile);
 		Sheet sh = wb.getSheet(0);
 		int rowsXL = sh.getRows();
@@ -82,7 +82,6 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 		String refregiratio = "Refrigeración";
 		String commuNion = "Comunicación y exhibición";
 		String priCe = "Respeto a Precio";
-		String freshNESs = "Frescura de Producto";
 		String toTal = "ICE con Nevera Tradicional";
 		String withCooler = "2";
 		String[] countryXL = new String[rowsXL];
@@ -110,9 +109,10 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 			}
 		}
 		String result = null;
-      FileOutputStream writeFile = new FileOutputStream("C:/Users/Mona Lisa/Downloads/country data.xls");
-      WritableWorkbook writeWB = Workbook.createWorkbook(writeFile);
-      WritableSheet writeSh =  writeWB.createSheet("COUNTRY", 1);
+      File writeFile = new File(writeFilePath);
+      Workbook wrkBook = Workbook.getWorkbook(writeFile);
+	  WritableWorkbook wwbook = Workbook.createWorkbook(writeFile, wrkBook);
+      WritableSheet writeSh =  wwbook.getSheet(0);
       for (int kpiRow=0;kpiRow<rowsXL;kpiRow++){
 			Cell kpiClmn = sh.getCell(5, kpiRow);
 			kpiXL[kpiRow] =kpiClmn.getContents();
@@ -121,7 +121,7 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 		for (int r = 0; r < rowsXL; r++) {
 			if ((kpiXL[r]).equals(mpa)) {
 				Label kpiAdd = new Label(3, 7, kpiXL[r]);
-				writeSh.addCell(kpiAdd);
+				writeSh.addCell(kpiAdd);;
 				Cell pid = sh.getCell(4, r);
 				String pID = pid.getContents();
 				if (pID.equals(withCooler)) {
@@ -314,8 +314,8 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 		}
 	}
 	
-		writeWB.write();
-		writeWB.close();
+	wwbook.write();
+	wwbook.close();
 
 
 }
