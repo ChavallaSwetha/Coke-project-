@@ -66,11 +66,11 @@ public class PopprobeLogin {
 	 */
 	
 
-	public void comparingAndWritingData(int rowsCountUI, String[] totalBeforeConvertingUI, int rowsXl, String[] namesUI,
+	public void comparingAndWritingData(String writeFilePath,int rowsCountUI, String[] totalBeforeConvertingUI, int rowsXl, String[] namesUI,
 			String[] storeNameXl, String[] iceXl, String[] countryXL, String[] dateXL, String[] namesUIwrite,
 			String[] channelXL, String[] subChannelXL, String[] coolerXL, Float[] totalUI, Float[] iceValueXl)
 			throws IOException, WriteException {
-		FileOutputStream fileOutput = new FileOutputStream("C:/Users/Mona Lisa/Downloads/Writing file.xls");
+		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 		WritableSheet writeSheet = writeWorkBook.createSheet("BAHAMAS ON PREMISE", 2);
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, h = 7, j = 8;
