@@ -8,9 +8,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -31,8 +28,7 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 		float coMMEX = 0;
 		float prICE = 0;
 		float freshNess = 0;
-		//String readFilePath = "C:/Users/Mona Lisa/Desktop/Datafor countrylevel testing.xls" ;
-		//String writeFilePath = "C:/Users/Mona Lisa/Downloads/country data.xls"; 
+		
 		public void compareCountryLevelCoolerData(WebDriver driver, String readFilePath,String writeFilePath) throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException{
 			Thread.sleep(8000);
 		String total = driver
@@ -92,7 +88,7 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 					}
 				}
 			}
-			String result = null;
+			Label result = null;
 			FileOutputStream writefile = new FileOutputStream(writeFilePath);
 			WritableWorkbook wwbook = Workbook.createWorkbook(writefile);
 			WritableSheet writeSh = wwbook.createSheet("COUNTRY", 0);
@@ -139,15 +135,16 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI MPA" + "          " + mpaUI);
 							System.out.println("XL MPA" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - mpaUI);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
+								result = new Label(6,1,"Mismatch");
+							} 
+							else {
+								result = new Label(6,1,"Match");
 							}
+							writeSh.addCell(result);
 						}
 						
-						Label resultAdd = new Label(6, 1, result);
-						writeSh.addCell(resultAdd);
 
 					} else if ((kpiXL[r]).equals(sovi)) {
 						Label kpiAdd = new Label(3, 2, kpiXL[r]);
@@ -172,15 +169,16 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI SOVI" + "          " + sOVIf);
 							System.out.println("XL SOVI" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - sOVIf);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
-							}
+								result = new Label(6,2,"Mismatch");
+							} 
+							else {
+								result = new Label(6,2,"Match");
+							
 						}
-						Label resultAdd = new Label(6, 2, result);
-						writeSh.addCell(resultAdd);
-
+						writeSh.addCell(result);
+						}
 					} else if ((kpiXL[r]).equals(refregiratio)) {
 						Label kpiAdd = new Label(3, 3, kpiXL[r]);
 						writeSh.addCell(kpiAdd);
@@ -204,15 +202,16 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI refregeratio" + "          " + rEF);
 							System.out.println("XL refregeratio" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - rEF);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
+								result = new Label(6,3,"Mismatch");
+							} 
+							else {
+								result = new Label(6,3,"Match");
 							}
+						
+						writeSh.addCell(result);
 						}
-						Label resultAdd = new Label(6, 3, result);
-						writeSh.addCell(resultAdd);
-
 					} else if ((kpiXL[r]).equals(commuNion)) {
 						Label kpiAdd = new Label(3, 4, kpiXL[r]);
 						writeSh.addCell(kpiAdd);
@@ -236,16 +235,17 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI CommunionYEX" + "          " + coMMEX);
 							System.out.println("XL CommunionYEX" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - coMMEX);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
+								result = new Label(6,4,"Mismatch");
+							} 
+							else {
+								result = new Label(6,4,"Match");
 							}
-						}
-						Label resultAdd = new Label(6, 4, result);
-						writeSh.addCell(resultAdd);
-
-					} else if ((kpiXL[r]).equals(priCe)) {
+						
+						writeSh.addCell(result);
+					}}
+					else if ((kpiXL[r]).equals(priCe)) {
 						Label kpiAdd = new Label(3, 5, kpiXL[r]);
 						writeSh.addCell(kpiAdd);
 						Cell pid1 = sh.getCell(4, r);
@@ -268,16 +268,17 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI PRICE" + "          " + prICE);
 							System.out.println("XL PRICE" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - prICE);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
+								result = new Label(6,5,"Mismatch");
+							} 
+							else {
+								result = new Label(6,5,"Match");
 							}
-						}
-						Label resultAdd = new Label(6, 5, result);
-						writeSh.addCell(resultAdd);
-
-					} else if ((kpiXL[r]).equals(freshNESs)) {
+						
+						writeSh.addCell(result);
+					}}
+					else if ((kpiXL[r]).equals(freshNESs)) {
 						Label kpiAdd = new Label(3, 6, kpiXL[r]);
 						writeSh.addCell(kpiAdd);
 						Cell pid1 = sh.getCell(4, r);
@@ -300,48 +301,53 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 							System.out.println("UI FRESHNESS" + "          " + freshNess);
 							System.out.println("XL FRESHNESS" + "          " + afterconvertingtofloat);
 							float difference = Math.abs(afterconvertingtofloat - freshNess);
+							System.out.println("Difference is  = "+ difference);
 							if (difference >= 0.5) {
-								result = "Mismatch";
-							} else {
-								result = "Match";
+								result = new Label(6,6,"Mismatch");
+							} 
+							else {
+								result = new Label(6,6,"Match");
 							}
+						
+					
+						writeSh.addCell(result);
 						}
-						Label resultAdd = new Label(6, 6, result);
-						writeSh.addCell(resultAdd);
 					}
-
 					else if ((kpiXL[r]).equals(toTal)) {
-						Label kpiAdd = new Label(3, 6, kpiXL[r]);
+						Label kpiAdd = new Label(3, 7, kpiXL[r]);
 						writeSh.addCell(kpiAdd);
 						Cell iCE = sh.getCell(6, r);
 						String icevalue = iCE.getContents();
 						String icereplacewithf = icevalue.replaceAll("%", "f");
-						Label iceAdd = new Label(4, 6, icevalue);
+						Label iceAdd = new Label(4, 7, icevalue);
 						writeSh.addCell(iceAdd);
 						float afterconvertingtofloat = Float.parseFloat(icereplacewithf);
-						Label countryAdd = new Label(0, 6, countryXL[r]);
+						Label countryAdd = new Label(0, 7, countryXL[r]);
 						writeSh.addCell(countryAdd);
-						Label dateAdd = new Label(1, 6, dateXL[r]);
+						Label dateAdd = new Label(1, 7, dateXL[r]);
 						writeSh.addCell(dateAdd);
-						Label channelAdd = new Label(2, 6, channelXL[r]);
+						Label channelAdd = new Label(2, 7, channelXL[r]);
 						writeSh.addCell(channelAdd);
-						Label totalAdd = new Label(5, 6, total);
+						Label totalAdd = new Label(5, 7, total);
 						writeSh.addCell(totalAdd);
-						System.out.println("UI FRESHNESS" + "          " + iceTotal);
-						System.out.println("XL FRESHNESS" + "          " + afterconvertingtofloat);
+						System.out.println("UI TOTAL" + "          " + iceTotal);
+						System.out.println("XL TOTAL" + "          " + afterconvertingtofloat);
 						float difference = Math.abs(iceTotal - afterconvertingtofloat);
+						System.out.println("TOTAL difference = "+"   "+difference);
 						if (difference >= 0.5) {
-							result = "Mismatch";
-						} else {
-							result = "Match";
+							result = new Label(6,7,"Mismatch");
+						} 
+						else {
+							result = new Label(6,7,"Match");
 						}
+					writeSh.addCell(result);
 					}
-					Label resultAdd = new Label(6, 6, result);
-					writeSh.addCell(resultAdd);
-				}
+			}
 			}
 			wwbook.write();
 			wwbook.close();
-	}
+		
+		}
 		}
 }
+
