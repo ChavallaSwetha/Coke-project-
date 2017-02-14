@@ -23,6 +23,7 @@ public class PopprobeComparingStoreLevelData {
 		login.logIn(driver);
 		login.selectDropDowns(driver, date, country, channel);
 		ComparingStoreLevelDataAndWritingXL  compare = new ComparingStoreLevelDataAndWritingXL();
+		UIData dataFromUI = new UIData();
 		ReadingdatafromUI namesAndTotal = new ReadingdatafromUI();
 		ReadingdatafromUI dataUI =namesAndTotal.readingDataFromUI(driver);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
