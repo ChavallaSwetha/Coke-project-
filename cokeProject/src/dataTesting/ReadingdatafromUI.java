@@ -2,7 +2,7 @@ package dataTesting;
 
 import java.util.List;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -55,29 +55,32 @@ public class ReadingdatafromUI {
 		dataUI.totalUI = totalUI;
 		return dataUI;
 	}
+	
 	public String[] getnamesUI(){
-		return namesUI;
-	}
-	public void setnamesUI(String[] namesfromUI){
-		this.namesUI = namesfromUI;
-	}
-	public void setrowsCountUI(int rowsCount){
-		this.rowsCountUI = rowsCount;
-	}
-	public int getrowsCount(){
-		return rowsCountUI;
-	}
-	public void setTotalstringUI(String[] totalBeforeConvertinginUI){
-		this.totalBeforeConvertingUI = totalBeforeConvertinginUI;
-	}
-    public String[] getTotalstringUI(){
-    	return totalBeforeConvertingUI;
-    }
-    public void setTotalUI(Float[] totalUI){
-    	this.totalUI = totalUI;
-    	
-    }
-    public Float[] getTotalUI(){
-    	return totalUI;
-    }
+   		return namesUI;
+   	}
+   	public void setnamesUI(String[] namesfromUI){
+   		this.namesUI = namesfromUI;
+   	}
+   	public void setrowsCountUI(int rowsCount){
+   		this.rowsCountUI = rowsCount;
+   	}
+   	public int getrowsCount(){
+   		return rowsCountUI;
+   	}
+   	public void setTotalstringUI(String[] totalBeforeConvertinginUI){
+   		this.totalBeforeConvertingUI = totalBeforeConvertinginUI;
+   	}
+       public String[] getTotalstringUI(){
+       	return totalBeforeConvertingUI;
+       }
+       public void setTotalUI(Float[] totalUI){
+       	this.totalUI = totalUI;
+       	
+       }
+       public Float[] getTotalUI(){
+       	return totalUI;
+       }
+    	   
+	
 }
