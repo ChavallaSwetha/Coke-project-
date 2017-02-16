@@ -1,19 +1,12 @@
 package dataTesting;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-import jxl.Workbook;
-
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
 
 public class PopprobeLogin {
 	
@@ -23,7 +16,7 @@ public class PopprobeLogin {
 		driver.get("http://popprobe.com/login");
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		driver.findElement(By.name("email")).sendKeys("coke@bifortis.com");
 		Thread.sleep(2000);
 		driver.findElement(By.name("password")).sendKeys("coke");
@@ -60,10 +53,7 @@ public class PopprobeLogin {
 		Thread.sleep(4000);
 	}
 
-	/*
-	 * Using function comparingAndWritingData() compare UI data with XL data and
-	 * show result as Match or Mismatch or Missing
-	 */
+	
 	
 
 	
