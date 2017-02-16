@@ -3,6 +3,9 @@ package dataTesting;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
@@ -10,11 +13,10 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class ComparingStoreLevelDataAndWritingXL {
-	UIData data = new UIData();
-           
-	public void comparingAndWritingData(String writeFilePath,int rowsCountUI, String[] totalBeforeConvertingUI, int rowsXl, String[] namesUI,
-			String[] storeNameXl, String[] iceXl, String[] countryXL, String[] dateXL, String[] namesUIwrite,
-			String[] channelXL, String[] subChannelXL, String[] coolerXL, Float[] totalUI, Float[] iceValueXl)
+	
+	WebDriver driver = new FirefoxDriver();
+		
+	public void comparingAndWritingData(String writeFilePath,UIData dataUI,XLData  xldata)
 			throws IOException, WriteException {
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
@@ -38,28 +40,31 @@ public class ComparingStoreLevelDataAndWritingXL {
 		writeSheet.addCell(ice);
 		Label resultColumnName = new Label(j, 0, "RESULT");
 		writeSheet.addCell(resultColumnName);
-		for (int i = 0; i < rowsCountUI; i++) {
+		String[] totalString = dataUI.getTotalBeforeConvertingUI();
+		String[] namesUI = dataUI.getNamesUI();
+		Float[] totalUI = dataUI.getTotalUI();
+		for (int i = 0; i < dataUI.getRowsCountUI(); i++) {
 			Label result = null;
-			Label totalFromUI = new Label(g, i + 1, totalBeforeConvertingUI[i]);
+			Label totalFromUI = new Label(g, i + 1, totalString[i]);
 			writeSheet.addCell(totalFromUI);
 			System.out.println("total of UI");
-			for (int r = 1; r < rowsXl; r++) {
-				if ((namesUI[i].replaceAll("[ ,]", "")).equalsIgnoreCase(storeNameXl[r].replaceAll("[ ,]", ""))) {
-					Label iceFromXL = new Label(h, i + 1, iceXl[r]);
+			for (int r = 1; r < xldata.rowCountXL; r++) {
+				if ((namesUI[i].replaceAll("[ ,]", "")).equalsIgnoreCase(xldata.getStoreNameXL()[r].replaceAll("[ ,]", ""))) {
+					Label iceFromXL = new Label(h, i + 1, xldata.getIceXL()[r]);
 					writeSheet.addCell(iceFromXL);
-					Label countryFromXL = new Label(a, i + 1, countryXL[r]);
+					Label countryFromXL = new Label(a, i + 1, xldata.getCountryXL()[r]);
 					writeSheet.addCell(countryFromXL);
-					Label dateFromXL = new Label(b, i + 1, dateXL[r]);
+					Label dateFromXL = new Label(b, i + 1, xldata.getDateXL()[r]);
 					writeSheet.addCell(dateFromXL);
-					Label storeNameFromUI = new Label(c, i + 1,namesUIwrite[i] );
+					Label storeNameFromUI = new Label(c, i + 1,namesUI[i] );
 					writeSheet.addCell(storeNameFromUI);
-					Label channelFromXL = new Label(d, i + 1, channelXL[r]);
+					Label channelFromXL = new Label(d, i + 1, xldata.getChannelXL()[r]);
 					writeSheet.addCell(channelFromXL);
-					Label subChannelFromXL = new Label(e, i + 1, subChannelXL[r]);
+					Label subChannelFromXL = new Label(e, i + 1, xldata.getSubchannelXL()[r]);
 					writeSheet.addCell(subChannelFromXL);
-					Label cooleRXL = new Label(f, i + 1, coolerXL[r]);
+					Label cooleRXL = new Label(f, i + 1, xldata.getCoolerXL()[r]);
 					writeSheet.addCell(cooleRXL);
-					float diffBetweentotalUIAndIceValueXL = Math.abs(totalUI[i] - iceValueXl[r]);
+					float diffBetweentotalUIAndIceValueXL = Math.abs(dataUI.getTotalUI()[i] - xldata.getIcevalueXL()[r]);
 					if (diffBetweentotalUIAndIceValueXL >= 0.5) {
 						result = new Label(j, i + 1, "Mismatch");
 
