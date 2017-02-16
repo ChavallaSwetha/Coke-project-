@@ -8,19 +8,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ReadingdatafromUI {
+public class ReadingDataFromUI {
 	/*
 	 * After selecting date, country and channel go to Datagrid. Using function
 	 * readingDataFromUI() read datagrid data.
 	 */
 
-	// public static void main(String[] args) {
+	
 	private String[] namesUI;
 	private int rowsCountUI;
 	private String[] totalBeforeConvertingUI;
 	private Float[] totalUI;
 
-	public ReadingdatafromUI readingDataFromUI(WebDriver driver) throws InterruptedException {
+	public UIData readingDataFromUI(WebDriver driver) throws InterruptedException {
 		String[] namesUI;
 		Float totalUIAfterConvertingTofloat;
 		Float[] totalUI;
@@ -38,7 +38,7 @@ public class ReadingdatafromUI {
 		namesUI = new String[rowsCount];
 		totalUI = new Float[rowsCount];
 		totalUIBeforeConvertingToString = new String[rowsCount];
-		ReadingdatafromUI dataUI = new ReadingdatafromUI();
+		UIData dataUI = new UIData();
 		for (int i = 0; i < rowsCount; i++) {
 			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
 			String rowData = columns.get(0).getText();
@@ -49,10 +49,10 @@ public class ReadingdatafromUI {
 			totalUIBeforeConvertingToString[i] = totalInUI;
 
 		}
-		dataUI.namesUI = namesUI;
-		dataUI.rowsCountUI = rowsCount;
-		dataUI.totalBeforeConvertingUI = totalUIBeforeConvertingToString;
-		dataUI.totalUI = totalUI;
+		dataUI.setNamesUI(namesUI);
+		dataUI.setRowsCountUI(rowsCount);
+		dataUI.setTotalBeforeConvertingUI(totalUIBeforeConvertingToString);
+		dataUI.setTotalUI(totalUI);
 		return dataUI;
 	}
 	
