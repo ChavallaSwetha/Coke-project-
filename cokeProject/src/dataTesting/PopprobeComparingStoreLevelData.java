@@ -23,8 +23,9 @@ public class PopprobeComparingStoreLevelData {
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Reading file.xls";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Writing file.xls";
 		PopprobeLogin login = new PopprobeLogin();
+		FilterBasedOnCriteria filter = new FilterBasedOnCriteria();
 		login.logIn(driver);
-		login.selectDropDowns(driver, date, country, channel);
+		filter.selectDropDowns(driver, date, country, channel);
 		ComparingStoreLevelDataAndWritingXL  compare = new ComparingStoreLevelDataAndWritingXL();
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 		UIData dataUI =namesAndTotal.readingDataFromUI(driver);
