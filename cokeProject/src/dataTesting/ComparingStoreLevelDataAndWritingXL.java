@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import jxl.Workbook;
@@ -14,7 +15,7 @@ import jxl.write.WriteException;
 
 public class ComparingStoreLevelDataAndWritingXL {
 	
-	WebDriver driver = new FirefoxDriver();
+	//WebDriver driver = new ChromeDriver();
 		
 	public void comparingAndWritingData(String writeFilePath,UIData dataUI,XLData  xldata)
 			throws IOException, WriteException {
