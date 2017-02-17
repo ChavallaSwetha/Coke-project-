@@ -41,8 +41,8 @@ public class ReadingDataFromUI {
 		UIData dataUI = new UIData();
 		for (int i = 0; i < rowsCount; i++) {
 			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
-			String rowData = columns.get(0).getText();
-			String totalInUI = columns.get(3).getText();
+			String rowData = columns.get(1).getText();
+			String totalInUI = columns.get(4).getText();
 			totalUIAfterConvertingTofloat = Float.parseFloat(totalInUI);
 			namesUI[i] = rowData;
 			totalUI[i] = totalUIAfterConvertingTofloat;
