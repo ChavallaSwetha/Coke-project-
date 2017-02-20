@@ -15,10 +15,7 @@ public class ReadingDataFromUI {
 	 */
 
 	
-	private String[] namesUI;
-	private int rowsCountUI;
-	private String[] totalBeforeConvertingUI;
-	private Float[] totalUI;
+	
 
 	public UIData readingDataFromUI(WebDriver driver) throws InterruptedException {
 		String[] namesUI;
@@ -56,31 +53,4 @@ public class ReadingDataFromUI {
 		return dataUI;
 	}
 	
-	public String[] getnamesUI(){
-   		return namesUI;
-   	}
-   	public void setnamesUI(String[] namesfromUI){
-   		this.namesUI = namesfromUI;
-   	}
-   	public void setrowsCountUI(int rowsCount){
-   		this.rowsCountUI = rowsCount;
-   	}
-   	public int getrowsCount(){
-   		return rowsCountUI;
-   	}
-   	public void setTotalstringUI(String[] totalBeforeConvertinginUI){
-   		this.totalBeforeConvertingUI = totalBeforeConvertinginUI;
-   	}
-       public String[] getTotalstringUI(){
-       	return totalBeforeConvertingUI;
-       }
-       public void setTotalUI(Float[] totalUI){
-       	this.totalUI = totalUI;
-       	
-       }
-       public Float[] getTotalUI(){
-       	return totalUI;
-       }
-    	   
-	
-}
+	}

@@ -16,15 +16,7 @@ public class ReadingDataFromxl {
 	/*
 	 * Using function readingDataFromXL() read data from XL (Storenames,country,date,ICE,channel,subchannel and cooler values)
 	 */
-	private String[] storeNameXL;
-	private String[] iceXL;
-	private int rowsXL;
-	private String[] cooLerXL;
-	private Float[] icevaLueXL;
-	private String[] counTryXL;
-	private String[] daTeXL;
-	private String[] chaNnelXL;
-	private String[] subChanneLXL;
+	
 
 	public XLData readingDataFromXL(String readingFile) throws BiffException, IOException {
 		String[] storeNameXL;
@@ -105,76 +97,6 @@ public class ReadingDataFromxl {
 		return xlData;
 	}
 
-	public String[] getCounTryXL() {
-		return counTryXL;
-	}
-
-	public void setCounTryXL(String[] countryXL) {
-		this.counTryXL = countryXL;
-	}
-
-	public int getRowsXL() {
-		return rowsXL;
-	}
-
-	public void setRowsXL(int rowsCountXL) {
-		this.rowsXL = rowsCountXL;
-	}
-
-	public String[] getDaTeXL() {
-		return daTeXL;
-	}
-
-	public void setDaTeXL(String[] daTeXL) {
-		this.daTeXL = daTeXL;
-	}
-
-	public String[] getChaNnelXL() {
-		return chaNnelXL;
-	}
-
-	public void setChaNnelXL(String[] channelXL) {
-		this.chaNnelXL = channelXL;
-	}
-
-	public String[] getSubChanneLXL() {
-		return subChanneLXL;
-	}
-
-	public void setSubChanneLXL(String[] subChannelXL) {
-		this.subChanneLXL = subChannelXL;
-	}
-
-	public String[] getCooLerXL() {
-		return cooLerXL;
-	}
-
-	public void setCooLerXL(String[] coolerXL) {
-		this.cooLerXL = coolerXL;
-	}
-
-	public String[] getStoreNameXL() {
-		return storeNameXL;
-	}
-
-	public void setStoreNameXL(String[] storeNameXL) {
-		this.storeNameXL = storeNameXL;
-	}
-
-	public String[] getIceXL() {
-		return iceXL;
-	}
-
-	public void setIceXL(String[] ice) {
-		this.iceXL = ice;
-	}
-
-	public Float[] getIcevaLueXL() {
-		return icevaLueXL;
-	}
-
-	public void setIcevaLueXL(Float[] iceValueXL) {
-		this.icevaLueXL = iceValueXL;
-	}
+	
 	
 }
