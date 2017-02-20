@@ -41,23 +41,20 @@ public class ComparingStoreLevelDataAndWritingXL {
 		writeSheet.addCell(ice);
 		Label resultColumnName = new Label(j, 0, "RESULT");
 		writeSheet.addCell(resultColumnName);
-		String[] totalString = dataUI.getTotalBeforeConvertingUI();
-		String[] namesUI = dataUI.getNamesUI();
-		Float[] totalUI = dataUI.getTotalUI();
 		for (int i = 0; i < dataUI.getRowsCountUI(); i++) {
 			Label result = null;
-			Label totalFromUI = new Label(g, i + 1, totalString[i]);
+			Label totalFromUI = new Label(g, i + 1,dataUI.getTotalBeforeConvertingUI()[i]);
 			writeSheet.addCell(totalFromUI);
 			System.out.println("total of UI");
-			for (int r = 1; r < xldata.rowCountXL; r++) {
-				if ((namesUI[i].replaceAll("[ ,]", "")).equalsIgnoreCase(xldata.getStoreNameXL()[r].replaceAll("[ ,]", ""))) {
+			for (int r = 1; r < xldata.getRowXL(); r++) {
+				if ((dataUI.getNamesUI()[i].replaceAll("[ ,]", "")).equalsIgnoreCase(xldata.getStoreNameXL()[r].replaceAll("[ ,]", ""))) {
 					Label iceFromXL = new Label(h, i + 1, xldata.getIceXL()[r]);
 					writeSheet.addCell(iceFromXL);
 					Label countryFromXL = new Label(a, i + 1, xldata.getCountryXL()[r]);
 					writeSheet.addCell(countryFromXL);
 					Label dateFromXL = new Label(b, i + 1, xldata.getDateXL()[r]);
 					writeSheet.addCell(dateFromXL);
-					Label storeNameFromUI = new Label(c, i + 1,namesUI[i] );
+					Label storeNameFromUI = new Label(c, i + 1,dataUI.getNamesUI()[i] );
 					writeSheet.addCell(storeNameFromUI);
 					Label channelFromXL = new Label(d, i + 1, xldata.getChannelXL()[r]);
 					writeSheet.addCell(channelFromXL);
