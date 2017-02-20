@@ -1,6 +1,5 @@
 package dataTesting;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,11 +11,12 @@ import jxl.write.WriteException;
 
 public class PopprobeComparingStoreLevelData {
 
-	 //static WebDriver driver = new FirefoxDriver();
+	// static WebDriver driver = new FirefoxDriver();
 
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
-		 WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver",
+				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
 		String date = "2016 - 12";
 		String country = "BAHAMAS";
 		String channel = "ON PREMISE";
@@ -26,13 +26,12 @@ public class PopprobeComparingStoreLevelData {
 		FilterBasedOnCriteria filter = new FilterBasedOnCriteria();
 		login.logIn(driver);
 		filter.selectDropDowns(driver, date, country, channel);
-		ComparingStoreLevelDataAndWritingXL  compare = new ComparingStoreLevelDataAndWritingXL();
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
-		UIData dataUI =namesAndTotal.readingDataFromUI(driver);
+		UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
-	     XLData xldata =	storeAndIce.readingDataFromXL(readFilePath);
-		compare.comparingAndWritingData(writeFilePath,dataUI, xldata);
-		
+		XLData xldata = storeAndIce.readingDataFromXL(readFilePath);
+		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
+		compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
 
 	}
 
