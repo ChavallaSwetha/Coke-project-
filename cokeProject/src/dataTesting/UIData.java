@@ -2,27 +2,27 @@ package dataTesting;
 
 public class UIData {
 
-	ReadingDataFromUI data = new ReadingDataFromUI();
+	
 
-	private int rowsCountUI = data.getrowsCount();
-	private String[] namesUI = data.getnamesUI();
-	private Float[] totalUI = data.getTotalUI();
-	private String[] totalBeforeConvertingUI = data.getTotalstringUI();
+	private int rowsCountUI;
+	private String[] namesUI;
+	private Float[] totalUI ;
+	private String[] totalBeforeConvertingUI;
 
 	public int getRowsCountUI() {
 		return rowsCountUI;
 	}
 
-	public void setRowsCountUI(int rowsCountUI) {
-		this.rowsCountUI = rowsCountUI;
+	public void setRowsCountUI(int rowscountUI) {
+		this.rowsCountUI = rowscountUI;
 	}
 
 	public String[] getTotalBeforeConvertingUI() {
 		return totalBeforeConvertingUI;
 	}
 
-	public void setTotalBeforeConvertingUI(String[] totalBeforeConvertingUI) {
-		this.totalBeforeConvertingUI = totalBeforeConvertingUI;
+	public void setTotalBeforeConvertingUI(String[] totalBeforeconvertingUI) {
+		this.totalBeforeConvertingUI = totalBeforeconvertingUI;
 	}
 
 	public void setNamesUI(String[] namesFromUI) {
@@ -38,8 +38,8 @@ public class UIData {
 		return totalUI;
 	}
 
-	public void setTotalUI(Float[] totalUI) {
-		this.totalUI = totalUI;
+	public void setTotalUI(Float[] toTalUI) {
+		this.totalUI = toTalUI;
 	}
 
 }

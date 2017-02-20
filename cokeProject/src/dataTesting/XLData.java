@@ -1,27 +1,18 @@
 package dataTesting;
 
 public class XLData {
-	ReadingDataFromxl dataXL = new ReadingDataFromxl();
-	int rowCountXL;
-	String[] storenameXL;
-	String[] IceXL;
-	String[] coolerXL;
-	Float[] IcevaLueXL;
-	String[] countryXL;
-	String[] dateXL;
-	String[] channelXL;
-	String[] subChanneLXL;
 	
-	/*int rowCountXL = dataXL.getRowsXL();
-	String[] storenameXL = dataXL.getStoreNameXL();
-	String[] IceXL = dataXL.getIceXL();
-	String[] coolerXL = dataXL.getCooLerXL();
-	Float[] IcevaLueXL = dataXL.getIcevaLueXL();
-	String[] countryXL = dataXL.getCounTryXL();
-	String[] dateXL = dataXL.getDaTeXL();
-	String[] channelXL = dataXL.getChaNnelXL();
-	String[] subChanneLXL = dataXL.getSubChanneLXL();*/
+	private int rowCountXL;
+	private String[] storenameXL;
+	private String[] IceXL;
+	private String[] coolerXL;
+	private Float[] IcevaLueXL;
+	private String[] countryXL;
+	private String[] dateXL;
+	private String[] channelXL;
+	private String[] subChanneLXL;
 	
+		
 	public int getRowXL(){
 		
 		return rowCountXL;
