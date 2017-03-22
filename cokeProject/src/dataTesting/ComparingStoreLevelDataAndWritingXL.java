@@ -2,6 +2,8 @@ package dataTesting;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +18,7 @@ import jxl.write.WriteException;
 public class ComparingStoreLevelDataAndWritingXL {
 	
 	//WebDriver driver = new ChromeDriver();
+	
 		
 	public void comparingAndWritingData(String writeFilePath,UIData dataUI,XLData  xldata)
 			throws IOException, WriteException {
@@ -43,12 +46,21 @@ public class ComparingStoreLevelDataAndWritingXL {
 		writeSheet.addCell(resultColumnName);
 		for (int i = 0; i < dataUI.getRowsCountUI(); i++) {
 			Label result = null;
-			Label totalFromUI = new Label(g, i + 1,dataUI.getTotalBeforeConvertingUI()[i]);
+			String[] namesFromUI= dataUI.getNamesUI();
+			String namesUI = namesFromUI[i];
+			Float totalUI = dataUI.getTotalUI(namesUI);
+			System.out.println("total value in UI"+"   "+totalUI);
+			String totalUIasString = Float.toString(totalUI);
+			Label totalFromUI = new Label(g, i + 1,totalUIasString);
 			writeSheet.addCell(totalFromUI);
 			System.out.println("total of UI");
 			for (int r = 1; r < xldata.getRowXL(); r++) {
 				if ((dataUI.getNamesUI()[i].replaceAll("[ ,]", "")).equalsIgnoreCase(xldata.getStoreNameXL()[r].replaceAll("[ ,]", ""))) {
-					Label iceFromXL = new Label(h, i + 1, xldata.getIceXL()[r]);
+					String storenameXL[] = xldata.getStoreNameXL();
+					String storesFromXL = storenameXL[r];
+				Float iceValueXl = xldata.getICEvalues(storesFromXL);
+				    String iceFromXl = String.valueOf(iceValueXl);
+					Label iceFromXL = new Label(h, i + 1, iceFromXl);
 					writeSheet.addCell(iceFromXL);
 					Label countryFromXL = new Label(a, i + 1, xldata.getCountryXL()[r]);
 					writeSheet.addCell(countryFromXL);
@@ -62,7 +74,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 					writeSheet.addCell(subChannelFromXL);
 					Label cooleRXL = new Label(f, i + 1, xldata.getCoolerXL()[r]);
 					writeSheet.addCell(cooleRXL);
-					float diffBetweentotalUIAndIceValueXL = Math.abs(dataUI.getTotalUI()[i] - xldata.getIcevalueXL()[r]);
+					float diffBetweentotalUIAndIceValueXL = Math.abs(totalUI - iceValueXl);
 					if (diffBetweentotalUIAndIceValueXL >= 0.5) {
 						result = new Label(j, i + 1, "Mismatch");
 
