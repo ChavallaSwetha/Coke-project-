@@ -1,10 +1,12 @@
 package dataTesting;
 
+import java.util.HashMap;
+
 public class XLData {
 	
 	private int rowCountXL;
 	private String[] storenameXL;
-	private String[] IceXL;
+	//private String IceXL;
 	private String[] coolerXL;
 	private Float[] IcevaLueXL;
 	private String[] countryXL;
@@ -22,18 +24,18 @@ public class XLData {
 		this.rowCountXL = rowscountXL;
 		
 	}
-	public void setStoreNameXL(String storeNameXL[]){
-		this.storenameXL = storeNameXL;
+	public void setStoreNameXL(String storeNameFromXL[]){
+		this.storenameXL = storeNameFromXL;
 	}
 	public String[] getStoreNameXL(){
 		return storenameXL;
 	}
-    public void setIceXL(String iceXL[]){
+   /* public void setIceXL(String iceXL[]){
     	this.IceXL = iceXL;
     }
     public String[] getIceXL(){
     	return IceXL;
-    }
+    }*/
     public void setCoolerXL(String cooLerXL[]){
     	this.coolerXL = cooLerXL;
     }
@@ -69,5 +71,17 @@ public class XLData {
     }
     public String[] getSubchannelXL(){
     	return subChanneLXL;
+    }
+    
+    HashMap<String,String> xlMap = new HashMap<String, String>();
+    
+    public void setICEvalues(String storeNameXL, String IceXL){
+    	xlMap.put(storeNameXL, IceXL);
+    }
+    public Float getICEvalues(String storenameXL){
+    	String icevalue = xlMap.get(storenameXL);
+    	
+    	Float iceValuesFromXL = Float.parseFloat(icevalue);
+    	return iceValuesFromXL;
     }
 }

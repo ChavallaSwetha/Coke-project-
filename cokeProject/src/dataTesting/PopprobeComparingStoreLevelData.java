@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
@@ -27,7 +28,8 @@ public class PopprobeComparingStoreLevelData {
 		login.logIn(driver);
 		filter.selectDropDowns(driver, date, country, channel);
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
-		UIData dataUI = namesAndTotal.readingDataFromUI(driver);
+		HashMap <String,Float> map = new HashMap<String, Float>();
+		UIData dataUI = namesAndTotal.readingDataFromUI(driver,map);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 		XLData xldata = storeAndIce.readingDataFromXL(readFilePath);
 		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();

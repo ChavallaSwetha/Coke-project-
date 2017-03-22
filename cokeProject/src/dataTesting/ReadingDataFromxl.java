@@ -3,7 +3,7 @@ package dataTesting;
 import java.io.File;
 
 import java.io.IOException;
-
+import java.util.HashMap;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -20,7 +20,9 @@ public class ReadingDataFromxl {
 
 	public XLData readingDataFromXL(String readingFile) throws BiffException, IOException {
 		String[] storeNameXL;
-		Float[] iceValueXL;
+		Float iceValueXL;
+		String storeNameFromXL = null ;
+		String iceValueFromXL;
 		String[] channelXLbeforeconverting;
 		String[] coolerXL;
 		String[] countryXL;
@@ -41,9 +43,10 @@ public class ReadingDataFromxl {
 		channelXL = new String[rowsCountXL];
 		subChannelXL = new String[rowsCountXL];
 		storeNameXL = new String[rowsCountXL];
-		iceValueXL = new Float[rowsCountXL];
-		String[] ice = new String[rowsCountXL];
-		String[] iceValueReplacingWithf = new String[rowsCountXL];
+		//iceValueXL = new Float[rowsCountXL];
+		//String[] ice = new String[rowsCountXL];
+		String iceValueReplacingWithf;
+		HashMap<String, String> mapXL = new HashMap<String,String>();
 		for (int rwXL = 1; rwXL < rowsCountXL; rwXL++) {
 			for (int str = 0; str < 1; str++) {
 				Cell strNameXL = sh.getCell(str, rwXL);
@@ -55,15 +58,18 @@ public class ReadingDataFromxl {
 					channelXLbeforeconverting[rwXL] = collr.getContents();
 					String[] chanNelXL = channelXLbeforeconverting[rwXL].split("\\s");
 					if (chanNelXL[1].contains(S)) {
-						coolerXL[rwXL] = chanNelXL[1].replaceAll(S, "Yes");
+						coolerXL[rwXL] = chanNelXL[1].replaceAll(S, "No");
 					} else {
-						coolerXL[rwXL] = chanNelXL[1].replaceAll(C, "No");
+						coolerXL[rwXL] = chanNelXL[1].replaceAll(C, "Yes");
 					}
 					for (int iceclmn = 2; iceclmn < 3; iceclmn++) {
 						Cell icXL = sh.getCell(iceclmn, rwXL);
-						ice[rwXL] = icXL.getContents();
-						iceValueReplacingWithf[rwXL] = ice[rwXL].replace('%', 'f');
-						iceValueXL[rwXL] = Float.parseFloat(iceValueReplacingWithf[rwXL]);
+						iceValueFromXL = icXL.getContents();
+						storeNameFromXL = strNameXL.getContents();
+						 iceValueReplacingWithf = iceValueFromXL.replace('%', 'f');
+						//iceValueXL[rwXL] = Float.parseFloat(iceValueReplacingWithf[rwXL]);*/
+						xlData.setICEvalues(storeNameFromXL,iceValueReplacingWithf);
+						
 						for (int co = 3; co < 4; co++) {
 							Cell conTryXL = sh.getCell(co, rwXL);
 							countryXL[rwXL] = conTryXL.getContents();
@@ -87,9 +93,10 @@ public class ReadingDataFromxl {
 		}
 		xlData.setRowsXL(rowsCountXL);
 		xlData.setStoreNameXL(storeNameXL);
-		xlData.setIceXL(ice);
+		//xlData.setIcevalueXL(ice);
 		xlData.setCoolerXL(coolerXL);
-		xlData.setIcevalueXL(iceValueXL);
+		//xlData.setIcevalueXL(iceValueXL);
+		xlData.getICEvalues(storeNameFromXL);
 		xlData.setCountryXL(countryXL);
 		xlData.setDateXL(dateXL);
 		xlData.setChannelXL(channelXL);

@@ -1,8 +1,8 @@
 package dataTesting;
 
+import java.util.HashMap;
 import java.util.List;
-
-
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,10 +17,10 @@ public class ReadingDataFromUI {
 	
 	
 
-	public UIData readingDataFromUI(WebDriver driver) throws InterruptedException {
-		String[] namesUI;
+	public UIData readingDataFromUI(WebDriver driver, HashMap m) throws InterruptedException {
+		String namesUI = null ;
 		Float totalUIAfterConvertingTofloat;
-		Float[] totalUI;
+		Float totalUI;
 		String[] totalUIBeforeConvertingToString;
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/a/img")).click(); // Datagrid
@@ -32,24 +32,31 @@ public class ReadingDataFromUI {
 		Thread.sleep(3000);
 		int rowsCount = tableRows.size();
 		System.out.println("No of rows in UI" + "      " + rowsCount);
-		namesUI = new String[rowsCount];
-		totalUI = new Float[rowsCount];
+		String[] namesFromUI = new String[rowsCount];
+		//totalUI = new Float[rowsCount];
 		totalUIBeforeConvertingToString = new String[rowsCount];
 		UIData dataUI = new UIData();
+		HashMap<String,Float> map = new HashMap<String,Float>();
 		for (int i = 0; i < rowsCount; i++) {
 			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
 			String rowData = columns.get(1).getText();
 			String totalInUI = columns.get(4).getText();
 			totalUIAfterConvertingTofloat = Float.parseFloat(totalInUI);
-			namesUI[i] = rowData;
-			totalUI[i] = totalUIAfterConvertingTofloat;
-			totalUIBeforeConvertingToString[i] = totalInUI;
+			namesUI = rowData;
+			namesFromUI[i] = namesUI;
+			totalUI = totalUIAfterConvertingTofloat;
+			dataUI.setTotalUI(namesUI, totalUI);
+			dataUI.setNamesUI(namesFromUI);
+			//totalUIBeforeConvertingToString[i] = totalInUI;
 
 		}
-		dataUI.setNamesUI(namesUI);
+		//dataUI.setNamesUI(namesUI);
+		m.get(dataUI);
 		dataUI.setRowsCountUI(rowsCount);
-		dataUI.setTotalBeforeConvertingUI(totalUIBeforeConvertingToString);
-		dataUI.setTotalUI(totalUI);
+		dataUI.getNamesUI();
+		dataUI.getTotalUI(namesUI);
+		//dataUI.setTotalBeforeConvertingUI(totalUIBeforeConvertingToString);
+		//dataUI.setTotalUI(totalUI);
 		return dataUI;
 	}
 	

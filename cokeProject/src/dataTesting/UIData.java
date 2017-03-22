@@ -1,14 +1,19 @@
 package dataTesting;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 public class UIData {
 
 	
 
 	private int rowsCountUI;
 	private String[] namesUI;
-	private Float[] totalUI ;
-	private String[] totalBeforeConvertingUI;
-
+	/*private Float[] totalUI ;
+	private String[] totalBeforeConvertingUI;*/
+	
+	
 	public int getRowsCountUI() {
 		return rowsCountUI;
 	}
@@ -17,16 +22,8 @@ public class UIData {
 		this.rowsCountUI = rowscountUI;
 	}
 
-	public String[] getTotalBeforeConvertingUI() {
-		return totalBeforeConvertingUI;
-	}
-
-	public void setTotalBeforeConvertingUI(String[] totalBeforeconvertingUI) {
-		this.totalBeforeConvertingUI = totalBeforeconvertingUI;
-	}
-
-	public void setNamesUI(String[] namesFromUI) {
-		this.namesUI = namesFromUI;
+	public void setNamesUI(String[] namesUI) {
+		this.namesUI = namesUI;
 
 	}
 
@@ -34,12 +31,43 @@ public class UIData {
 		return namesUI;
 	}
 
-	public Float[] getTotalUI() {
+		
+	HashMap<String, Float> mapUIdata = new HashMap<String,Float>();
+	Set set = mapUIdata.entrySet();
+	
+	public void setTotalUI(String namesUI, Float totalUI){
+		mapUIdata.put(namesUI, totalUI);
+		
+	}
+		public Float getTotalUI(String namesUI){
+		Float uITotal= mapUIdata.get(namesUI);
+		return uITotal;
+		}
+	
+		
+		/*public Float[] getTotalUI() {
 		return totalUI;
 	}
 
 	public void setTotalUI(Float[] toTalUI) {
 		this.totalUI = toTalUI;
+	}*/
+
+
+	/*public String[] getTotalBeforeConvertingUI() {
+		return totalBeforeConvertingUI;
 	}
+
+	public void setTotalBeforeConvertingUI(String[] totalBeforeconvertingUI) {
+		this.totalBeforeConvertingUI = totalBeforeconvertingUI;
+	}*/
+	
+
+	
+	
+
+
+	
+	
 
 }
