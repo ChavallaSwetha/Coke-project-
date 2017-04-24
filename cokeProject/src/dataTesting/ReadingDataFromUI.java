@@ -32,7 +32,7 @@ public class ReadingDataFromUI {
 		for (int i = 0; i < rowsCount; i++) {
 			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
 			String rowData = columns.get(1).getText();
-			String totalInUI = columns.get(4).getText();
+			String totalInUI = columns.get(5).getText();
 			totalUIAfterConvertingTofloat = Float.parseFloat(totalInUI);
 			storeName = rowData;
 			totalUI = totalUIAfterConvertingTofloat;

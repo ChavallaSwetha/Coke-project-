@@ -1,4 +1,4 @@
-package dataTesting;
+/*package dataTesting;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,7 +24,7 @@ public class Settingchromebrowser {
 	
 		
 	static WebDriver driver = new ChromeDriver();
-		/* Login into popprobe.com */
+		 Login into popprobe.com 
 		
 		public static void logIn(WebDriver driver) throws InterruptedException {
 			driver.get("http://popprobe.com/login");
@@ -38,10 +38,10 @@ public class Settingchromebrowser {
 			Thread.sleep(2000);
 		}
 
-		/*
+		
 		 * Select Year and Month from dropdown. Select Country from dropdown. Select
 		 * Channel from dropdown.
-		 */
+		 
 		public static void selectDropDowns(WebDriver driver,String date, String country, String channel) throws InterruptedException {
 			Thread.sleep(8000);
 			driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[1]/div/button")).click(); // Date
@@ -70,11 +70,11 @@ public class Settingchromebrowser {
 			Thread.sleep(4000);
 		}
 
-		/*
+		
 		 * After selecting date, country and channel go to Datagrid. Using function
 		 * readingDataFromUI() read datagrid data.
-		 */
-		public static ReadingdatafromUI readingDataFromUI(WebDriver driver) throws InterruptedException {
+		 
+		public static ReadingDataFromUI readingDataFromUI(WebDriver driver) throws InterruptedException {
 			String[] namesUI = null;
 			Float totalUIAfterConvertingTofloat;
 			Float[] totalUI = null;
@@ -92,7 +92,7 @@ public class Settingchromebrowser {
 			namesUI = new String[rowsCount];
 			totalUI = new Float[rowsCount];
 			totalUIBeforeConvertingToString = new String[rowsCount];
-			ReadingdatafromUI dataUI = new ReadingdatafromUI();
+			ReadingDataFromUI dataUI = new ReadingDataFromUI();
 			for (int i = 0; i < rowsCount; i++) {
 				List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
 				String rowData = columns.get(0).getText();
@@ -103,17 +103,17 @@ public class Settingchromebrowser {
 				totalUIBeforeConvertingToString[i] = totalInUI;
 
 			}
-			/*dataUI.namesUI = namesUI;
+			dataUI.namesUI = namesUI;
 			dataUI.rowsCountUI = rowsCount;
 			dataUI.totalBeforeConvertingUI = totalUIBeforeConvertingToString;
-			dataUI.totalUI = totalUI;*/
+			dataUI.totalUI = totalUI;
 			return dataUI;
 		}
 
-		/*
+		
 		 * Using function readingDataFromXL() read data from XL (Storenames and ICE
 		 * values)
-		 */
+		 
 		public static ReadingDataFromxl readingDataFromXL() throws BiffException, IOException {
 			String[] storeNameXL = null;
 			Float[] iceValueXL = null;
@@ -194,10 +194,10 @@ public class Settingchromebrowser {
 			return xlData;
 		}
 
-		/*
+		
 		 * Using function comparingAndWritingData() compare UI data with XL data and
 		 * show result as Match or Mismatch or Missing
-		 */
+		 
 		public static void comparingAndWritingData(int rowsXl, String countryXL[], String dateXL[],String namesUi[],String channelXL[],
 				String subChannelXL[],String coolerXL[],String totalBeforeConvertingToStringUi[],String storeNameXl[],  String iceXl[], int rowsCountUi, 
 				Float totalUi[], Float iceValueXl[] )
@@ -277,10 +277,10 @@ public class Settingchromebrowser {
 			selectDropDowns(driver,date, country, channel);
 			namesAndTotal = readingDataFromUI(driver);
 			storeAndIce = readingDataFromXL();
-			/*comparingAndWritingData(storeAndIce.getRowsXL(),storeAndIce.getCounTryXL(), storeAndIce.getDaTeXL(),namesAndTotal.namesUI,storeAndIce.getChaNnelXL(),
+			comparingAndWritingData(storeAndIce.getRowsXL(),storeAndIce.getCounTryXL(), storeAndIce.getDaTeXL(),namesAndTotal.namesUI,storeAndIce.getChaNnelXL(),
 				storeAndIce.getSubChanneLXL(),storeAndIce.getCooLerXL(),namesAndTotal.totalBeforeConvertingUI,storeAndIce.getStoreNameXL(), storeAndIce.getIceXL(), namesAndTotal.rowsCountUI, 
 				namesAndTotal.totalUI, storeAndIce.getIcevaLueXL());
-*/
+
 		}
 
 
@@ -290,3 +290,4 @@ public class Settingchromebrowser {
 	
 
 }
+*/

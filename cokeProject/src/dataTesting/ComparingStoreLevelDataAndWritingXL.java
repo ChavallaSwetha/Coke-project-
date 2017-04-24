@@ -55,9 +55,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
-
 				result = new Label(j, i + 1, "Missing in XL");
-
 			} else {
 				String iceFromXl = xlValues[5];
 				Label iceFromXL = new Label(h, i + 1, iceFromXl);
