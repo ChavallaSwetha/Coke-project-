@@ -1,11 +1,17 @@
 package dataTesting;
 
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
+import java.nio.CharBuffer;
 
-import jxl.Workbook;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+
 
 public class WritingXL {
 
@@ -36,5 +42,18 @@ public class WritingXL {
 			}
 
 	}*/
-
+	 public static void main(String argsp[]) throws IOException{
+	FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
+	BufferedReader br = new BufferedReader(fr);
+	LineNumberReader line = new LineNumberReader(br);
+	line.setLineNumber(2);
+	int readLine = line.getLineNumber();
+	String output = Integer.toString(readLine);
+	
+	//String result = output.r;
+	System.out.println(output);
+	br.close();
+	
 }
+}
+

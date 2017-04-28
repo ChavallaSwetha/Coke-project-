@@ -1,41 +1,42 @@
 package dataTesting;
 
-import java.util.List;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
+import java.util.HashMap;
+
 import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class PopprobeComparingStoreLevelData {
 
-	static WebDriver driver = new FirefoxDriver();
+	// static WebDriver driver = new FirefoxDriver();
 
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
-		String date = "2016 - 12";
-		String country = "BAHAMAS";
-		String channel = "ON PREMISE";
+		System.setProperty("webdriver.chrome.driver",
+				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//String date = "2017 - 2";
+		/*String country = "BARBADOS";
+		String channel = "ON PREMISE";*/
+		/*String countryFromXL ="Barbados";
+		String channelFromXL ="Premise";*/
+
+		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Bahamas Traditional data.xls.xls";
+
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
-		login.selectDropDowns(driver, date, country, channel);
-		ReadingdatafromUI namesAndTotal = new ReadingdatafromUI();
-		ReadingdatafromUI dataUI =namesAndTotal.readingDataFromUI(driver);
+		login.selectDropDowns(driver);
+		// login.selectDropDowns(driver);
+		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
+		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
+		UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
-	     ReadingDataFromxl xldata =	storeAndIce.readingDataFromXL();
-		login.comparingAndWritingData(dataUI.getrowsCount(), dataUI.getTotalstringUI(), xldata.getRowsXL(), dataUI.getnamesUI(), xldata.getStoreNameXL(), xldata.getIceXL(),
-				xldata.getCounTryXL(), xldata.getDaTeXL(),dataUI.getnamesUI(),xldata.getChaNnelXL(), xldata.getSubChanneLXL(),xldata.getCooLerXL(), 
-				dataUI.getTotalUI(), xldata.getIcevaLueXL());
-		System.out.println("For testing");
+		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
+		XLData xldata = storeAndIce.readingDataFromXL(readFilePath);
+		compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
 
 	}
 

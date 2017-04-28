@@ -1,42 +1,47 @@
 package dataTesting;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 import java.text.DateFormat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-import org.omg.Messaging.SyncScopeHelper;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
-import jxl.write.WriteException;
-import jxl.write.biff.RowsExceededException;
 
 
 
 public class Chromebrowser {
+	
+	public static void passByReference(String[] a){
+		 a[0] =  "changed";
+	}
 
-	//public static  main(String[] args) throws BiffException, IOException, RowsExceededException, WriteException {
+	
+	public static void main(String[] args)  {
+	String[] b = new String[1];	
+	b[0] ="before changing";
+	System.out.println(b[0]);
+	Chromebrowser.passByReference(b);
+	System.out.println(b[0]);
+	
 		
-	static String dateandTime = dataAndTime();
+	/*static String dateandTime = dataAndTime();
 	public static String dataAndTime() {
 			DateFormat df = new SimpleDateFormat("MM/dd/YYYY  HH:MM");
 			Date dt = new Date();
 			String time = df.format(dt);
 			return time;
 		
-		}
+		}*/
+		
+		
+		
+		
 	}
-	
+	}
 
 

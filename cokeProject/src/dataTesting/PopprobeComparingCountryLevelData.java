@@ -2,7 +2,7 @@ package dataTesting;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -24,7 +24,8 @@ public class PopprobeComparingCountryLevelData {
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/country data.xls"; 
 		login.logIn(driver);
 		Thread.sleep(8000);
-		login.selectDropDowns(driver, date, country, channel);
+		FilterBasedOnCriteria filter = new FilterBasedOnCriteria();
+		filter.selectDropDowns(driver, date, country, channel);
 		cooler.compareCountryLevelCoolerData(driver,readFilePath,writeFilePath);
 		PopprobeComparingCountryLevelDataWithCooler yes = new PopprobeComparingCountryLevelDataWithCooler();
 		yes.comparingCountryLevelDataWithCooler(driver,readFilePath,writeFilePath);
