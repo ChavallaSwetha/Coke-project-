@@ -41,7 +41,9 @@ public class ReadingDataFromUI {
 		dataUI.getTotalUI(storeName);
 		dataUI.getRowsCountUI();
 		System.out.println(dataUI);
+		System.out.println("Reading Data from UI");
 		return dataUI;
+		
 	}
 
 }

@@ -29,5 +29,6 @@ public class FilterBasedOnCriteria {
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
 		// button
 		Thread.sleep(4000);
+		System.out.println("Filter based on criteria");
 	}
 }

@@ -346,7 +346,7 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 			}
 			wwbook.write();
 			wwbook.close();
-		
+	        System.out.println("Comparing country level data with and without cooler");	
 		}
 		}
 }

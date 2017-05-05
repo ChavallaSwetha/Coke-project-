@@ -85,5 +85,6 @@ public class ComparingStoreLevelDataAndWritingXL {
 		}
 		writeWorkBook.write();
 		writeWorkBook.close();
+		System.out.println("Comparing store level data and writing to XL");
 	}
 }

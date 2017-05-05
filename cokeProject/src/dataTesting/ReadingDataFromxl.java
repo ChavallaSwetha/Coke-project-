@@ -73,6 +73,7 @@ import jxl.read.biff.BiffException;
 				br.close();
 			}
 			System.out.println(xlData);
+			System.out.println("Reading data from XL");
 			
 			return xlData;
 		}

@@ -31,6 +31,7 @@ public class PopprobeComparingCountryLevelData {
 		yes.comparingCountryLevelDataWithCooler(driver,readFilePath,writeFilePath);
 		PopprobeComparingCountryLevelDataWithOutCooler no = new PopprobeComparingCountryLevelDataWithOutCooler();
 		no.comparingCountryLevelDataWithOutCooler(driver,readFilePath,writeFilePath);
+		System.out.println("Comparing country level data");
 	}
 
 }

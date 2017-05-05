@@ -315,7 +315,7 @@ public class PopprobeComparingCountryLevelDataWithCooler {
 	}
 	wwbook.write();
 	wwbook.close();
-
+    System.out.println("Comparing Country level data with cooler");
 
 }
 

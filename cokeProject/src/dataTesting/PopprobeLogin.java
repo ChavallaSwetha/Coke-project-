@@ -65,5 +65,6 @@ public class PopprobeLogin {
 		// button
 		Thread.sleep(4000);
 		br.close();
+		System.out.println("Popprobe login");
 	}
 }

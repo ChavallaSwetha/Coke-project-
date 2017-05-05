@@ -34,6 +34,7 @@ public class UIData {
 		}
 		
 		public String toString(){
+			System.out.println("UI data");
 			return mapUIdata.toString();
 			
 		}

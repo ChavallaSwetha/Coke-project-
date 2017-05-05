@@ -16,6 +16,7 @@ public class XLData {
 	}
 
 	public String[] getICEvalues(String storenameXL) {
+		System.out.println("XL data");
 		return xlMap.get(storenameXL);
 	}
 }
