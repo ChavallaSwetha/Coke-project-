@@ -21,7 +21,7 @@ import jxl.read.biff.BiffException;
 	
 
 	public class ReadingDataFromxl {
-			public XLData readingDataFromXL(String readingFile) throws BiffException, IOException {
+			public XLData readingDataFromXL(String readingFile,String countryFromXL,String channelFromXL) throws BiffException, IOException {
 			XLData xlData = new XLData();
 			File fs = new File(readingFile);
 			Workbook wb = Workbook.getWorkbook(fs);
@@ -35,7 +35,7 @@ import jxl.read.biff.BiffException;
 				iceValueReplacingWithf[1] = conTryXL.getContents();
 				FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
 				BufferedReader br = new BufferedReader(fr);
-				String countryFromXL =br.lines().skip(3).findFirst().get();
+				//String countryFromXL =br.lines().skip(3).findFirst().get();
 				System.out.println("countryFromXL    "+ countryFromXL);
 				if (iceValueReplacingWithf[1].equals(countryFromXL)){
 				//System.out.println(iceValueReplacingWithf[1]);
@@ -43,7 +43,7 @@ import jxl.read.biff.BiffException;
 				Cell collr = sh.getCell(8, rwXL);
 				String channelXLbeforeconverting = collr.getContents();
 				
-				String channelFromXL = br.lines().skip(2).findFirst().get();
+				//String channelFromXL = br.lines().skip(2).findFirst().get();
 				String channelXL = channelFromXL.toLowerCase();
 				System.out.println("channelFromXL" + "  "+channelXL);
 				if (channelXLbeforeconverting.endsWith(channelFromXL)){
