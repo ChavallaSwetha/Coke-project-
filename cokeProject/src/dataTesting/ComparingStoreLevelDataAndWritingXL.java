@@ -22,7 +22,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			throws IOException, WriteException {
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
-		WritableSheet writeSheet = writeWorkBook.createSheet("Bahamas Traditional data", 2);
+		WritableSheet writeSheet = writeWorkBook.createSheet("Haiti", 2);
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, h = 7, j = 8;
 		Label country = new Label(a, 0, "COUNTRY");
 		writeSheet.addCell(country);
@@ -52,6 +52,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			Label totalFromUI = new Label(g, i + 1, totalUIasString);
 			writeSheet.addCell(totalFromUI);
 			String[] xlValues = xldata.getICEvalues(namesUI);
+			System.out.println(xlValues);
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
