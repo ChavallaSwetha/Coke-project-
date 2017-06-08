@@ -33,21 +33,17 @@ import jxl.read.biff.BiffException;
 				String[] iceValueReplacingWithf = new String[7];
 				Cell conTryXL = sh.getCell(20, rwXL);
 				iceValueReplacingWithf[1] = conTryXL.getContents();
-				FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
-				BufferedReader br = new BufferedReader(fr);
-				//String countryFromXL =br.lines().skip(3).findFirst().get();
-				System.out.println("countryFromXL    "+ countryFromXL);
+				
 				if (iceValueReplacingWithf[1].equals(countryFromXL)){
-				//System.out.println(iceValueReplacingWithf[1]);
+				
 				String S = " sin ";
 				Cell collr = sh.getCell(8, rwXL);
 				String channelXLbeforeconverting = collr.getContents();
-				
-				//String channelFromXL = br.lines().skip(2).findFirst().get();
 				String channelXL = channelFromXL.toLowerCase();
-				System.out.println("channelFromXL" + "  "+channelXL);
+				//System.out.println("channelFromXL" + "  "+channelXL);
 				if (channelXLbeforeconverting.endsWith(channelFromXL)){
 				String channelXLAfterconverting = null;
+				
 			if (channelXLbeforeconverting.contains(S)) {
 					channelXLAfterconverting = "No";
 				} else {
@@ -70,13 +66,11 @@ import jxl.read.biff.BiffException;
 				xlData.setICEvalues(storeName, iceValueReplacingWithf);
 			}
 				}
-				br.close();
 			}
 			System.out.println(xlData);
 			System.out.println("Reading data from XL");
 			
 			return xlData;
 		}
-			
 		
-	}
+		}
