@@ -20,7 +20,7 @@ public class PopprobeComparingStoreLevelData {
 		WebDriver driver = new ChromeDriver();
 		String date = "2017 - 2";
 		String country = "HAITI";
-		//String channel = "ON PREMISE";
+		String channel = "ON PREMISE";
 		String countryFromXL ="Haiti";
 		String channelFromXL ="Tradicional";
 
@@ -28,8 +28,8 @@ public class PopprobeComparingStoreLevelData {
 
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
-		//login.selectDropDowns(driver,date, country, channel);
-		 login.selectDropDowns(driver,date, country);
+		login.selectDropDowns(driver,date, country, channel);
+		 //login.selectDropDowns(driver,date, country);
 		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 		UIData dataUI = namesAndTotal.readingDataFromUI(driver);

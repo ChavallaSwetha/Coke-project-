@@ -30,9 +30,8 @@ public class PopprobeLogin {
 	 * Select Year and Month from dropdown. Select Country from dropdown. Select
 	 * Channel from dropdown.
 	 */
-	//public void selectDropDowns(WebDriver driver, String date, String country, String channel)
-			public void selectDropDowns(WebDriver driver, String date, String
-			 country) //for Belize
+	public void selectDropDowns(WebDriver driver, String date, String country, String channel)
+			//public void selectDropDowns(WebDriver driver, String date, String country) //for Belize
 			throws InterruptedException, IOException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[1]/div/button")).click(); // Date
@@ -54,9 +53,9 @@ public class PopprobeLogin {
 		// dropdown
 		//String channel = br.lines().skip(2).findFirst().get();
 		//driver.findElement(By.cssSelector("fa fa-caret-down arrow-img")).click();
-		/*System.out.println("channel from UI"+ "   " +channel);
+		System.out.println("channel from UI"+ "   " +channel);
 		Thread.sleep(3000);
-		driver.findElement(By.linkText(channel)).click();*/
+		driver.findElement(By.linkText(channel)).click();
 		
 		  //Thread.sleep(4000); driver.findElement(By.linkText(channel)).click();
 		 // for Belize

@@ -1,51 +1,54 @@
-package dataTesting;
+package missingStores;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import dataTesting.PopprobeLogin;
+import dataTesting.UIData;
+import dataTesting.XLData;
+import jxl.Cell;
+import jxl.Sheet;
 import jxl.Workbook;
+import jxl.read.biff.BiffException;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
-//WebDriver driver = new ChromeDriver();
+public class ComparingStoresInXLAndUI {
 
-public class ComparingStoreLevelDataAndWritingXL {
-	public void comparingAndWritingData(String writeFilePath, UIData dataUI, XLData xldata)
+	public void comparingAndWritingData(String writeFilePath, DataFromUI uIData, DatafromXL xLData)
 			throws IOException, WriteException {
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 		WritableSheet writeSheet = writeWorkBook.createSheet("Haiti", 2);
-		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, h = 7, j = 8;
-		Label country = new Label(a, 0, "COUNTRY");
+		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5;
+		Label strName = new Label(a, 0, "STORENAME");
+		writeSheet.addCell(strName);
+		Label country = new Label(b, 0, "COUNTRY");
 		writeSheet.addCell(country);
-		Label date = new Label(b, 0, "DATE");
-		writeSheet.addCell(date);
-		Label storeNameUI = new Label(c, 0, "STORE_NAME_UI");
-		writeSheet.addCell(storeNameUI);
-		Label channel = new Label(d, 0, "CHANNEL");
+		Label channel = new Label(c, 0, "CHANNEL");
 		writeSheet.addCell(channel);
-		Label subChannel = new Label(e, 0, "SUB_CHANNEL");
-		writeSheet.addCell(subChannel);
-		Label cooler = new Label(f, 0, "COOLER");
-		writeSheet.addCell(cooler);
-		Label toTalUI = new Label(g, 0, "TOTAL_UI");
-		writeSheet.addCell(toTalUI);
-		Label ice = new Label(h, 0, "ICE");
-		writeSheet.addCell(ice);
-		Label resultColumnName = new Label(j, 0, "RESULT");
-		writeSheet.addCell(resultColumnName);
-		String[] namesFromUI = dataUI.getNamesUI();
+		Label survey = new Label(d, 0, "SURVEY_SK");
+		writeSheet.addCell(survey);
+		Label cust = new Label(e, 0, "CUST_SK");
+		writeSheet.addCell(cust);
+		Label resultclmname = new Label(f, 0, "RESULT");
+		writeSheet.addCell(resultclmname);
+		String[] namesFromUI = uIData.getNamesUI();
 		for (int i = 0; i < namesFromUI.length; i++) {
 			Label result = null;
 			String namesUI = namesFromUI[i];
-			Float totalUI = dataUI.getTotalUI(namesUI);
-			System.out.println("total value in UI" + "   " + totalUI);
-			String totalUIasString = Float.toString(totalUI);
-			Label totalFromUI = new Label(g, i + 1, totalUIasString);
-			writeSheet.addCell(totalFromUI);
-			String[] xlValues = xldata.getICEvalues(namesUI);
-			System.out.println(xlValues);
+			String[] namesFromXL = xLData.getSurveySK(storenameXL);
+			
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
@@ -82,3 +85,8 @@ public class ComparingStoreLevelDataAndWritingXL {
 		System.out.println("Comparing store level data and writing to XL");
 	}
 }
+		
+}
+
+
+
