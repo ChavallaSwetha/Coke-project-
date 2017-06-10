@@ -16,28 +16,30 @@ public class PopprobeComparingStoreLevelData {
 
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
+				"C:/Users/Swetha/Downloads/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		//String date = "2017 - 2";
-		/*String country = "BARBADOS";
-		String channel = "ON PREMISE";*/
-		/*String countryFromXL ="Barbados";
-		String channelFromXL ="Premise";*/
+		String date = "2017 - 2";
+		String country = "BELIZE";
+		//String channel = "HOME MARKET TRADITIONAL";
+		String countryFromXL ="Belize";
+		String channelFromXL ="tradicional";
 
-		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Bahamas Traditional data.xls.xls";
+		String writeFilePath = "C:/Users/Swetha/Downloads/Belize_Missing_Stores.xls";
 
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
-		login.selectDropDowns(driver);
-		// login.selectDropDowns(driver);
+		//login.selectDropDowns(driver,date,country,channel) ;
+		 login.selectDropDowns(driver,date,country);
 		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
+		//ComparingMissingStores missingStores = new ComparingMissingStores();
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 		UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
-		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
-		XLData xldata = storeAndIce.readingDataFromXL(readFilePath);
+		String readFilePath = "C:/Users/Swetha/Downloads/Caribbean ICE Results February 2017 (3).xls";
+		XLData xldata = storeAndIce.readingDataFromXL(readFilePath, countryFromXL,channelFromXL);
 		compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
-		System.out.println("Comparing store level data");
+		//missingStores.comparingAndWritingData(writeFilePath, dataUI, xldata,country,channel);
+		
 		
 
 	}

@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class UIData {
 
+	//Storing values in hashmap, hashmap has key and value, here key is storename and value is total.
 	
 	private int rowsCountUI;
 	public int getRowsCountUI() {
@@ -38,4 +39,15 @@ public class UIData {
 			return mapUIdata.toString();
 			
 		}
+		private HashMap<String, String> mapdataUI = new HashMap<String,String>();
+		public void setCustID(String namesUI, String custUI){
+			namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
+			mapdataUI.put(namesUI.toLowerCase(), custUI);
+			
+		}
+			public String getCustID(String namesUI){
+			String uICust= mapdataUI.get(namesUI);
+			return uICust;
+			}
+
 	}
