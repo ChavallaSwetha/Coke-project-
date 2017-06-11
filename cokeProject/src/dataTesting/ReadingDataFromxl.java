@@ -24,17 +24,14 @@ public class ReadingDataFromxl {
 			Cell conTryXL = sh.getCell(20, rwXL);
 			iceValueReplacingWithf[1] = conTryXL.getContents();
 
-			if (iceValueReplacingWithf[1].equals(countryFromXL)) {
+			if (iceValueReplacingWithf[1].equals(countryFromXL)) {	
 
 				String S = " sin ";
 				Cell collr = sh.getCell(8, rwXL);
 				String channelXLbeforeconverting = collr.getContents();
 				String channelXL = channelXLbeforeconverting.toLowerCase();
-				
+				//System.out.println("channelFromXL" + "  "+channelXL);
 				String channelXLAfterconverting = null;
-
-				
-				
 				if (channelXL.endsWith(channelFromXL)) {
 					
 					System.out.println("excel row chaneel "+channelXL);
@@ -65,9 +62,8 @@ public class ReadingDataFromxl {
 					System.out.println("storesfromXL" + "      " + iceValueReplacingWithf[6]);
 					xlData.setICEvalues(storeName, iceValueReplacingWithf);
 				}
+				}
 			}
-		}
-
 		System.out.println("Reading data from XL");
 		System.out.println(xlData);
 
@@ -75,3 +71,7 @@ public class ReadingDataFromxl {
 	}
 
 }
+
+		
+		
+

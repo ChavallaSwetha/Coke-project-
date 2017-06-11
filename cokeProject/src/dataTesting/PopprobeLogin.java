@@ -30,16 +30,24 @@ public class PopprobeLogin {
 	 * Select Year and Month from dropdown. Select Country from dropdown. Select
 	 * Channel from dropdown.
 	 */
-	//public void selectDropDowns(WebDriver driver,String date, String country,String channel)
-			 public void selectDropDowns(WebDriver driver, String date, String country) //for Belize
+
+	//public void selectDropDowns(WebDriver driver, String date, String country, String channel)
+		public void selectDropDowns(WebDriver driver, String date, String country) //for Belize
+
 			throws InterruptedException, IOException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[1]/div/button")).click(); // Date
 		// dropdown
 		Thread.sleep(3000);
+
 		/*FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
 		BufferedReader br = new BufferedReader(fr);
 		String date = br.readLine();*/
+
+		//FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
+		//BufferedReader br = new BufferedReader(fr);
+		//String date = br.readLine();
+
 		driver.findElement(By.linkText(date)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[2]/div/button")).click(); // Country
@@ -48,17 +56,34 @@ public class PopprobeLogin {
 
 		//String country = br.lines().skip(0).findFirst().get();
 		driver.findElement(By.linkText(country)).click();
+
 		Thread.sleep(3000);
 		/*driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[5]/div/button")).click(); // Channel
+=======
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[5]/div/button")).click(); // Channel
+>>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 		// dropdown
 		//String channel = br.lines().skip(2).findFirst().get();
+<<<<<<< HEAD
+=======
+		//driver.findElement(By.cssSelector("fa fa-caret-down arrow-img")).click();
+>>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 		System.out.println("channel from UI"+ "   " +channel);
 		Thread.sleep(3000);
+<<<<<<< HEAD
 		driver.findElement(By.linkText(channel)).click();*/
 		/*
 		 * Thread.sleep(4000); driver.findElement(By.linkText(channel)).click();
 		 * for Belize
 		 */
+
+		//driver.findElement(By.linkText(channel)).click();
+		
+		  //Thread.sleep(4000); driver.findElement(By.linkText(channel)).click();
+		 // for Belize
+		 
+
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
 		// button
