@@ -2,10 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/Mona Lisa/Downloads/selenium-server-standalone-jar-2.53.0/package/jar/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Mona Lisa/Downloads/jxl.jar.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Mona Lisa/Downloads/jxl.jar/jxl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Mona Lisa/Downloads/jxl-2.6.jar.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Mona Lisa/Downloads/jxl-2.6.jar/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Swetha/Downloads/selenium-server-standalone-2.53.0 (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/Swetha/Downloads/jxl-2.6.jar/jxl-2.6.jar" sourcepath="/installing/src/myfinance"/>
+	<classpathentry kind="lib" path="C:/Users/Swetha/Downloads/jxl-2.6.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/Swetha/Downloads/jxl.jar.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
