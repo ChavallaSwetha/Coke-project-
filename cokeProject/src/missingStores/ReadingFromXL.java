@@ -27,7 +27,7 @@ public class ReadingFromXL {
 			String S = " sin ";
 			Cell collr = sh.getCell(8, rwXL);
 			String channelXLbeforeconverting = collr.getContents();
-			String channelXL = channelFromXL.toLowerCase();
+			String channelXL = channelXLbeforeconverting.toLowerCase();
 			if (channelXLbeforeconverting.endsWith(channelFromXL)){
 			String channelXLAfterconverting = null;
 			
