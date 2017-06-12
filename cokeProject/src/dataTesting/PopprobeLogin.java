@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PopprobeLogin {
-	// WebDriver driver = new FirefoxDriver();
+	 WebDriver driver = new FirefoxDriver();
 	public void logIn(WebDriver driver) throws InterruptedException {
 
 		driver.get("http://popprobe.com/login");
