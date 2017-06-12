@@ -27,7 +27,7 @@ public class ReadingFromXL {
 			String S = " sin ";
 			Cell collr = sh.getCell(8, rwXL);
 			String channelXLbeforeconverting = collr.getContents();
-			String channelXL = channelXLbeforeconverting.toLowerCase();
+			String channelXL = channelFromXL.toLowerCase();
 			if (channelXLbeforeconverting.endsWith(channelFromXL)){
 			String channelXLAfterconverting = null;
 			
@@ -44,7 +44,7 @@ public class ReadingFromXL {
 		    Cell suryNo = sh.getCell(0, rwXL);
 		    String surveyXL = suryNo.getContents();
 		    System.out.println("Survey No"+"   "+ surveyXL);
-		    xLData.setSurveySK(storeXL, surveyXL);
+		 //   xLData.setSurveySK(storeXL, surveyXL[]);
 
 	}
 			

@@ -45,7 +45,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			Label totalFromUI = new Label(g, i + 1, totalUIasString);
 			writeSheet.addCell(totalFromUI);
 			String[] xlValues = xldata.getICEvalues(namesUI);
-			
+			System.out.println("xlValues"+"     "+xlValues);
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
