@@ -49,11 +49,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			String[] xlValues = xlData.getICEvalues(namesUI);
 =======
 			String[] xlValues = xldata.getICEvalues(namesUI);
-<<<<<<< HEAD
 			System.out.println("xlValues"+"     "+xlValues);
-=======
-			System.out.println(xlValues);
->>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 >>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
