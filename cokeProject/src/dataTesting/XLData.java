@@ -1,6 +1,7 @@
 package dataTesting;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class XLData {
 
@@ -16,7 +17,15 @@ public class XLData {
 	}
 
 	public String[] getICEvalues(String storenameXL) {
-		System.out.println("XL data");
+		
 		return xlMap.get(storenameXL);
+	}
+	
+	public String[] getNamesXL() {
+		Set<String> keys = xlMap.keySet();
+		return keys.toArray(new String[0]);
+	}
+	public void setNamesXL(){
+		
 	}
 }

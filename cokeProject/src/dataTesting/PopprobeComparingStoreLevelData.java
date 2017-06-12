@@ -19,25 +19,27 @@ public class PopprobeComparingStoreLevelData {
 				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		String date = "2017 - 2";
-		String country = "HAITI";
+		String country = "BARBADOS";
 		String channel = "ON PREMISE";
-		String countryFromXL ="Haiti";
-		String channelFromXL ="Tradicional";
+		String countryFromXL ="Barbados";
+		String channelFromXL ="Premise";
 
-		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Haiti.xls";
+		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Jamaica_On_Premise_Data.xls.xls";
 
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
 		login.selectDropDowns(driver,date, country, channel);
 		 //login.selectDropDowns(driver,date, country);
-		ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
+		//ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
+		ComparingStores missingStores = new ComparingStores();
 		ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 		UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 		ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
 		XLData xldata = storeAndIce.readingDataFromXL(readFilePath,countryFromXL,channelFromXL);
-		compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
-		System.out.println("Comparing store level data");
+		//compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
+		missingStores.comparingAndWritingData(writeFilePath, dataUI, xldata);
+		
 		
 
 	}

@@ -47,7 +47,7 @@ public class ComparingStoresInXLAndUI {
 		for (int i = 0; i < namesFromUI.length; i++) {
 			Label result = null;
 			String namesUI = namesFromUI[i];
-			String[] namesFromXL = xLData.getSurveySK(storenameXL);
+			/*String[] namesFromXL = xLData.getSurveySK(storenameXL);
 			
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
@@ -84,8 +84,8 @@ public class ComparingStoresInXLAndUI {
 		writeWorkBook.close();
 		System.out.println("Comparing store level data and writing to XL");
 	}
-}
-		
+}*/
+		}}		
 }
 
 

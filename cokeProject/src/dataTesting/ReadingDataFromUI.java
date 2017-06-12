@@ -32,16 +32,22 @@ public class ReadingDataFromUI {
 		for (int i = 0; i < rowsCount; i++) {
 			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
 			String rowData = columns.get(1).getText();
-			String totalInUI = columns.get(6).getText();
+			String totalInUI = columns.get(7).getText();
 			totalUIAfterConvertingTofloat = Float.parseFloat(totalInUI);
 			storeName = rowData;
 			totalUI = totalUIAfterConvertingTofloat;
 			dataUI.setTotalUI(storeName, totalUI);
 		}
+		for (int i = 0; i < rowsCount; i++) {
+			List<WebElement> columns = tableRows.get(i).findElements(By.tagName("td"));
+			String rowData = columns.get(1).getText();
+			String custSK = columns.get(2).getText();
+			storeName = rowData;
+			dataUI.setCustUI(storeName, custSK);
+		}
 		dataUI.getTotalUI(storeName);
+		dataUI.getCustUI(storeName);
 		dataUI.getRowsCountUI();
-		System.out.println(dataUI);
-		System.out.println("Reading Data from UI");
 		return dataUI;
 		
 	}

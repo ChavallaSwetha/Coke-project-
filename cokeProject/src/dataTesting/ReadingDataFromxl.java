@@ -30,18 +30,18 @@ import jxl.read.biff.BiffException;
 			int rowsCountXL = row;
 			System.out.println("No of rows in XL" + "     " + rowsCountXL);
 			for (int rwXL = 1; rwXL < rowsCountXL; rwXL++) {
-				String[] iceValueReplacingWithf = new String[7];
+				String[] iceValueReplacingWithf = new String[8];
 				Cell conTryXL = sh.getCell(20, rwXL);
 				iceValueReplacingWithf[1] = conTryXL.getContents();
 				
 				if (iceValueReplacingWithf[1].equals(countryFromXL)){
-				
+				System.out.println("country from XL" +"    "+iceValueReplacingWithf[1]);
 				String S = " sin ";
 				Cell collr = sh.getCell(8, rwXL);
 				String channelXLbeforeconverting = collr.getContents();
 				String channelXL = channelFromXL.toLowerCase();
 				//System.out.println("channelFromXL" + "  "+channelXL);
-				if (channelXLbeforeconverting.endsWith(channelFromXL)){
+				if (channelXLbeforeconverting.endsWith(channelXL)){
 				String channelXLAfterconverting = null;
 				
 			if (channelXLbeforeconverting.contains(S)) {
@@ -49,6 +49,8 @@ import jxl.read.biff.BiffException;
 				} else {
 					channelXLAfterconverting = "Yes";
 				}
+			    Cell survyNo = sh.getCell(0, rwXL);
+			    String survyNO = survyNo.getContents();
 		     	Cell strNameXL = sh.getCell(2, rwXL);
 			    String storeName = strNameXL.getContents();
 			    Cell icXL = sh.getCell(9, rwXL);
@@ -63,11 +65,11 @@ import jxl.read.biff.BiffException;
 				iceValueReplacingWithf[4] = subChXL.getContents();
 				iceValueReplacingWithf[5] = iceValue;
 				iceValueReplacingWithf[6] = storeName;
+				iceValueReplacingWithf[7] = survyNO;
 				xlData.setICEvalues(storeName, iceValueReplacingWithf);
 			}
 				}
 			}
-			System.out.println(xlData);
 			System.out.println("Reading data from XL");
 			
 			return xlData;
