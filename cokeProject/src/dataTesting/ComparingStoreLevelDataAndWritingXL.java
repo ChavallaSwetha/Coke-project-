@@ -11,7 +11,7 @@ import jxl.write.WriteException;
 //WebDriver driver = new ChromeDriver();
 
 public class ComparingStoreLevelDataAndWritingXL {
-	public void comparingAndWritingData(String writeFilePath, UIData dataUI, XLData xldata)
+	public void comparingAndWritingData(String writeFilePath, UIData dataUI, XLData xlData)
 			throws IOException, WriteException {
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
@@ -35,6 +35,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 		writeSheet.addCell(ice);
 		Label resultColumnName = new Label(j, 0, "RESULT");
 		writeSheet.addCell(resultColumnName);
+
 		String[] namesFromUI = dataUI.getNamesUI();
 		for (int i = 0; i < namesFromUI.length; i++) {
 			Label result = null;
@@ -44,8 +45,16 @@ public class ComparingStoreLevelDataAndWritingXL {
 			String totalUIasString = Float.toString(totalUI);
 			Label totalFromUI = new Label(g, i + 1, totalUIasString);
 			writeSheet.addCell(totalFromUI);
+<<<<<<< HEAD
+			String[] xlValues = xlData.getICEvalues(namesUI);
+=======
 			String[] xlValues = xldata.getICEvalues(namesUI);
+<<<<<<< HEAD
 			System.out.println("xlValues"+"     "+xlValues);
+=======
+			System.out.println(xlValues);
+>>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
+>>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
@@ -77,6 +86,21 @@ public class ComparingStoreLevelDataAndWritingXL {
 			}
 			writeSheet.addCell(result);
 		}
+		String[] storesXL = xlData.getXLStore();
+		for (int x = 0; x < storesXL.length; x++) {
+			String namesFromXL = storesXL[x];
+			boolean found = false;
+			for (int y = 0; y < namesFromUI.length; y++) {
+				if (namesFromXL.equals(namesFromUI[y])) {
+					found = true;
+				}
+			}
+			if(!found){
+				System.out.println("Write To Excel"+ namesFromXL);
+			}
+
+		}
+
 		writeWorkBook.write();
 		writeWorkBook.close();
 		System.out.println("Comparing store level data and writing to XL");

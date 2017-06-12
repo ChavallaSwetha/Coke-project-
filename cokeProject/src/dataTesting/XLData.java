@@ -12,7 +12,7 @@ public class XLData {
 	}
 
 	public void setICEvalues(String storeNameXL, String[] IceXL) {
-		storeNameXL = storeNameXL.replaceAll("[ ,.&()/']", "");
+		storeNameXL = storeNameXL.replaceAll("[ ,.&()/'-]", "");
 		xlMap.put(storeNameXL.toLowerCase(), IceXL);
 	}
 
@@ -21,11 +21,10 @@ public class XLData {
 		return xlMap.get(storenameXL);
 	}
 	
-	public String[] getNamesXL() {
-		Set<String> keys = xlMap.keySet();
-		return keys.toArray(new String[0]);
-	}
-	public void setNamesXL(){
+	public String[] getXLStore(){
+		Set<String> store = xlMap.keySet();
+		return store.toArray(new String[0]);
 		
 	}
+
 }

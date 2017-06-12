@@ -39,10 +39,11 @@ import jxl.read.biff.BiffException;
 				String S = " sin ";
 				Cell collr = sh.getCell(8, rwXL);
 				String channelXLbeforeconverting = collr.getContents();
-				String channelXL = channelFromXL.toLowerCase();
+				String channelXL = channelXLbeforeconverting.toLowerCase();
 				//System.out.println("channelFromXL" + "  "+channelXL);
-				if (channelXLbeforeconverting.endsWith(channelXL)){
 				String channelXLAfterconverting = null;
+				if (channelXL.endsWith(channelFromXL)){
+				
 				
 			if (channelXLbeforeconverting.contains(S)) {
 					channelXLAfterconverting = "No";
