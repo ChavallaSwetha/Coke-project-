@@ -2,6 +2,7 @@ package dataTesting;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 
 import jxl.Workbook;
 import jxl.write.Label;
@@ -10,24 +11,30 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class ComparingMissingStores {
-	public void comparingAndWritingData(String writeFilePath, UIData dataUI, XLData xldata,String countryUI, String channelUI)
+	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xldata,String countryUI, String channelUI,int sh)
 			throws IOException, WriteException {
-		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
-		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
-		WritableSheet writeSheet = writeWorkBook.createSheet("Bahamas Traditional data", 2);
+		
+		WritableSheet writableSheet = writeWorkBook.createSheet(countryUI, sh);
+		System.out.println("countryUI"+"   "+countryUI);
+		System.out.println("SheetNo"+"   "+sh);
+		
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5;
 		Label strName = new Label(a, 0, "STORENAME");
-		writeSheet.addCell(strName);
+		writableSheet.addCell(strName);
 		Label cnTry = new Label(b, 0, "COUNTRY");
-		writeSheet.addCell(cnTry);
+		writableSheet.addCell(cnTry);
 		Label chNel = new Label(c, 0, "CHANNEL");
-		writeSheet.addCell(chNel);
+		writableSheet.addCell(chNel);
 		Label survY = new Label(d, 0, "SURVEY_SK");
-		writeSheet.addCell(survY);
+		writableSheet.addCell(survY);
 		Label custSk = new Label(e, 0, "CUST_SK");
-		writeSheet.addCell(custSk);
+		writableSheet.addCell(custSk);
 		Label resuLT = new Label(f, 0, "RESULT");
-		writeSheet.addCell(resuLT);
+		writableSheet.addCell(resuLT);
+		/*Label Name = new Label(a, 0, "STORENAME");
+		writableSheet1.addCell(Name);
+		Label str = new Label(a, 0, "STORENAME");
+		writableSheet2.addCell(str);*/
 		
 
 		String[] namesFromUI = dataUI.getNamesUI();
@@ -41,15 +48,15 @@ public class ComparingMissingStores {
 			if (xlValues == null) {
 				
 				Label storeNameFromUI = new Label(a, j, namesUI);
-				writeSheet.addCell(storeNameFromUI);
+				writableSheet.addCell(storeNameFromUI);
 				Label result = new Label(f, j, "Missing in XL");
-				writeSheet.addCell(result);
-				Label custiD = new Label(e, j, dataUI.getCustID(namesUI));
-				writeSheet.addCell(custiD);
+				writableSheet.addCell(result);
+				Label custiD = new Label(e, j, dataUI.getCustUI(namesUI));
+				writableSheet.addCell(custiD);
 				Label uICountry = new Label(b, j,countryUI);
-				writeSheet.addCell(uICountry);
+				writableSheet.addCell(uICountry);
 				Label uIChannel = new Label(c, j, channelUI);
-				writeSheet.addCell(uIChannel);
+				writableSheet.addCell(uIChannel);
 				j++;
 			}
 			
@@ -65,27 +72,26 @@ public class ComparingMissingStores {
 			}
 			if(!found){
 				Label result = new Label(f, j, "Missing in UI");
-				writeSheet.addCell(result);
+				writableSheet.addCell(result);
 				Label xlStores = new Label(a, j, namesFromXL);
-				writeSheet.addCell(xlStores);
+				writableSheet.addCell(xlStores);
 				String[] dataFromXL = xldata.getICEvalues(namesFromXL);
 				String writeCountry = dataFromXL[1];
 				Label xlcountry = new Label(b, j, writeCountry);
-				writeSheet.addCell(xlcountry);
+				writableSheet.addCell(xlcountry);
 				String channelXL = dataFromXL[8];
 				Label xlchannel = new Label(c, j, channelXL);
-				writeSheet.addCell(xlchannel);
+				writableSheet.addCell(xlchannel);
 				String xlSurvy = dataFromXL[7];
 				Label xlsurvey = new Label(d, j, xlSurvy);
-				writeSheet.addCell(xlsurvey);
+				writableSheet.addCell(xlsurvey);
 				j++;
 			}
 
 		}
 
-		writeWorkBook.write();
-		writeWorkBook.close();
+		
 		System.out.println("Comparing store level data and writing to XL");
-	}
-
+		}
+		   
 }
