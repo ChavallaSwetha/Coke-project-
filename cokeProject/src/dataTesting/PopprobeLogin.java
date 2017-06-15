@@ -1,10 +1,14 @@
 package dataTesting;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -41,41 +45,34 @@ public class PopprobeLogin {
 		// dropdown
 		Thread.sleep(3000);
 
-		/*FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
-		BufferedReader br = new BufferedReader(fr);
-		String date = br.readLine();*/
-
-		//FileReader fr = new FileReader("C:/Users/Mona Lisa/Desktop/Reading_File.txt");
-		//BufferedReader br = new BufferedReader(fr);
-		//String date = br.readLine();
-
 		driver.findElement(By.linkText(date)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[2]/div/button")).click(); // Country
 		// dropdown
 		Thread.sleep(3000);
-
-		//String country = br.lines().skip(0).findFirst().get();
 		driver.findElement(By.linkText(country)).click();
-
 		Thread.sleep(3000);
-
-		//driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[5]/div/button")).click(); // Channel
-
-		// dropdown
-		// String channel = br.lines().skip(2).findFirst().get();
-
 		// driver.findElement(By.linkText(channel)).click();
 		/*
 		 * Thread.sleep(4000); driver.findElement(By.linkText(channel)).click();
 		 * for Belize
 		 */
-
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
 		// button
 		Thread.sleep(4000);
-		// br.close();
 		System.out.println("Popprobe login");
+	}
+	public void logout(WebDriver driver){
+		driver.findElement(By.xpath("html/body/div[1]/div[2]/div/div/header/top-nav/nav/ul[2]/li[4]/div/div/a/div/img[2]")).click();
+		driver.findElement(By.linkText("LOGOUT")).click();
+	}
+	public void newTab(WebDriver driver) throws AWTException{
+		driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
+		Robot keys = new Robot();
+		keys.keyPress(KeyEvent.VK_CONTROL);
+		keys.keyPress(KeyEvent.VK_T);
+		keys.keyRelease(KeyEvent.VK_CONTROL);
+		keys.keyRelease(KeyEvent.VK_T);
 	}
 }
