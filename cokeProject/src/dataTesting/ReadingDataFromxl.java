@@ -49,7 +49,8 @@ import jxl.read.biff.BiffException;
 						} else {
 							channelXLAfterconverting = "Yes";
 						}
-      					Cell survyNo = sh.getCell(0, rwXL);
+
+						Cell survyNo = sh.getCell(0, rwXL);
 						String survyNO = survyNo.getContents();
 						Cell strNameXL = sh.getCell(2, rwXL);
 						String storeName = strNameXL.getContents();
@@ -79,5 +80,4 @@ import jxl.read.biff.BiffException;
 			return xlData;
 		}
 
-		
-		}
+	}

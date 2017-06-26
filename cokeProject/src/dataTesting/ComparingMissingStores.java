@@ -11,7 +11,7 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class ComparingMissingStores {
-	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xldata,String countryUI, String channelUI,int sh)
+	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xlData,String countryUI, String channelUI,int sh)
 			throws IOException, WriteException {
 		
 		WritableSheet writableSheet = writeWorkBook.createSheet(countryUI, sh);
@@ -31,18 +31,13 @@ public class ComparingMissingStores {
 		writableSheet.addCell(custSk);
 		Label resuLT = new Label(f, 0, "RESULT");
 		writableSheet.addCell(resuLT);
-		/*Label Name = new Label(a, 0, "STORENAME");
-		writableSheet1.addCell(Name);
-		Label str = new Label(a, 0, "STORENAME");
-		writableSheet2.addCell(str);*/
 		
-
 		String[] namesFromUI = dataUI.getNamesUI();
 		int j=1;
 		for (int i = 0; i < namesFromUI.length; i++) {
 			String namesUI = namesFromUI[i];
 			System.out.println("storesnamefromUI"+"      "+namesUI);
-			String[] xlValues = xldata.getICEvalues(namesUI);
+			String[] xlValues = xlData.getICEvalues(namesUI);
 			System.out.println("xlValues"+"      "+xlValues);
 			
 			if (xlValues == null) {
@@ -61,7 +56,7 @@ public class ComparingMissingStores {
 			}
 			
 		}
-		String[] storesXL = xldata.getXLStore();
+		String[] storesXL = xlData.getXLStore();
 		for (int x = 0; x < storesXL.length; x++) {
 			String namesFromXL = storesXL[x];
 			boolean found = false;
@@ -75,7 +70,7 @@ public class ComparingMissingStores {
 				writableSheet.addCell(result);
 				Label xlStores = new Label(a, j, namesFromXL);
 				writableSheet.addCell(xlStores);
-				String[] dataFromXL = xldata.getICEvalues(namesFromXL);
+				String[] dataFromXL = xlData.getICEvalues(namesFromXL);
 				String writeCountry = dataFromXL[1];
 				Label xlcountry = new Label(b, j, writeCountry);
 				writableSheet.addCell(xlcountry);

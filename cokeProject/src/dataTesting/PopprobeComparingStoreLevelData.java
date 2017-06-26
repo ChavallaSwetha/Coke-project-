@@ -25,11 +25,11 @@ public class PopprobeComparingStoreLevelData {
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException, AWTException {
 		
 		
-		String[] countriesFromUI = {"HAITI","BELIZE"};
-		String[] countriesFromExcel = {"Haiti","Belize"};
+		String[] countriesFromUI = {"FRENCH GUIANA"};
+		String[] countriesFromExcel = {"French Guiana"};
 		String date = "2017 - 2";
-		String channelFromXL ="tradicional";
-		String channel = "HOME MARKET TRADITIONAL";
+		String channelFromXL ="premise";
+		String channel = "ON PREMISE";
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/All_Countries_Traditional_Data.xls";
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
@@ -42,8 +42,8 @@ public class PopprobeComparingStoreLevelData {
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
 		
-			//login.selectDropDowns(driver,date, country, channel);
-			login.selectDropDowns(driver,date, countriesFromUI[i]);
+			login.selectDropDowns(driver,date, countriesFromUI[i], channel);
+			//login.selectDropDowns(driver,date, countriesFromUI[i]);
 			//ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
 			ComparingMissingStores missingStores = new ComparingMissingStores();
 			ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();

@@ -17,8 +17,7 @@ public class XLData {
 	}
 
 	public String[] getICEvalues(String storenameXL) {
-		
-		return xlMap.get(storenameXL);
+			return xlMap.get(storenameXL);
 	}
 	
 	public String[] getXLStore(){
