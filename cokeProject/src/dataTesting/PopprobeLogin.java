@@ -60,6 +60,7 @@ public class PopprobeLogin {
 		 * for Belize
 		 */
 		Thread.sleep(3000);
+		
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
 		// button
 		Thread.sleep(4000);

@@ -70,6 +70,7 @@ public class PopprobeComparingCountryLevelDataWithAndWithOutCooler {
 		String[] channelXL = new String[rowsXL];
 		String[] dateXL = new String[rowsXL];
 		String[] kpiXL = new String[rowsXL];
+		String[] piDXL = new String[rowsXL];
 		String[] iceXL = new String[rowsXL];
 		for (int xlRow = 0; xlRow < rowsXL; xlRow++) {
 			for (int clmn = 0; clmn < 1; clmn++) {
