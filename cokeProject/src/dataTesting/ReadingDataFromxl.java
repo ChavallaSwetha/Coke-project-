@@ -31,11 +31,11 @@ import jxl.read.biff.BiffException;
 			int rowsCountXL = row;
 			System.out.println("No of rows in XL" + "     " + rowsCountXL);
 			for (int rwXL = 1; rwXL < rowsCountXL; rwXL++) {
-				String[] iceValueReplacingWithf = new String[9];
+				String[] xlDataArray = new String[9];
 				Cell conTryXL = sh.getCell(20, rwXL);
-				iceValueReplacingWithf[1] = conTryXL.getContents();
+				xlDataArray[1] = conTryXL.getContents();
 
-				if (iceValueReplacingWithf[1].equals(countryFromXL)) {
+				if (xlDataArray[1].equals(countryFromXL)) {
 
 					String S = " sin ";
 					Cell collr = sh.getCell(8, rwXL);
@@ -57,19 +57,19 @@ import jxl.read.biff.BiffException;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceValueFromXL = icXL.getContents();
 						String iceValue = iceValueFromXL.replace('%', 'f');
-						iceValueReplacingWithf[0] = channelXLAfterconverting;
+						xlDataArray[0] = channelXLAfterconverting;
 						Cell dtXL = sh.getCell(5, rwXL);
-						iceValueReplacingWithf[2] = dtXL.getContents();
+						xlDataArray[2] = dtXL.getContents();
 						Cell chanlXL = sh.getCell(26, rwXL);
-						iceValueReplacingWithf[3] = chanlXL.getContents();
+						xlDataArray[3] = chanlXL.getContents();
 						Cell subChXL = sh.getCell(28, rwXL);
-						iceValueReplacingWithf[4] = subChXL.getContents();
-						iceValueReplacingWithf[5] = iceValue;
-						iceValueReplacingWithf[6] = storeName;
-						iceValueReplacingWithf[7] = survyNO;
-						iceValueReplacingWithf[8] = channelXLbeforeconverting;
-						System.out.println("storesfromXL" + "      " + iceValueReplacingWithf[6]);
-						xlData.setICEvalues(storeName, iceValueReplacingWithf);
+						xlDataArray[4] = subChXL.getContents();
+						xlDataArray[5] = iceValue;
+						xlDataArray[6] = storeName;
+						xlDataArray[7] = survyNO;
+						xlDataArray[8] = channelXLbeforeconverting;
+						System.out.println("storesfromXL" + "      " + xlDataArray[6]);
+						xlData.setICEvalues(storeName, xlDataArray);
 					}
 				}
 			}

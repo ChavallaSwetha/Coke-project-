@@ -16,7 +16,7 @@ public class tesTing {
 	WebDriver driver = new ChromeDriver();
 	String readFilePath ="C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
 	String country = "BAHAMAS";
-	String compareCountry = country.toLowerCase();
+	String compareCountry = "Bahamas";
 	String channelUI ="HOME MARKET TRADITIONAL";
 	String channelXL = "Tradicional";
 	String piD ="1";
