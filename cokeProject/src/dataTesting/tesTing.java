@@ -20,12 +20,23 @@ public class tesTing {
 	String channelUI ="HOME MARKET TRADITIONAL";
 	String channelXL = "Tradicional";
 	String piD ="1";
+	String piD2 = "2";
+	String piD3 = "3";
 	String writeFilePath = "C:/Users/Mona Lisa/Downloads/Reading file.xls ";
 	String date ="2017 - 2";
-	trialClass test = new trialClass();
+	
+	WithAndWithOutCooler test = new WithAndWithOutCooler();
 	PopprobeLogin login = new PopprobeLogin();
 	login.logIn(driver);
 	login.selectDropDowns(driver, date, country, channelUI);
-	test.compareCountryLevelCoolerData(driver,  readFilePath, compareCountry, channelXL, piD,  writeFilePath);
+	ReadingCountryLevelDataFromUI dashboardData = new ReadingCountryLevelDataFromUI();
+	UICountryLevelData data = dashboardData.readingDashBoardData(driver);
+	test.compareCountryLevelCoolerData(driver,  readFilePath, compareCountry, channelXL, piD,  writeFilePath, data);
+	
+	WithCooler yes = new WithCooler();
+	yes.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD2, writeFilePath, data);
+	
+	WithOutCooler no = new WithOutCooler();
+	no.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD3, writeFilePath, data);
 }
 }

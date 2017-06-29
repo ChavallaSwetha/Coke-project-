@@ -27,7 +27,7 @@ public class PopprobeLogin {
 		WebElement login = driver.findElement(
 				By.xpath("html/body/div[1]/div[2]/div/section/div[2]/div[2]/div/div/form/div[3]/button[1]"));
 		login.click();
-		Thread.sleep(2000);
+		Thread.sleep(9000);
 	}
 
 	/*
@@ -36,14 +36,14 @@ public class PopprobeLogin {
 	 */
 
 	 public void selectDropDowns(WebDriver driver, String date, String country, String channel)
-	//public void selectDropDowns(WebDriver driver, String date, String country) // for
+	 //public void selectDropDowns(WebDriver driver, String date, String country) // for
 																				// Belize
 			throws InterruptedException, IOException {
-		Thread.sleep(8000);
-		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[1]/div/button")).click();
+		Thread.sleep(9000);
+		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[1]/div/button")).click();
 		//  Date
 		// dropdown
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 		driver.findElement(By.linkText(date)).click();
 		Thread.sleep(3000);
@@ -66,6 +66,16 @@ public class PopprobeLogin {
 		Thread.sleep(4000);
 		System.out.println("Popprobe login");
 	}
+	 public void coolerDropDown(WebDriver driver,String cooler) throws InterruptedException{
+		 Thread.sleep(4000);
+		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.linkText(cooler)).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
+		// button
+		Thread.sleep(4000);
+	 }
 	public void logout(WebDriver driver){
 		driver.findElement(By.xpath("html/body/div[1]/div[2]/div/div/header/top-nav/nav/ul[2]/li[4]/div/div/a/div/img[2]")).click();
 		driver.findElement(By.linkText("LOGOUT")).click();
