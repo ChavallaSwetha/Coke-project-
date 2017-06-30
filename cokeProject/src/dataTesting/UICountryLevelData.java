@@ -1,12 +1,13 @@
 package dataTesting;
 
 public class UICountryLevelData {
-	private float mpaUI;
+	private  float mpaUI;
 	private float soviUI;
 	private float refUI;
 	private float commUI;
 	private float priUI;
 	private float freshUI;
+	private float totalUI;
 	
 	public void setMPA(float mpa){
 		 mpaUI = mpa;
@@ -50,5 +51,11 @@ public class UICountryLevelData {
     	return freshUI;
     	
     }
-    
+    public void setTOTAL(float total){
+    	System.out.println("Total from UI"+"     "+total);
+         totalUI = total;
+}
+    public float getTOTAL(){
+    	return totalUI;
+    }
 }

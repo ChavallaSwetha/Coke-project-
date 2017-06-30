@@ -66,15 +66,26 @@ public class PopprobeLogin {
 		Thread.sleep(4000);
 		System.out.println("Popprobe login");
 	}
-	 public void coolerDropDown(WebDriver driver,String cooler) throws InterruptedException{
+	 public void coolerDropDown(WebDriver driver) throws InterruptedException{
 		 Thread.sleep(4000);
-		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
-		Thread.sleep(4000);
-		driver.findElement(By.linkText(cooler)).click();
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
-		// button
-		Thread.sleep(4000);
+		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
+  		Thread.sleep(4000);
+  		driver.findElement(By.linkText("YES")).click();
+  		Thread.sleep(4000);
+  		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
+  		// button
+  		Thread.sleep(4000);
+	 }
+	 public void coolerDropDownNo(WebDriver driver) throws InterruptedException{
+		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
+   		Thread.sleep(4000);
+   		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
+   		Thread.sleep(4000);
+   		 driver.findElement(By.linkText("NO")).click();
+   		Thread.sleep(4000);
+   		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
+   		// button
+   		Thread.sleep(4000);
 	 }
 	public void logout(WebDriver driver){
 		driver.findElement(By.xpath("html/body/div[1]/div[2]/div/div/header/top-nav/nav/ul[2]/li[4]/div/div/a/div/img[2]")).click();

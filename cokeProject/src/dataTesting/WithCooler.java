@@ -18,20 +18,14 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 public class WithCooler {
-       
+
 	public void compareCountryLevelCoolerData(WebDriver driver, String readFilePath, String country, String channel,
-			String piD, String writeFilePath,UICountryLevelData kpiData)
+			String piD, String writeFilePath,UICountryLevelData kpiData2)
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
-             ReadingCountryLevelDataFromUI uiData = new  ReadingCountryLevelDataFromUI();
+           
              
-             driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[7]/div/button")).click();
-     		Thread.sleep(4000);
-     		driver.findElement(By.linkText("YES")).click();
-     		Thread.sleep(4000);
-     		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/div/button")).click(); // Apply
-     		// button
-     		Thread.sleep(4000);
+             
 
              
              File readFile = new File(readFilePath);
@@ -44,9 +38,9 @@ public class WithCooler {
      		String refregiratio = "Refrigeración";
      		String commuNion = "Comunicación y exhibición";
      		String priCe = "Respeto a Precio";
-     		String freshNESs = "Frescura de Producto";
-     		String toTal = "ICE Total Tradicional";
+     		String toTal = "ICE con Nevera Tradicional";
      		String withCooler = "2";
+     		String cooler1 = "0";
      		
 
      		String[] countryXL = new String[rowsXL];
@@ -85,51 +79,23 @@ public class WithCooler {
      	      WritableSheet writeSheet =  wwbook.getSheet(0);
      		
      		for (int r = 0; r < rowsXL; r++) {
-     			
+     			Label result;
      			if (country.equals(countryXL[r])) {
      				if (channel.equals(channelXL[r])) {
      					if (piDXL[r].equals(withCooler)) {
      						String pID = piDXL[r];
-     						System.out.println("MPA from UI"+"   "+kpiData.getMPA());
+     						System.out.println("MPA from UI"+"   "+kpiData2.getMPA());
+     						
      						if (kpiXL[r].equals(mpa)) {
      							System.out.println("swetha");
      							String kpi = kpiXL[r];
      							String icEXL = iceXL[r];
      							String iCE = icEXL.replace('%', 'f');
      							float xlIce = Float.parseFloat(iCE);
-     							Label counTry = new Label(0, 7, country);
-     							writeSheet.addCell(counTry);
-     							String dateFromXL = dateXL[r];
-     							Label daTe = new Label(1, 7, dateFromXL);
-     							writeSheet.addCell(daTe);
-     							Label chaNNel = new Label(2, 7, channel);
-     							writeSheet.addCell(chaNNel);
-     							Label piDfromXL = new Label(4, 7, pID);
-     							writeSheet.addCell(piDfromXL);
-     							Label iCEXL = new Label(5, 7, icEXL);
-     							writeSheet.addCell(iCEXL);
-     							Label kpI = new Label(3, 7, kpi);
-     							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 7, String.valueOf(kpiData.getMPA()));
-     							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getMPA());
-     							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
-     								result = new Label(7, 7, "Mismatch");
-
-     							} else {
-     								result = new Label(7, 7, "Match");
-
-     							}
-     							writeSheet.addCell(result);
-     						} else if (kpiXL[r].equals(sovi)) {
-     							String kpi = kpiXL[r];
-     							String icEXL = iceXL[r];
-     							String iCE = icEXL.replace('%', 'f');
-     							float xlIce = Float.parseFloat(iCE);
      							Label counTry = new Label(0, 8, country);
      							writeSheet.addCell(counTry);
-     							Label daTe = new Label(1, 8, dateXL[r]);
+     							String dateFromXL = dateXL[r];
+     							Label daTe = new Label(1, 8, dateFromXL);
      							writeSheet.addCell(daTe);
      							Label chaNNel = new Label(2, 8, channel);
      							writeSheet.addCell(chaNNel);
@@ -139,10 +105,10 @@ public class WithCooler {
      							writeSheet.addCell(iCEXL);
      							Label kpI = new Label(3, 8, kpi);
      							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 8, String.valueOf(kpiData.getSOVI()));
+     							Label mpaFromUI = new Label(6, 8, String.valueOf(kpiData2.getMPA()));
      							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getSOVI());
+     							
+     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getMPA());
      							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
      								result = new Label(7, 8, "Mismatch");
 
@@ -151,7 +117,7 @@ public class WithCooler {
 
      							}
      							writeSheet.addCell(result);
-     						} else if (kpiXL[r].equals(refregiratio)) {
+     						} else if (kpiXL[r].equals(sovi)) {
      							String kpi = kpiXL[r];
      							String icEXL = iceXL[r];
      							String iCE = icEXL.replace('%', 'f');
@@ -168,10 +134,10 @@ public class WithCooler {
      							writeSheet.addCell(iCEXL);
      							Label kpI = new Label(3, 9, kpi);
      							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 9, String.valueOf(kpiData.getREF()));
+     							Label mpaFromUI = new Label(6, 9, String.valueOf(kpiData2.getSOVI()));
      							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getREF());
+     							
+     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getSOVI());
      							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
      								result = new Label(7, 9, "Mismatch");
 
@@ -180,7 +146,7 @@ public class WithCooler {
 
      							}
      							writeSheet.addCell(result);
-     						} else if (kpiXL[r].equals(commuNion)) {
+     						} else if (kpiXL[r].equals(refregiratio)) {
      							String kpi = kpiXL[r];
      							String icEXL = iceXL[r];
      							String iCE = icEXL.replace('%', 'f');
@@ -197,10 +163,10 @@ public class WithCooler {
      							writeSheet.addCell(iCEXL);
      							Label kpI = new Label(3, 10, kpi);
      							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 10, String.valueOf(kpiData.getCOMM()));
+     							Label mpaFromUI = new Label(6, 10, String.valueOf(kpiData2.getREF()));
      							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getCOMM());
+     							
+     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getREF());
      							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
      								result = new Label(7, 10, "Mismatch");
 
@@ -209,7 +175,7 @@ public class WithCooler {
 
      							}
      							writeSheet.addCell(result);
-     						} else if (kpiXL[r].equals(priCe)) {
+     						} else if (kpiXL[r].equals(commuNion)) {
      							String kpi = kpiXL[r];
      							String icEXL = iceXL[r];
      							String iCE = icEXL.replace('%', 'f');
@@ -226,10 +192,10 @@ public class WithCooler {
      							writeSheet.addCell(iCEXL);
      							Label kpI = new Label(3, 11, kpi);
      							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 11, String.valueOf(kpiData.getPRICE()));
+     							Label mpaFromUI = new Label(6, 11, String.valueOf(kpiData2.getCOMM()));
      							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getPRICE());
+     							
+     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getCOMM());
      							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
      								result = new Label(7, 11, "Mismatch");
 
@@ -238,7 +204,7 @@ public class WithCooler {
 
      							}
      							writeSheet.addCell(result);
-     						} else if (kpiXL[r].equals(freshNESs)) {
+     						} else if (kpiXL[r].equals(priCe)) {
      							String kpi = kpiXL[r];
      							String icEXL = iceXL[r];
      							String iCE = icEXL.replace('%', 'f');
@@ -255,10 +221,10 @@ public class WithCooler {
      							writeSheet.addCell(iCEXL);
      							Label kpI = new Label(3, 12, kpi);
      							writeSheet.addCell(kpI);
-     							Label mpaFromUI = new Label(6, 12, String.valueOf(kpiData.getFRESH()));
+     							Label mpaFromUI = new Label(6, 12, String.valueOf(kpiData2.getPRICE()));
      							writeSheet.addCell(mpaFromUI);
-     							Label result;
-     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData.getFRESH());
+     							
+     							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getPRICE());
      							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
      								result = new Label(7, 12, "Mismatch");
 
@@ -267,17 +233,48 @@ public class WithCooler {
 
      							}
      							writeSheet.addCell(result);
-     						}
-     						else {
-     							Label result = new Label(7, 12, "No Data");
-     							writeSheet.addCell(result);
-     						}
+     						} 
      					}
-     				}
+     					if (piDXL[r].equals(cooler1)) {
+							String pID1 = piDXL[r];
+     						 if (kpiXL[r].equals(toTal)) {
+    							
+    							String kpi = kpiXL[r];
+    							String icEXL = iceXL[r];
+    							String iCE = icEXL.replace('%', 'f');
+    							float xlIce = Float.parseFloat(iCE);
+    							Label counTry = new Label(0, 13, country);
+    							writeSheet.addCell(counTry);
+    							String dateFromXL = dateXL[r];
+    							Label daTe = new Label(1, 13, dateFromXL);
+    							writeSheet.addCell(daTe);
+    							Label chaNNel = new Label(2, 13, channel);
+    							writeSheet.addCell(chaNNel);
+    							Label piDfromXL = new Label(4, 13, pID1);
+    							writeSheet.addCell(piDfromXL);
+    							Label iCEXL = new Label(5, 13, icEXL);
+    							writeSheet.addCell(iCEXL);
+    							Label kpI = new Label(3, 13, kpi);
+    							writeSheet.addCell(kpI);
+    							Label mpaFromUI = new Label(6, 13, String.valueOf(kpiData2.getTOTAL()));
+    							writeSheet.addCell(mpaFromUI);
+    							
+    							float diffBetweentotalUIICEAndIceValueXL = Math.abs(xlIce - kpiData2.getTOTAL());
+    							if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
+    								result = new Label(7, 13, "Mismatch");
+
+    							} else {
+    								result = new Label(7, 13, "Match");
+
+    							}
+    							writeSheet.addCell(result);
+    						}
+     						}
      			}
      		}
-
+     		}
      		wwbook.write();
      		wwbook.close();
+     		
 }
 }

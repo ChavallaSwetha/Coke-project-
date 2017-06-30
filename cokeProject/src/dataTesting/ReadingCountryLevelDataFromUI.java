@@ -7,11 +7,12 @@ public class ReadingCountryLevelDataFromUI {
 
 	
 	public UICountryLevelData readingDashBoardData(WebDriver driver){
-	/*String total = driver
+	String total = driver
 			.findElement(
-					By.xpath(".//*[@id='dashboard-container']/div[2]/div[4]/div[1]/div[1]/div[5]/div/div[1]/span"))
+					By.xpath(".//*[@id='dashboard-container']/div[2]/div[4]/div[1]/div[1]/div[5]/div/div[1]"))
 			.getText();
-	float iceTotal = Float.parseFloat(total);*/
+	float iceTotal = Float.parseFloat(total);
+	System.out.println(iceTotal);
 	String mPA = driver
 			.findElement(By
 					.xpath(".//*[@id='dashboard-container']/div[2]/div[4]/div[1]/div[2]/div/table/tbody/tr[4]/td[2]"))
@@ -51,12 +52,14 @@ public class ReadingCountryLevelDataFromUI {
 	kpiData.setCOMM(coMMEX);
 	kpiData.setPRICE(prICE);
 	kpiData.setFRESH(freshNess);
+	kpiData.setTOTAL(iceTotal);
 	kpiData.getMPA();
 	kpiData.getSOVI();
 	kpiData.getREF();
 	kpiData.getCOMM();
 	kpiData.getFRESH();
 	kpiData.getPRICE();
+	kpiData.getTOTAL();
 	return kpiData;
 }
 }
