@@ -22,13 +22,13 @@ public class PopprobeComparingStoreLevelData {
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
 		
 		
-		String[] countriesFromUI = {"HAITI","BELIZE"};
-		String[] countriesFromExcel = {"Haiti","Belize"};
+		String[] countriesFromUI = {"MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
+		String[] countriesFromExcel = {"Martinique","Suriname","Trinidad & Tobago"};
 		String date = "2017 - 2";
-		String channelFromXL ="tradicional";
-		String channel = "HOME MARKET TRADITIONAL";
+		String channelFromXL ="premise";
+		String channel = "ON PREMISE";
 		String readFilePath = "C:/Users/Swetha/Downloads/Caribbean ICE Results February 2017 (3).xls";
-		String writeFilePath = "C:/Users/Swetha/Downloads/Data_Of_Popprobe/Haiti.xls";
+		String writeFilePath = "C:/Users/Swetha/Downloads/Data_Of_Popprobe/Missing_Stores_Data.xls";
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 		
@@ -40,15 +40,15 @@ public class PopprobeComparingStoreLevelData {
 		PopprobeLogin login = new PopprobeLogin();
 		login.logIn(driver);
 		
-			//login.selectDropDowns(driver,date, country, channel);
-			login.selectDropDowns(driver,date, countriesFromUI[i]);
+			login.selectDropDowns(driver,date, countriesFromUI[i], channel);
+			//login.selectDropDowns(driver,date, countriesFromUI[i]);
 			//ComparingStoreLevelDataAndWritingXL compare = new ComparingStoreLevelDataAndWritingXL();
 			ComparingMissingStores missingStores = new ComparingMissingStores();
 			ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 			UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 			ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 			XLData xldata = storeAndIce.readingDataFromXL(readFilePath,countriesFromExcel[i],channelFromXL);
-			//compare.comparingAndWritingData(writeFilePath, dataUI, xldata);
+			//compare.comparingAndWritingData(writeFilePath,writeWorkBook,dataUI, xldata,countriesFromUI[i],channel,i);
 			missingStores.comparingAndWritingData(writeFilePath,writeWorkBook,dataUI, xldata,countriesFromUI[i],channel,i);
 			
 		}

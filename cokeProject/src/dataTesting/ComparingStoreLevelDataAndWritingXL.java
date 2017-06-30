@@ -11,11 +11,10 @@ import jxl.write.WriteException;
 //WebDriver driver = new ChromeDriver();
 
 public class ComparingStoreLevelDataAndWritingXL {
-	public void comparingAndWritingData(String writeFilePath, UIData dataUI, XLData xlData)
+	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xldata,String countryUI, String channelUI,int sh)
 			throws IOException, WriteException {
-		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
-		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
-		WritableSheet writeSheet = writeWorkBook.createSheet("Haiti", 2);
+		
+		WritableSheet writeSheet = writeWorkBook.createSheet(countryUI, sh);
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, h = 7, j = 8;
 		Label country = new Label(a, 0, "COUNTRY");
 		writeSheet.addCell(country);
@@ -45,12 +44,11 @@ public class ComparingStoreLevelDataAndWritingXL {
 			String totalUIasString = Float.toString(totalUI);
 			Label totalFromUI = new Label(g, i + 1, totalUIasString);
 			writeSheet.addCell(totalFromUI);
-<<<<<<< HEAD
-			String[] xlValues = xlData.getICEvalues(namesUI);
-=======
+
 			String[] xlValues = xldata.getICEvalues(namesUI);
+
 			System.out.println(xlValues);
->>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
+
 			if (xlValues == null) {
 				Label storeNameFromUI = new Label(c, i + 1, namesUI);
 				writeSheet.addCell(storeNameFromUI);
@@ -82,7 +80,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 			}
 			writeSheet.addCell(result);
 		}
-		String[] storesXL = xlData.getXLStore();
+		String[] storesXL = xldata.getXLStore();
 		for (int x = 0; x < storesXL.length; x++) {
 			String namesFromXL = storesXL[x];
 			boolean found = false;
@@ -97,8 +95,6 @@ public class ComparingStoreLevelDataAndWritingXL {
 
 		}
 
-		writeWorkBook.write();
-		writeWorkBook.close();
 		System.out.println("Comparing store level data and writing to XL");
 	}
 }

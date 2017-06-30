@@ -25,7 +25,7 @@ public class UIData {
 		
 	private HashMap<String, Float> mapUIdata = new HashMap<String,Float>();
 	public void setTotalUI(String namesUI, Float totalUI){
-		namesUI = namesUI.replaceAll("[ ,.&()/']", "");
+		namesUI = namesUI.replaceAll("[ ,.&()/'-Ãšè]", "");
 		mapUIdata.put(namesUI.toLowerCase(), totalUI);
 		
 	}

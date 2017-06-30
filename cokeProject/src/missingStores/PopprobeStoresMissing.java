@@ -11,7 +11,7 @@ import jxl.read.biff.BiffException;
 public class PopprobeStoresMissing {
 
 	public static void main(String[] args) throws InterruptedException, IOException, BiffException {
-		System.setProperty("webdriver.chrome.driver",
+		/*System.setProperty("webdriver.chrome.driver",
 				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		PopprobeLogin login = new PopprobeLogin();
@@ -24,7 +24,7 @@ public class PopprobeStoresMissing {
 		login.logIn(driver);
 		Thread.sleep(9000);
 		login.selectDropDowns(driver, date, country, channel);
-		ReadingFromUI uIData = new ReadingFromUI();
+		ReadingFromUI uIData = new ReadingFromUI();*/
 		
 	}
 }
