@@ -21,8 +21,9 @@ public class tesTing {
 		String compareCountry = "Bahamas";
 		String channelUI = "HOME MARKET TRADITIONAL";
 		String channelXL = "Tradicional";
-		String piD = "1";
-		String piD2 = "2";
+		String cooler = "1";
+		String coolerYes = "2";
+		
 		String piD3 = "3";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Reading file.xls ";
 		String date = "2017 - 2";
@@ -38,21 +39,26 @@ public class tesTing {
 		
 		login.selectDropDowns(driver, date, country, channelUI);
 		ReadingCountryLevelDataFromUI dashboardData = new ReadingCountryLevelDataFromUI();
-		UICountryLevelData data = dashboardData.readingDashBoardData(driver);
+		UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
+		ReadingCountryLevelXLData dataFromXL = new ReadingCountryLevelXLData();
+		UIAndXLCountryLevelData xldata = dataFromXL.readingCountryLevelXLData(readFilePath, compareCountry, channelXL, cooler);
 		
-		test.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD, writeFilePath, data);
+		
+		test.compareCountryLevelCoolerData(driver, readFilePath, date, writeFilePath, uidata, xldata);
 		
 		login.coolerDropDown(driver);
-		ReadingCountryLevelDataFromUI dashboardData1 = new ReadingCountryLevelDataFromUI();
-		UICountryLevelData data1 = dashboardData1.readingDashBoardData(driver);
-        		
-		yes.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD2, writeFilePath, data1);
+		ReadingCountryLevelDataFromUI dashboardDataYes = new ReadingCountryLevelDataFromUI();
+		UIAndXLCountryLevelData uidataYes = dashboardDataYes.readingDashBoardData(driver);
+		ReadingCountryLevelXLData dataFromXLYes = new ReadingCountryLevelXLData();
+		UIAndXLCountryLevelData xldataYes = dataFromXLYes.readingCountryLevelXLData(readFilePath, compareCountry, channelXL, coolerYes);
+		        		
+		yes.compareCountryLevelCoolerData(driver, readFilePath,  date, writeFilePath, uidataYes, xldataYes);
 		
-		login.coolerDropDownNo(driver);
+		/*login.coolerDropDownNo(driver);
 		ReadingCountryLevelDataFromUI dashboardData2 = new ReadingCountryLevelDataFromUI();
 		UICountryLevelData data2 = dashboardData2.readingDashBoardData(driver);
 
-		no.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD3, writeFilePath,data2);
+		no.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD3, writeFilePath,data2);*/
 		
 	
 }

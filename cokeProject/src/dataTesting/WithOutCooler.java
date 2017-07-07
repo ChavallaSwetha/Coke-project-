@@ -20,7 +20,7 @@ import jxl.write.biff.RowsExceededException;
 public class WithOutCooler {
 
 	public void compareCountryLevelCoolerData(WebDriver driver, String readFilePath, String country, String channel,
-			String piD, String writeFilePath, UICountryLevelData kpiData3)
+			String piD, String writeFilePath, UIAndXLCountryLevelData kpiData3)
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
 
