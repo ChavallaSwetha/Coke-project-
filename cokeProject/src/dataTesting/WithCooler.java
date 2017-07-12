@@ -19,15 +19,12 @@ import jxl.write.biff.RowsExceededException;
 
 public class WithCooler {
 
-	public void compareCountryLevelCoolerData(WebDriver driver, String readFilePath, String date, 
-			 String writeFilePath,UIAndXLCountryLevelData uiData2,UIAndXLCountryLevelData xldata)
+	public void compareCountryLevelCoolerData(WritableSheet writeSheet, String readFilePath, String date, 
+			 int i,UIAndXLCountryLevelData uiData2,UIAndXLCountryLevelData xldata)
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
            
-      	 File writeFile = new File(writeFilePath);
-     	      Workbook wrkBook = Workbook.getWorkbook(writeFile);
-     		  WritableWorkbook wwbook = Workbook.createWorkbook(writeFile, wrkBook);
-     	      WritableSheet writeSheet =  wwbook.getSheet(0);
+      	
      	     Label counTry = new Label(0, 8, xldata.getCOUNTRY());
      		writeSheet.addCell(counTry);
      		Label daTe = new Label(1, 8, date);
@@ -140,10 +137,12 @@ public class WithCooler {
      		writeSheet.addCell(daTe7);
      		Label chaNNel7 = new Label(2, 13, xldata.getCHANNEL());
      		writeSheet.addCell(chaNNel7);
-     		Label piDfromXL7 = new Label(4, 13, xldata.getPIDT());
+     		System.out.println("PID"+"  "+xldata.getPIDTYes());
+     		Label piDfromXL7 = new Label(4, 13, xldata.getPIDTYes());
      		writeSheet.addCell(piDfromXL7);
      		Label iCEXL7 = new Label(5, 13, String.valueOf(xldata.getTOTALYES()));
      		writeSheet.addCell(iCEXL7);
+     		System.out.println("KPI"+"  "+xldata.getKPItotal());
      		Label kpI7 = new Label(3, 13, xldata.getKPItotal());
      		writeSheet.addCell(kpI7);
      		System.out.println("13th row"+"    "+xldata.getKPItotal());
@@ -156,7 +155,6 @@ public class WithCooler {
      			result = new Label(7, 13, "Match");
      		}
      		writeSheet.addCell(result);
-    		wwbook.write();
-     		wwbook.close();
+    		
 }
 }

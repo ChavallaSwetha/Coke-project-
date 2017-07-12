@@ -39,7 +39,7 @@ public class PopprobeLogin {
 	 //public void selectDropDowns(WebDriver driver, String date, String country) // for
 																				// Belize
 			throws InterruptedException, IOException {
-		Thread.sleep(19000);
+				Thread.sleep(10000);
 		 driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[1]/div/button")).click();
 		//  Date
 		// dropdown
@@ -49,7 +49,8 @@ public class PopprobeLogin {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[1]/div[2]/div/button")).click(); // Country
 		// dropdown
-		Thread.sleep(3000);
+					
+Thread.sleep(3000);
 		driver.findElement(By.linkText(country)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[5]/div/button")).click(); // Channel dropdown

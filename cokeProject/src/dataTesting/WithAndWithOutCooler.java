@@ -21,14 +21,16 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 public class WithAndWithOutCooler {
-
-	public void compareCountryLevelCoolerData(WebDriver driver, String readFilePath, String date, String writeFilePath,
+	public void compareCountryLevelCoolerData(WritableSheet writeSheet,String readFilePath, String date,int i,
 			UIAndXLCountryLevelData uiData1, UIAndXLCountryLevelData xldata)
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
-		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
-		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
-		WritableSheet writeSheet = writeWorkBook.createSheet(xldata.getCOUNTRY(), 0);
+		
+		
+		System.out.println("WithandWithoutCooler sheet no"+"   "+i);
+		
+		
+		
 		Label countryHeading = new Label(0, 0, "COUNTRY");
 		writeSheet.addCell(countryHeading);
 		Label dateHeading = new Label(1, 0, "DATE");
@@ -194,8 +196,8 @@ public class WithAndWithOutCooler {
 		} else {
 			result = new Label(7, 7, "Match");
 		}
+		
 		writeSheet.addCell(result);
-		writeWorkBook.write();
-		writeWorkBook.close();
+		
 	}
 }

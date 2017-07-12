@@ -1,15 +1,20 @@
 package dataTesting;
 
 import java.awt.AWTException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import jxl.Workbook;
 import jxl.read.biff.BiffException;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
-public class tesTing {
+public class PopprobeComparingCountryLevelData {
 	public static void main(String[] args)
 			throws InterruptedException, BiffException, IOException, WriteException, AWTException {
 		
@@ -17,15 +22,20 @@ public class tesTing {
 				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
-		String country = "BAHAMAS";
-		String compareCountry = "Bahamas";
+		String[] country = { "BAHAMAS", "BARBADOS" };
+		String[] compareCountry = { "Bahamas", "Barbados" };
 		String channelUI = "HOME MARKET TRADITIONAL";
 		String channelXL = "Tradicional";
 		String cooler = "1";
 		String coolerYes = "2";
+		String coolerNo = "3";
+		String withAndWithOutCooler = "NULL";
+		String withCooler = "YES";
+		String withOutCooler = "NO";
 		
-		String piD3 = "3";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Reading file.xls ";
+		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
+		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 		String date = "2017 - 2";
 		
 		
@@ -34,32 +44,47 @@ public class tesTing {
 		WithCooler yes = new WithCooler();
 		WithOutCooler no = new WithOutCooler();
 		
-		PopprobeLogin login = new PopprobeLogin();
-		login.logIn(driver);
-		
-		login.selectDropDowns(driver, date, country, channelUI);
-		ReadingCountryLevelDataFromUI dashboardData = new ReadingCountryLevelDataFromUI();
-		UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
-		ReadingCountryLevelXLData dataFromXL = new ReadingCountryLevelXLData();
-		UIAndXLCountryLevelData xldata = dataFromXL.readingCountryLevelXLData(readFilePath, compareCountry, channelXL, cooler);
-		
-		
-		test.compareCountryLevelCoolerData(driver, readFilePath, date, writeFilePath, uidata, xldata);
-		
-		login.coolerDropDown(driver);
-		ReadingCountryLevelDataFromUI dashboardDataYes = new ReadingCountryLevelDataFromUI();
-		UIAndXLCountryLevelData uidataYes = dashboardDataYes.readingDashBoardData(driver);
-		ReadingCountryLevelXLData dataFromXLYes = new ReadingCountryLevelXLData();
-		UIAndXLCountryLevelData xldataYes = dataFromXLYes.readingCountryLevelXLData(readFilePath, compareCountry, channelXL, coolerYes);
-		        		
-		yes.compareCountryLevelCoolerData(driver, readFilePath,  date, writeFilePath, uidataYes, xldataYes);
-		
-		/*login.coolerDropDownNo(driver);
-		ReadingCountryLevelDataFromUI dashboardData2 = new ReadingCountryLevelDataFromUI();
-		UICountryLevelData data2 = dashboardData2.readingDashBoardData(driver);
-
-		no.compareCountryLevelCoolerData(driver, readFilePath, compareCountry, channelXL, piD3, writeFilePath,data2);*/
-		
 	
-}
+
+		for (int i = 0; i < country.length; i++) {
+			WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
+			
+			PopprobeLogin login = new PopprobeLogin();
+			login.logIn(driver);
+			login.selectDropDowns(driver, date, country[i], channelUI);
+			ReadingCountryLevelDataFromUI dashboardData = new ReadingCountryLevelDataFromUI();
+			UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
+			ReadingCountryLevelXLData dataFromXL = new ReadingCountryLevelXLData();
+			UIAndXLCountryLevelData xldata = dataFromXL.readingCountryLevelXLData(readFilePath, compareCountry[i],
+					channelXL, cooler, withAndWithOutCooler);
+
+			test.compareCountryLevelCoolerData(writeSheet, readFilePath, date,  i, uidata, xldata);
+
+			login.coolerDropDown(driver);
+			ReadingCountryLevelDataFromUI dashboardDataYes = new ReadingCountryLevelDataFromUI();
+			UIAndXLCountryLevelData uidataYes = dashboardDataYes.readingDashBoardData(driver);
+			ReadingCountryLevelXLData dataFromXLYes = new ReadingCountryLevelXLData();
+			UIAndXLCountryLevelData xldataYes = dataFromXLYes.readingCountryLevelXLData(readFilePath, compareCountry[i],
+					channelXL, coolerYes, withCooler);
+			
+			
+   		  
+		yes.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataYes,	xldataYes);
+
+			login.coolerDropDownNo(driver);
+			ReadingCountryLevelDataFromUI dashboardDataNo = new ReadingCountryLevelDataFromUI();
+			UIAndXLCountryLevelData uidataNo = dashboardDataNo.readingDashBoardData(driver);
+			ReadingCountryLevelXLData dataFromXLNo = new ReadingCountryLevelXLData();
+			UIAndXLCountryLevelData xldataNo = dataFromXLNo.readingCountryLevelXLData(readFilePath, compareCountry[i],
+					channelXL, coolerNo, withOutCooler);
+			
+			no.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataNo, xldataNo);
+			login.logout(driver);
+			
+
+		}
+		writeWorkBook.write();
+		writeWorkBook.close();
+
+	}
 }

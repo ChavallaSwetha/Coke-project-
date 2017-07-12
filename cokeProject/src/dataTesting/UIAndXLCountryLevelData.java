@@ -20,6 +20,7 @@ public class UIAndXLCountryLevelData {
 	private String pidt;
 	private String channel;
 	private String pidTYes;
+	private String pidTNo;
 
 	public void setMPA(float mpa) {
 		mpaUI = mpa;
@@ -160,6 +161,20 @@ public class UIAndXLCountryLevelData {
 	}
 	public String getPIDT(){
 		return pidt;
+		
+	}
+	public void setPIDTYes(String xlPidt){
+		pidTYes = xlPidt;
+	}
+	public String getPIDTYes(){
+		return pidTYes;
+		
+	}
+	public void setPIDTNo(String xlPidt){
+		pidTNo = xlPidt;
+	}
+	public String getPIDTNo(){
+		return pidTNo;
 		
 	}
 	public void setKPItotalYES(String kpi){
