@@ -15,9 +15,7 @@ public class ComparingMissingStores {
 			throws IOException, WriteException {
 		
 		WritableSheet writableSheet = writeWorkBook.createSheet(countryUI, sh);
-		System.out.println("countryUI"+"   "+countryUI);
-		System.out.println("SheetNo"+"   "+sh);
-		
+				
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5;
 		Label strName = new Label(a, 0, "STORENAME");
 		writableSheet.addCell(strName);

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ReadingCountryLevelDataFromUI {
 
 	
-	public UICountryLevelData readingDashBoardData(WebDriver driver){
+	public UIAndXLCountryLevelData readingDashBoardData(WebDriver driver){
 	String total = driver
 			.findElement(
 					By.xpath(".//*[@id='dashboard-container']/div[2]/div[4]/div[1]/div[1]/div[5]/div/div[1]"))
@@ -44,7 +44,7 @@ public class ReadingCountryLevelDataFromUI {
 					.xpath(".//*[@id='dashboard-container']/div[2]/div[4]/div[1]/div[2]/div/table/tbody/tr[4]/td[7]"))
 			.getText();
 	float freshNess = Float.parseFloat(freshNEss);
-	UICountryLevelData kpiData = new UICountryLevelData();
+	UIAndXLCountryLevelData kpiData = new UIAndXLCountryLevelData();
 	
 	kpiData.setMPA(mpaUI);
 	kpiData.setSOVI(sOVIf);
