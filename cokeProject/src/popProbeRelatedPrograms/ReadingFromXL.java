@@ -1,4 +1,4 @@
-package missingStores;
+package popProbeRelatedPrograms;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class ReadingFromXL {
 		    Cell suryNo = sh.getCell(0, rwXL);
 		    String surveyXL = suryNo.getContents();
 		    System.out.println("Survey No"+"   "+ surveyXL);
-		    xLData.setSurveySK(storeXL, surveyXL);
+		 //   xLData.setSurveySK(storeXL, surveyXL[]);
 
 	}
 			

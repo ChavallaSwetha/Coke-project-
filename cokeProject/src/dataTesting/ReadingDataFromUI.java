@@ -43,15 +43,14 @@ public class ReadingDataFromUI {
 			dataUI.setTotalUI(storeName, totalUI);
 			String custSK = columns.get(2).getText();
 			storeName = rowData;
-			dataUI.setCustID(storeName, custSK);
+			dataUI.setCustUI(storeName, custSK);
 		}
 		dataUI.getTotalUI(storeName);
-		dataUI.getCustID(storeName);
+		dataUI.getCustUI(storeName);
 		dataUI.getRowsCountUI();
 		System.out.println(dataUI);
 		System.out.println("Reading Data from UI");
 		return dataUI;
-		
 	}
 
 }

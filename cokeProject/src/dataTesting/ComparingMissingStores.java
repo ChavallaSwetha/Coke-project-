@@ -35,8 +35,8 @@ public class ComparingMissingStores {
 		writableSheet1.addCell(Name);
 		Label str = new Label(a, 0, "STORENAME");
 		writableSheet2.addCell(str);*/
+		writableSheet.addCell(resuLT);
 		
-
 		String[] namesFromUI = dataUI.getNamesUI();
 		int j=1;
 		for (int i = 0; i < namesFromUI.length; i++) {
@@ -51,7 +51,7 @@ public class ComparingMissingStores {
 				writableSheet.addCell(storeNameFromUI);
 				Label result = new Label(f, j, "Missing in XL");
 				writableSheet.addCell(result);
-				Label custiD = new Label(e, j, dataUI.getCustID(namesUI));
+				Label custiD = new Label(e, j, dataUI.getCustUI(namesUI));
 				writableSheet.addCell(custiD);
 				Label uICountry = new Label(b, j,countryUI);
 				writableSheet.addCell(uICountry);
@@ -93,5 +93,8 @@ public class ComparingMissingStores {
 		
 		System.out.println("Comparing store level data and writing to XL");
 		}
+		   
+
+		
 		   
 }

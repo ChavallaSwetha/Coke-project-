@@ -1,4 +1,4 @@
-package dataTesting;
+package popProbeRelatedPrograms;
 
 public class GetStudentScores {
 	
