@@ -11,13 +11,13 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class ComparingMissingStores {
-	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xlData,String countryUI, String channelUI,int sh)
-			throws IOException, WriteException {
-		
+	public void comparingAndWritingData(String writeFilePath, WritableWorkbook writeWorkBook, UIData dataUI,
+			XLData xlData, String countryUI, String channelUI, int sh) throws IOException, WriteException {
+
 		WritableSheet writableSheet = writeWorkBook.createSheet(countryUI, sh);
-		System.out.println("countryUI"+"   "+countryUI);
-		System.out.println("SheetNo"+"   "+sh);
-		
+		System.out.println("countryUI" + "   " + countryUI);
+		System.out.println("SheetNo" + "   " + sh);
+
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5;
 		Label strName = new Label(a, 0, "STORENAME");
 		writableSheet.addCell(strName);
@@ -31,30 +31,30 @@ public class ComparingMissingStores {
 		writableSheet.addCell(custSk);
 		Label resuLT = new Label(f, 0, "RESULT");
 		writableSheet.addCell(resuLT);
-		
+
 		String[] namesFromUI = dataUI.getNamesUI();
-		int j=1;
+		int j = 1;
 		for (int i = 0; i < namesFromUI.length; i++) {
 			String namesUI = namesFromUI[i];
-			System.out.println("storesnamefromUI"+"      "+namesUI);
+			System.out.println("storesnamefromUI" + "      " + namesUI);
 			String[] xlValues = xlData.getICEvalues(namesUI);
-			System.out.println("xlValues"+"      "+xlValues);
-			
+			System.out.println("xlValues" + "      " + xlValues);
+
 			if (xlValues == null) {
-				
+
 				Label storeNameFromUI = new Label(a, j, namesUI);
 				writableSheet.addCell(storeNameFromUI);
 				Label result = new Label(f, j, "Missing in XL");
 				writableSheet.addCell(result);
 				Label custiD = new Label(e, j, dataUI.getCustUI(namesUI));
 				writableSheet.addCell(custiD);
-				Label uICountry = new Label(b, j,countryUI);
+				Label uICountry = new Label(b, j, countryUI);
 				writableSheet.addCell(uICountry);
 				Label uIChannel = new Label(c, j, channelUI);
 				writableSheet.addCell(uIChannel);
 				j++;
 			}
-			
+
 		}
 		String[] storesXL = xlData.getXLStore();
 		for (int x = 0; x < storesXL.length; x++) {
@@ -65,7 +65,7 @@ public class ComparingMissingStores {
 					found = true;
 				}
 			}
-			if(!found){
+			if (!found) {
 				Label result = new Label(f, j, "Missing in UI");
 				writableSheet.addCell(result);
 				Label xlStores = new Label(a, j, namesFromXL);
@@ -85,8 +85,7 @@ public class ComparingMissingStores {
 
 		}
 
-		
 		System.out.println("Comparing store level data and writing to XL");
-		}
-		   
+	}
+
 }

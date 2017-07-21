@@ -2,6 +2,10 @@ package dataTesting;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
@@ -11,9 +15,12 @@ import jxl.write.WriteException;
 //WebDriver driver = new ChromeDriver();
 
 public class ComparingStoreLevelDataAndWritingXL {
-	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xldata,String countryUI, String channelUI,int sh)
-			throws IOException, WriteException {
-		
+	public void comparingAndWritingData(String writeFilePath, WritableWorkbook writeWorkBook, UIData dataUI,
+			XLData xldata, String countryUI, String channelUI, int sh) throws IOException, WriteException {
+		/*
+		 * DateFormat df = new SimpleDateFormat("MM/dd/YYYY  HH:MM"); Date dt =
+		 * new Date(0); String time = df.format(dt);
+		 */
 		WritableSheet writeSheet = writeWorkBook.createSheet(countryUI, sh);
 		int a = 0, b = 1, c = 2, d = 3, e = 4, f = 5, g = 6, h = 7, j = 8;
 		Label country = new Label(a, 0, "COUNTRY");
@@ -89,8 +96,8 @@ public class ComparingStoreLevelDataAndWritingXL {
 					found = true;
 				}
 			}
-			if(!found){
-				System.out.println("Write To Excel"+ namesFromXL);
+			if (!found) {
+				System.out.println("Write To Excel" + namesFromXL);
 			}
 
 		}

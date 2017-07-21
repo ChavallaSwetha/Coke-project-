@@ -1,4 +1,4 @@
-package dataTesting;
+package popProbeRelatedPrograms;
 
 import java.io.IOException;
 
@@ -6,12 +6,12 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import dataTesting.PopprobeLogin;
 import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
-import popProbeRelatedPrograms.FilterBasedOnCriteria;
 
-public class PopprobeComparingCountryLevelData {
+public class PopprobeComparingCountryLevelDat {
 
 	public static void main(String[] args)
 			throws InterruptedException, RowsExceededException, BiffException, WriteException, IOException {

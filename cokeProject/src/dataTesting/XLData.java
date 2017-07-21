@@ -17,13 +17,13 @@ public class XLData {
 	}
 
 	public String[] getICEvalues(String storenameXL) {
-			return xlMap.get(storenameXL);
+		return xlMap.get(storenameXL);
 	}
-	
-	public String[] getXLStore(){
+
+	public String[] getXLStore() {
 		Set<String> store = xlMap.keySet();
 		return store.toArray(new String[0]);
-		
+
 	}
 
 }
