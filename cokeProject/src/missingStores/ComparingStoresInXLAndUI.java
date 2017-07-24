@@ -22,6 +22,8 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
+import popProbeRelatedPrograms.DataFromUI;
+import popProbeRelatedPrograms.DatafromXL;
 
 public class ComparingStoresInXLAndUI {
 

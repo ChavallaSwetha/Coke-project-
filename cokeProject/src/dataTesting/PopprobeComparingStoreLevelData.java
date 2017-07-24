@@ -33,8 +33,10 @@ public class PopprobeComparingStoreLevelData {
 		 * ,"Guadeloupe","Guyana","Jamaica","Martinique","Suriname",
 		 * "Trinidad & Tobago" };
 		 */
-		String[] countriesFromUI = { "BELIZE", "HAITI" };
-		String[] countriesFromExcel = { "Belize", "Haiti" };
+		/*String[] countriesFromUI = { "BELIZE", "HAITI" };
+		String[] countriesFromExcel = { "Belize", "Haiti" };*/
+		String[] countriesFromUI = { "BARBADOS"};
+		String[] countriesFromExcel = { "Barbados" };
 		String date = "2017 - 6";
 		String channelFromXL = "tradicional";
 		String channel = "HOME MARKET TRADITIONAL";

@@ -24,10 +24,11 @@ public class PopprobeComparingPremiseCountryLevelData {
 			WebDriver driver = new ChromeDriver();
 			String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
 			
-			/*String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUADELOUPE","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
-			String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guadeloupe","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
-			String[] country = {"BARBADOS","BAHAMAS"};
-			String[] compareCountry = {"Barbados","Bahamas"};
+			/*String[] country = {"BARBADOS","BAHAMAS","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
+			String[] compareCountry = {"Barbados","Bahamas","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
+			String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
+					  compareCountry = { "French Guiana","Guadeloupe"};
+			
 			String channelUI = "ON PREMISE";
 			String channelXL = "On Premise";
 			String cooler = "4";
@@ -37,7 +38,7 @@ public class PopprobeComparingPremiseCountryLevelData {
 			String withCooler = "YES";
 			String withOutCooler = "NO";
 
-			String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Belize_Haiti_Country_Level_June.xls";
+			String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/FG_GD_Premise_Country_Level_June.xls";
 			FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 			WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 			String date = "2017 - 6";
@@ -61,14 +62,14 @@ public class PopprobeComparingPremiseCountryLevelData {
 
 				test.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidata, xldata);
 
-				login.coolerDropDown(driver);
+				/*login.coolerDropDown(driver);
 				ReadingCountryLevelDataFromUI dashboardDataYes = new ReadingCountryLevelDataFromUI();
 				UIAndXLCountryLevelData uidataYes = dashboardDataYes.readingDashBoardData(driver);
 				ReadingCountryLevelPremiseXLData dataFromXLYes = new ReadingCountryLevelPremiseXLData();
 				UIAndXLCountryLevelData xldataYes = dataFromXLYes.readingCountryLevelXLData(readFilePath, compareCountry[i],
 						channelXL, coolerYes, withCooler);
 
-				yes.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataYes, xldataYes);
+				yes.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataYes, xldataYes);*/
 
 				login.coolerDropDownNo(driver);
 				ReadingCountryLevelDataFromUI dashboardDataNo = new ReadingCountryLevelDataFromUI();

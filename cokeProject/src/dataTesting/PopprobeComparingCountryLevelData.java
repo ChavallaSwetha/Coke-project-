@@ -22,17 +22,17 @@ public class PopprobeComparingCountryLevelData {
 				"C:/Users/Mona Lisa/Downloads/chromedriver_win32/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
-		/*
-		 * String[] country = {
-		 * "BARBADOS","BAHAMAS","GUYANA","JAMAICA","MARTINIQUE","SURINAME",
-		 * "TRINIDAD Y TOBAGO" }; String[] compareCountry = {
-		 * "Barbados","Bahamas","Guyana","Jamaica","Martinique","Suriname",
-		 * "Trinidad & Tobago" };
-		 */
-		/*
-		 * String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
-		 * compareCountry = { "French Guiana","Guadeloupe"};
-		 */
+		
+		  /*String[] country = {
+		  "BARBADOS","BAHAMAS","GUYANA","JAMAICA","MARTINIQUE","SURINAME",
+		  "TRINIDAD Y TOBAGO" }; String[] compareCountry = {
+		  "Barbados","Bahamas","Guyana","Jamaica","Martinique","Suriname",
+		 "Trinidad & Tobago" };*/
+		 
+		
+		 /* String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
+		  compareCountry = { "French Guiana","Guadeloupe"};*/
+		 
 		String[] country = { "BELIZE", "HAITI" };
 		String[] compareCountry = { "Belize", "Haiti" };
 
@@ -59,7 +59,7 @@ public class PopprobeComparingCountryLevelData {
 
 			PopprobeLogin login = new PopprobeLogin();
 			login.logIn(driver);
-			 login.selectDropDowns(driver, date, country[i], channelUI);
+			login.selectDropDowns(driver, date, country[i], channelUI);
 			//login.selectDropDowns(driver, date, country[i]);
 			ReadingCountryLevelDataFromUI dashboardData = new ReadingCountryLevelDataFromUI();
 			UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
