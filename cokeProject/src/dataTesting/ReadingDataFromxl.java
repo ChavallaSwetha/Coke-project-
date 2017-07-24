@@ -28,7 +28,7 @@ public class ReadingDataFromxl {
 		int rowsCountXL = row;
 		System.out.println("No of rows in XL" + "     " + rowsCountXL);
 		for (int rwXL = 1; rwXL < rowsCountXL; rwXL++) {
-			String[] xlDataArray = new String[9];
+			String[] xlDataArray = new String[10];
 			Cell conTryXL = sh.getCell(20, rwXL);
 			xlDataArray[1] = conTryXL.getContents();
 
@@ -61,6 +61,11 @@ public class ReadingDataFromxl {
 					xlDataArray[3] = chanlXL.getContents();
 					Cell subChXL = sh.getCell(28, rwXL);
 					xlDataArray[4] = subChXL.getContents();
+					Cell railXL = sh.getCell(4, rwXL);
+					String railFromXL = railXL.getContents();
+					String remove = "Enrejado";
+					String railAfterConverting = railFromXL.replace(remove, "");
+					xlDataArray[9] = railAfterConverting;
 					xlDataArray[5] = iceValue;
 					xlDataArray[6] = storeName;
 					xlDataArray[7] = survyNO;

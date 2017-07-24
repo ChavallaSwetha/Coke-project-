@@ -42,11 +42,20 @@ public class ReadingDataFromUI {
 			String custSK = columns.get(2).getText();
 			storeName = rowData;
 			dataUI.setCustUI(storeName, custSK);
+			String railing = columns.get(4).getText();
+			storeName = rowData;
+			dataUI.setRailUI(storeName, railing);
+			String cooler = columns.get(3).getText();
+			storeName = rowData;
+			dataUI.setCoolUI(storeName, cooler);
+			
 		}
 		dataUI.getTotalUI(storeName);
 		dataUI.getCustUI(storeName);
 		dataUI.getRowsCountUI();
-		System.out.println(dataUI);
+		dataUI.getRailUI(storeName);
+		dataUI.getCoolUI(storeName);
+		//System.out.println(dataUI.getRailUI(storeName));
 		System.out.println("Reading Data from UI");
 		return dataUI;
 	}

@@ -51,8 +51,27 @@ public class UIData {
 			return uICust;
 			}
 
-			
-
+			private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
+			public void setRailUI(String namesUI, String railUI){
+				namesUI = namesUI.replaceAll("[ ,.&()/']", "");
+				mapdataFromUI.put(namesUI.toLowerCase(), railUI);
+				
+			}
+				public String getRailUI(String namesUI){
+				String uIRail= mapdataFromUI.get(namesUI);
+				return uIRail;
+				}
+     
+				private HashMap<String, String> mapCoolFromUI = new HashMap<String,String>();
+				public void setCoolUI(String namesUI, String coolUI){
+					namesUI = namesUI.replaceAll("[ ,.&()/']", "");
+					mapCoolFromUI.put(namesUI.toLowerCase(), coolUI);
+					
+				}
+					public String getCoolUI(String namesUI){
+					String uICool= mapCoolFromUI.get(namesUI);
+					return uICool;
+					}
 			
 			
 			

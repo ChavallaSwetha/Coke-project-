@@ -62,7 +62,7 @@ public class PopprobeComparingStoreLevelData {
 			XLData xldata = storeAndIce.readingDataFromXL(readFilePath, countriesFromExcel[i], channelFromXL);
 			compare.comparingAndWritingData(writeFilePath, writeWorkBook, dataUI, xldata, countriesFromUI[i], channel,
 					i);
-			login.logout(driver);
+			//login.logout(driver);
 
 		}
 		writeWorkBook.write();
