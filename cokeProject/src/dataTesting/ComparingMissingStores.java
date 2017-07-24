@@ -1,19 +1,16 @@
 package dataTesting;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-
-import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 
 public class ComparingMissingStores {
-	public void comparingAndWritingData(String writeFilePath, WritableWorkbook writeWorkBook, UIData dataUI,
-			XLData xlData, String countryUI, String channelUI, int sh) throws IOException, WriteException {
 
+	public void comparingAndWritingData(String writeFilePath,WritableWorkbook writeWorkBook, UIData dataUI, XLData xlData,String countryUI, String channelUI,int sh)
+			throws IOException, WriteException {
+		
 		WritableSheet writableSheet = writeWorkBook.createSheet(countryUI, sh);
 		System.out.println("countryUI" + "   " + countryUI);
 		System.out.println("SheetNo" + "   " + sh);
@@ -32,13 +29,20 @@ public class ComparingMissingStores {
 		Label resuLT = new Label(f, 0, "RESULT");
 		writableSheet.addCell(resuLT);
 
+		
+		
+
 		String[] namesFromUI = dataUI.getNamesUI();
 		int j = 1;
 		for (int i = 0; i < namesFromUI.length; i++) {
 			String namesUI = namesFromUI[i];
+
 			System.out.println("storesnamefromUI" + "      " + namesUI);
 			String[] xlValues = xlData.getICEvalues(namesUI);
 			System.out.println("xlValues" + "      " + xlValues);
+
+
+					
 
 			if (xlValues == null) {
 
@@ -86,6 +90,13 @@ public class ComparingMissingStores {
 		}
 
 		System.out.println("Comparing store level data and writing to XL");
+
 	}
 
-}
+
+		}
+		   
+
+		
+		   
+

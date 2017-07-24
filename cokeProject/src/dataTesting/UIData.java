@@ -32,25 +32,30 @@ public class UIData {
 	public Float getTotalUI(String namesUI) {
 		Float uITotal = mapUIdata.get(namesUI);
 		return uITotal;
-	}
 
-	public String toString() {
-		System.out.println("UI data");
-		return mapUIdata.toString();
+		}
+		
+		public String toString(){
+			System.out.println("UI data");
+			return mapUIdata.toString();
+			
+		}
+		private HashMap<String, String> mapdataUI = new HashMap<String,String>();
+		public void setCustUI(String namesUI, String custUI){
+			namesUI = namesUI.replaceAll("[ ,.&()/']", "");
+			mapdataUI.put(namesUI.toLowerCase(), custUI);
+			
+		}
+			public String getCustUI(String namesUI){
+			String uICust= mapdataUI.get(namesUI);
+			return uICust;
+			}
 
-	}
+			
 
-	private HashMap<String, String> mapdataUI = new HashMap<String, String>();
+			
+			
+			
 
-	public void setCustUI(String namesUI, String custUI) {
-		namesUI = namesUI.replaceAll("[ ,.&()/']", "");
-		mapdataUI.put(namesUI.toLowerCase(), custUI);
-
-	}
-
-	public String getCustUI(String namesUI) {
-		String uICust = mapdataUI.get(namesUI);
-		return uICust;
-	}
 
 }
