@@ -1,11 +1,10 @@
 package dataTesting;
 
-import java.io.BufferedReader;
+
 import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.HashMap;
+
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -64,7 +63,8 @@ public class ReadingDataFromxl {
 					Cell railXL = sh.getCell(4, rwXL);
 					String railFromXL = railXL.getContents();
 					String remove = "Enrejado";
-					String railAfterConverting = railFromXL.replace(remove, "");
+					String railAfterConvert = railFromXL.replace(remove, "");
+					String railAfterConverting = railAfterConvert.replaceAll(" ", "");
 					xlDataArray[9] = railAfterConverting;
 					xlDataArray[5] = iceValue;
 					xlDataArray[6] = storeName;

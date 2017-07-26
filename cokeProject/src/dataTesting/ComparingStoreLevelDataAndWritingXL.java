@@ -1,12 +1,12 @@
 package dataTesting;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
-import jxl.Workbook;
+import java.io.IOException;
+
+
+import com.google.common.base.Objects;
+
+
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
@@ -56,8 +56,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 		String[] namesFromUI = dataUI.getNamesUI();
 		for (int i = 0; i < namesFromUI.length; i++) {
 			Label result = null;
-			Label coolResult = null;
-			Label railResult = null;
+			
 			String namesUI = namesFromUI[i];
 			Float totalUI = dataUI.getTotalUI(namesUI);
 			System.out.println("total value in UI" + "   " + totalUI);
@@ -97,24 +96,32 @@ public class ComparingStoreLevelDataAndWritingXL {
 				writeSheet.addCell(railUI);
 				Label railXL = new Label(m, i+1, xlValues[9]);
 				writeSheet.addCell(railXL);
-				String coolerFromUI = dataUI.getCoolUI(namesUI);
 				Label coolUI = new Label(k, i+1, dataUI.getCoolUI(namesUI));
 				writeSheet.addCell(coolUI);
 				
-				if (cooleRXL.equals(coolerFromUI)){
-					coolResult = new Label(l, i+1, "True");
-					
-					}
-				else {
-					coolResult = new Label(l, i+1, "False");
-				}
+				String coolerFromUI = dataUI.getCoolUI(namesUI);
+				String coolerFromXL = xlValues[0];
+							
+				Boolean resultOfCooler = Objects.equal(coolerFromXL, coolerFromUI);
+				String coolerResult = String.valueOf(resultOfCooler);
+					Label coolResult = new Label(l, i+1, coolerResult);
+					writeSheet.addCell(coolResult);
 				String railFromUI = dataUI.getRailUI(namesUI);
-				if (railXL.equals(railFromUI)){
-					railResult = new Label(o, i+1, "True");
-					}
-				else {
-					railResult = new Label(o, i+1, "False");
+				String railingXL = xlValues[9];
+				String railInVisible = "In"; 
+				if (railFromUI.contains(railInVisible)){
+					railFromUI =  railFromUI.replaceAll("Inv", "NoV");
+				
 				}
+				
+				System.out.println("Rail from UI"+"    "+railFromUI);
+				System.out.println("Rail from XL"+"    "+railingXL);
+				Boolean resultOfRail = Objects.equal(railingXL, railFromUI);
+				System.out.println("Result of railing"+"    "+resultOfRail);
+				String railResult = String.valueOf(resultOfRail);
+				Label railingResult = new Label(o, i+1, railResult);
+				writeSheet.addCell(railingResult);
+				
 				float diffBetweentotalUIAndIceValueXL = Math.abs(totalUI - Float.parseFloat(iceFromXl));
 				if (diffBetweentotalUIAndIceValueXL >= 0.5) {
 					result = new Label(h, i + 1, "Mismatch");
@@ -125,8 +132,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 				}
 			}
 			writeSheet.addCell(result);
-			writeSheet.addCell(coolResult);
-			writeSheet.addCell(railResult);
+			
 		}
 
 		

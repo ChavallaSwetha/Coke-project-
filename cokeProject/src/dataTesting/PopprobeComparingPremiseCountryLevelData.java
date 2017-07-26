@@ -62,14 +62,14 @@ public class PopprobeComparingPremiseCountryLevelData {
 
 				test.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidata, xldata);
 
-				/*login.coolerDropDown(driver);
+				login.coolerDropDown(driver);
 				ReadingCountryLevelDataFromUI dashboardDataYes = new ReadingCountryLevelDataFromUI();
 				UIAndXLCountryLevelData uidataYes = dashboardDataYes.readingDashBoardData(driver);
 				ReadingCountryLevelPremiseXLData dataFromXLYes = new ReadingCountryLevelPremiseXLData();
 				UIAndXLCountryLevelData xldataYes = dataFromXLYes.readingCountryLevelXLData(readFilePath, compareCountry[i],
 						channelXL, coolerYes, withCooler);
 
-				yes.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataYes, xldataYes);*/
+				yes.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataYes, xldataYes);
 
 				login.coolerDropDownNo(driver);
 				ReadingCountryLevelDataFromUI dashboardDataNo = new ReadingCountryLevelDataFromUI();
