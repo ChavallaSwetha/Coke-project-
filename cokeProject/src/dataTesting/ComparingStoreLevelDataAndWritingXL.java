@@ -68,7 +68,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 
 			String[] xlValues = xldata.getICEvalues(namesUI);
 
-			System.out.println(xlValues);
+			//System.out.println(xlValues);
 
 
 
@@ -107,17 +107,17 @@ public class ComparingStoreLevelDataAndWritingXL {
 					Label coolResult = new Label(l, i+1, coolerResult);
 					writeSheet.addCell(coolResult);
 				String railFromUI = dataUI.getRailUI(namesUI);
+				System.out.println("Store Name"+"    "+namesUI);
+				System.out.println("Railing From UI"+"    "+railFromUI);
 				String railingXL = xlValues[9];
-				String railInVisible = "In"; 
+				String railInVisible = "Inv"; 
 				if (railFromUI.contains(railInVisible)){
-					railFromUI =  railFromUI.replaceAll("Inv", "NoV");
+					railFromUI =  railFromUI.replaceAll(railInVisible, "NoV");
 				
 				}
 				
-				System.out.println("Rail from UI"+"    "+railFromUI);
-				System.out.println("Rail from XL"+"    "+railingXL);
+				
 				Boolean resultOfRail = Objects.equal(railingXL, railFromUI);
-				System.out.println("Result of railing"+"    "+resultOfRail);
 				String railResult = String.valueOf(resultOfRail);
 				Label railingResult = new Label(o, i+1, railResult);
 				writeSheet.addCell(railingResult);

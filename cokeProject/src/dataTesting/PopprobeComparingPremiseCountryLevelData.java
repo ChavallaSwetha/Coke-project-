@@ -24,10 +24,10 @@ public class PopprobeComparingPremiseCountryLevelData {
 			WebDriver driver = new ChromeDriver();
 			String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
 			
-			/*String[] country = {"BARBADOS","BAHAMAS","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
-			String[] compareCountry = {"Barbados","Bahamas","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
-			String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
-					  compareCountry = { "French Guiana","Guadeloupe"};
+			String[] country = {"BARBADOS","BAHAMAS","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
+			String[] compareCountry = {"Barbados","Bahamas","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
+			/*String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
+					  compareCountry = { "French Guiana","Guadeloupe"};*/
 			
 			String channelUI = "ON PREMISE";
 			String channelXL = "On Premise";
@@ -38,7 +38,7 @@ public class PopprobeComparingPremiseCountryLevelData {
 			String withCooler = "YES";
 			String withOutCooler = "NO";
 
-			String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/FG_GD_Premise_Country_Level_June.xls";
+			String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/All_Countries_Premise_Country_Level_June.xls";
 			FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 			WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 			String date = "2017 - 6";
