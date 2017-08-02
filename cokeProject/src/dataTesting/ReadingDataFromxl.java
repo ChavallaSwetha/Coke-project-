@@ -79,5 +79,4 @@ import jxl.read.biff.BiffException;
 
 			return xlData;
 		}
-
-	}
+}
