@@ -41,9 +41,9 @@ public class ReadingDataFromxl {
 				if (channelXL.endsWith(channelFromXL)) {
 					System.out.println("excel row chaneel " + channelXL);
 					if (channelXLbeforeconverting.contains(S)) {
-						channelXLAfterconverting = "No";
+						channelXLAfterconverting = "no";
 					} else {
-						channelXLAfterconverting = "Yes";
+						channelXLAfterconverting = "yes";
 					}
 
 					Cell survyNo = sh.getCell(0, rwXL);
@@ -65,7 +65,7 @@ public class ReadingDataFromxl {
 					String remove = "Enrejado";
 					String railAfterConvert = railFromXL.replace(remove, "");
 					String railAfterConverting = railAfterConvert.replaceAll(" ", "");
-					xlDataArray[9] = railAfterConverting;
+					xlDataArray[9] = railAfterConverting.toLowerCase();
 					xlDataArray[5] = iceValue;
 					xlDataArray[6] = storeName;
 					xlDataArray[7] = survyNO;

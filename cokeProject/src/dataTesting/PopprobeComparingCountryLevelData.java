@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -22,10 +23,10 @@ public class PopprobeComparingCountryLevelData {
 		WebDriver driver = new ChromeDriver();
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
 		
-		  String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
-		  String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
+		  /*String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
+		  String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
 		 
-			 		 
+		String[] country = {"BARBADOS"};		 
 		/*String[] country = { "BELIZE", "HAITI" };
 		String[] compareCountry = { "Belize", "Haiti" };*/
 
@@ -47,7 +48,7 @@ public class PopprobeComparingCountryLevelData {
 		WithCooler yes = new WithCooler();
 		WithOutCooler no = new WithOutCooler();
 
-		for (int i = 0; i < country.length; i++) {
+		/*for (int i = 0; i < country.length; i++) {
 			WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
 
 			PopprobeLogin login = new PopprobeLogin();
@@ -81,6 +82,19 @@ public class PopprobeComparingCountryLevelData {
 			no.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataNo, xldataNo);
 			login.logout(driver);
 
+		}*/
+		for (int i = 0; i < country.length; i++) {
+		WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
+
+		PopprobeNewLogin filters = new PopprobeNewLogin();
+		filters.logIn(driver);
+		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.linkText("STORES")).click();
+		filters.selectDropDowns(driver, date, country[i], channelUI);
+		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[1]/md-menu")).click();
+		ReadingCountryLevelDataFromNewUI dashboardData = new ReadingCountryLevelDataFromNewUI();
+		UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
 		}
 		writeWorkBook.write();
 		writeWorkBook.close();

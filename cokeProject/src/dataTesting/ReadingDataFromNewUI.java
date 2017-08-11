@@ -17,22 +17,28 @@ public class ReadingDataFromNewUI {
 	public UIData readingDataFromUI(WebDriver driver,String date, String country, String channel) throws InterruptedException, IOException {
 	
 	UIData dataUI = new UIData();
+	
+	
 	String storeName = null;
 	Float totalUIAfterConvertingTofloat;
 	Float totalUI = null;
 	driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
 	Thread.sleep(3000);
 	driver.findElement(By.linkText("STORES")).click();
-	Thread.sleep(3000);
 	PopprobeNewLogin filters = new PopprobeNewLogin();
 	filters.selectDropDowns(driver, date, country, channel);
-	
-	
+	ReadingDataFromCountriesNewUI strCount = new ReadingDataFromCountriesNewUI();
+	UIData storesFromCountry = strCount.readingDataFromCountries(driver,country);
+	driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.linkText("STORES")).click();
+	Thread.sleep(3000);
+	int stores = 0;
+	while(true){
 	WebElement storeData = driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[1]"));
 	List<WebElement> customerData = storeData.findElements(By.tagName("tbody"));
 	Thread.sleep(3000);
-	for (int x=0; x< customerData.size(); x++){
-	List<WebElement> tableRows = customerData.get(x).findElements(By.tagName("tr"));
+	List<WebElement> tableRows = customerData.get(0).findElements(By.tagName("tr"));
 	int rowsCount = tableRows.size();
 	System.out.println("No of rows in UI" + "      " + rowsCount);
 	for (int i = 0; i < rowsCount; i++) {
@@ -41,13 +47,8 @@ public class ReadingDataFromNewUI {
 		System.out.println("Store name"+"    "+rowData);
 		String totalInUI = columns.get(5).getText();
 		System.out.println("Store total"+"    "+totalInUI);
-		StringBuilder total = new StringBuilder();
-		for (int s=0; s<2; s++){
-			if(Character.isDigit(totalInUI.charAt(s))){
-				total.append(totalInUI.charAt(s));
-			}
-		}
-		totalUIAfterConvertingTofloat = Float.parseFloat(total.toString());
+		String total = totalInUI.replaceAll("[^\\d.]", "");
+		totalUIAfterConvertingTofloat = Float.parseFloat(total);
 		System.out.println("totalUIAfterConvertingTofloat"+"  "+totalUIAfterConvertingTofloat);
 		storeName = rowData;
 		totalUI = totalUIAfterConvertingTofloat;
@@ -58,11 +59,17 @@ public class ReadingDataFromNewUI {
 		String cooler = columns.get(2).getText();
 		storeName = rowData;
 		dataUI.setCoolUI(storeName, cooler);
-		//driver.findElement(By.xpath("/html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[1]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[5]/figure/button")).click();// next button
+		 String store = columns.get(0).getText();
+		 int noOfStores = Integer.parseInt(store);
+	      stores = noOfStores;
+	}
+	if (stores == storesFromCountry.getStoreCount()){
+		break;
+	}
+	driver.findElement(By.xpath("/html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[1]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[5]/figure/button")).click();// next button
+	
 	
 	}
-	}
-	Thread.sleep(3000);
 	
 	/*WebElement lastPage = driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[2]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[6]/figure/button"));
 	WebDriverWait wait = new WebDriverWait(driver, 50);
@@ -74,7 +81,7 @@ public class ReadingDataFromNewUI {
 	dataUI.getRailUI(storeName);
 	dataUI.getCoolUI(storeName);
 	Thread.sleep(3000);
-	System.out.println("Reading Data from UI");
+	//System.out.println("Reading Data from UI");
 	return dataUI;
 	
 }

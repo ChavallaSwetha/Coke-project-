@@ -6,6 +6,7 @@ import java.util.Set;
 public class UIData {
 
 	private int rowsCountUI;
+	private int storeCount;
 
 	public int getRowsCountUI() {
 		return rowsCountUI;
@@ -53,7 +54,7 @@ public class UIData {
 			private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
 			public void setRailUI(String namesUI, String railUI){
 				namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
-				mapdataFromUI.put(namesUI.toLowerCase(), railUI);
+				mapdataFromUI.put(namesUI.toLowerCase(), railUI.toLowerCase());
 				
 			}
 				public String getRailUI(String namesUI){
@@ -64,7 +65,7 @@ public class UIData {
 				private HashMap<String, String> mapCoolFromUI = new HashMap<String,String>();
 				public void setCoolUI(String namesUI, String coolUI){
 					namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
-					mapCoolFromUI.put(namesUI.toLowerCase(), coolUI);
+					mapCoolFromUI.put(namesUI.toLowerCase(), coolUI.toLowerCase());
 					
 				}
 					public String getCoolUI(String namesUI){
@@ -72,8 +73,12 @@ public class UIData {
 					return uICool;
 					}
 			
-			
-			
+			public void setStoreCount(int strCount){
+				this.storeCount = strCount;
+			}
+			public int getStoreCount(){
+				return storeCount;
+			}
 
-
+			
 }

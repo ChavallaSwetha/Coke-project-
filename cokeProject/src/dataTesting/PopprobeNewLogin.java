@@ -14,7 +14,7 @@ public class PopprobeNewLogin {
 	
 	
 	driver.get("http://beta.popprobe.com/#!/auth/login");
-	Thread.sleep(3000);
+	Thread.sleep(5000);
 	driver.findElement(By.name("Email")).sendKeys("coke@bifortis.com");
 	Thread.sleep(3000);
 	driver.findElement(By.name("password")).sendKeys("coke");
@@ -46,4 +46,11 @@ public class PopprobeNewLogin {
 		  Thread.sleep(3000); 
 		 
 	 }
+	 public void logout(WebDriver driver) throws InterruptedException {
+			driver.findElement(
+					By.xpath("html/body/layout/div/nav-bar/md-toolbar/div/div/div[3]/div[4]/md-menu/button"))
+					.click();
+			Thread.sleep(2000);
+			driver.findElement(By.linkText("LOGOUT")).click();
+		}
 }

@@ -55,7 +55,6 @@ public class ReadingDataFromUI {
 		dataUI.getRowsCountUI();
 		dataUI.getRailUI(storeName);
 		dataUI.getCoolUI(storeName);
-		//System.out.println(dataUI.getRailUI(storeName));
 		System.out.println("Reading Data from UI");
 		return dataUI; 
 	}	

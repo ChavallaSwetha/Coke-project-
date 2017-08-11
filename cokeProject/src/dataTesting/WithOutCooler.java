@@ -166,8 +166,6 @@ public class WithOutCooler {
 		}
 		writeSheet.addCell(result);
 
-		/*
-		 * wwbook.write(); wwbook.close();
-		 */
+		
 	}
 }
