@@ -24,7 +24,7 @@ public class PopprobeComparingStoreLevelData {
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
 		
 		
-		String[] countriesFromUI = {"BAHAMAS"};//,"BARBADOS","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
+	/*	String[] countriesFromUI = {"BAHAMAS"};//,"BARBADOS","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
 		String[] countriesFromExcel = {"Bahamas"};//,"Barbados","Martinique","Suriname","Trinidad & Tobago"};
 		String date = "2017 - 6";
 		String channelFromXL ="tradicional";
@@ -54,6 +54,18 @@ public class PopprobeComparingStoreLevelData {
 		}
 		writeWorkBook.write();
 		writeWorkBook.close();
+	}*/
+	
+	// For New App
+			System.setProperty("webdriver.chrome.driver",
+					"C:/Users/Swetha/Downloads/chromedriver_win32/chromedriver.exe");
+			WebDriver driver = new ChromeDriver();
+			String[] countriesFromUI = { "BARBADOS"};
+			String date = "2017 - 6";
+			String channel = "ON PREMISE";
+			PopprobeNewLogin login = new PopprobeNewLogin();
+			login.logIn(driver);
+			ReadingDataFromNewUI namesAndTotal = new ReadingDataFromNewUI();
+			UIData dataUI = namesAndTotal.readingDataFromUI(driver,date, countriesFromUI[0], channel);
 	}
-
 }
