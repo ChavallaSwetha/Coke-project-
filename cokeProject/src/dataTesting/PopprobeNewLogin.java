@@ -46,6 +46,28 @@ public class PopprobeNewLogin {
 		  Thread.sleep(3000); 
 		 
 	 }
+	 public void coolerDropDown(WebDriver driver) throws InterruptedException {
+			Thread.sleep(4000);
+			driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/filter/div/section/section/div/div/div/div[1]/div[7]/md-menu/button")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.linkText("YES")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/button[1]")).click(); // Apply
+			// button
+			Thread.sleep(4000);
+		}
+
+		public void coolerDropDownNo(WebDriver driver) throws InterruptedException {
+			driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/filter/div/section/section/div/div/div/div[1]/div[7]/md-menu/button")).click();
+			Thread.sleep(4000);
+			/*driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/filter/div/section/section/div/div/div/div[1]/div[7]/md-menu/button")).click();
+			Thread.sleep(4000);*/
+			driver.findElement(By.linkText("NO")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div/div[2]/button[1]")).click(); // Apply
+			// button
+			Thread.sleep(4000);
+		}
 	 public void logout(WebDriver driver) throws InterruptedException {
 			driver.findElement(
 					By.xpath("html/body/layout/div/nav-bar/md-toolbar/div/div/div[3]/div[4]/md-menu/button"))

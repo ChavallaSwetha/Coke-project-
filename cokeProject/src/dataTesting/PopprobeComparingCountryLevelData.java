@@ -26,7 +26,8 @@ public class PopprobeComparingCountryLevelData {
 		  /*String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
 		  String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
 		 
-		String[] country = {"BARBADOS"};		 
+		String[] country = {"BARBADOS"};
+		String[] compareCountry = {"Barbados"};
 		/*String[] country = { "BELIZE", "HAITI" };
 		String[] compareCountry = { "Belize", "Haiti" };*/
 
@@ -83,21 +84,6 @@ public class PopprobeComparingCountryLevelData {
 			login.logout(driver);
 
 		}*/
-		for (int i = 0; i < country.length; i++) {
-		WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
-
-		PopprobeNewLogin filters = new PopprobeNewLogin();
-		filters.logIn(driver);
-		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.linkText("STORES")).click();
-		filters.selectDropDowns(driver, date, country[i], channelUI);
-		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[1]/md-menu")).click();
-		ReadingCountryLevelDataFromNewUI dashboardData = new ReadingCountryLevelDataFromNewUI();
-		UIAndXLCountryLevelData uidata = dashboardData.readingDashBoardData(driver);
-		}
-		writeWorkBook.write();
-		writeWorkBook.close();
-
-	}
+		
+}
 }
