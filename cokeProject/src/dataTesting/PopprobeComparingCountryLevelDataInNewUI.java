@@ -24,11 +24,10 @@ public class PopprobeComparingCountryLevelDataInNewUI {
 			WebDriver driver = new ChromeDriver();
 			String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
 			
-			  /*String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
-			  String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };*/
+			  String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUYANA","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
+			  String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guyana","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
 			 
-			String[] country = {"BARBADOS"};
-			String[] compareCountry = {"Barbados"};
+			
 			/*String[] country = { "BELIZE", "HAITI" };
 			String[] compareCountry = { "Belize", "Haiti" };*/
 
@@ -49,11 +48,12 @@ public class PopprobeComparingCountryLevelDataInNewUI {
 			WithAndWithOutCooler test = new WithAndWithOutCooler();
 			WithCooler yes = new WithCooler();
 			WithOutCooler no = new WithOutCooler();
+			PopprobeNewLogin filters = new PopprobeNewLogin();
+			filters.logIn(driver);
 			for (int i = 0; i < country.length; i++) {
 				WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
 
-				PopprobeNewLogin filters = new PopprobeNewLogin();
-				filters.logIn(driver);
+				
 				Thread.sleep(3000);
 				driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
 				Thread.sleep(3000);

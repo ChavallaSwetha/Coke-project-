@@ -49,7 +49,7 @@ public class PopprobeComparingCountryLevelData {
 		WithCooler yes = new WithCooler();
 		WithOutCooler no = new WithOutCooler();
 
-		/*for (int i = 0; i < country.length; i++) {
+		for (int i = 0; i < country.length; i++) {
 			WritableSheet writeSheet = writeWorkBook.createSheet(country[i], i);
 
 			PopprobeLogin login = new PopprobeLogin();
@@ -83,7 +83,8 @@ public class PopprobeComparingCountryLevelData {
 			no.compareCountryLevelCoolerData(writeSheet, readFilePath, date, i, uidataNo, xldataNo);
 			login.logout(driver);
 
-		}*/
-		
+		}
+		writeWorkBook.write();
+		writeWorkBook.close();
 }
 }

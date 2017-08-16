@@ -148,7 +148,7 @@ public class PremiseWithOutCooler {
 					writeSheet.addCell(result);
 					Label counTry6 = new Label(0, 18, xldata.getCOUNTRY());
 					writeSheet.addCell(counTry6);
-					Label daTe6 = new Label(1, 15, date);
+					Label daTe6 = new Label(1, 18, date);
 					writeSheet.addCell(daTe6);
 					Label chaNNel6 = new Label(2, 18, xldata.getCHANNEL());
 					writeSheet.addCell(chaNNel6);
