@@ -27,6 +27,7 @@ public class ReadingDataFromNewUI {
 	driver.findElement(By.linkText("STORES")).click();
 	PopprobeNewLogin filters = new PopprobeNewLogin();
 	filters.selectDropDowns(driver, date, country, channel);
+	//filters.selectDropDowns(driver, date, country); // For Belize
 	ReadingDataFromCountriesNewUI strCount = new ReadingDataFromCountriesNewUI();
 	UIData storesFromCountry = strCount.readingDataFromCountries(driver,country);
 	driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/md-menu")).click();
@@ -35,7 +36,7 @@ public class ReadingDataFromNewUI {
 	Thread.sleep(3000);
 	int stores = 0;
 	while(true){
-	WebElement storeData = driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[1]"));
+	WebElement storeData = driver.findElement(By.xpath("html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[2]"));
 	List<WebElement> customerData = storeData.findElements(By.tagName("tbody"));
 	Thread.sleep(3000);
 	List<WebElement> tableRows = customerData.get(0).findElements(By.tagName("tr"));
@@ -66,7 +67,8 @@ public class ReadingDataFromNewUI {
 	if (stores == storesFromCountry.getStoreCount()){
 		break;
 	}
-	driver.findElement(By.xpath("/html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[1]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[5]/figure/button")).click();// next button
+	
+	driver.findElement(By.xpath("/html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[2]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[5]/figure/button")).click();// next button
 	
 	
 	}

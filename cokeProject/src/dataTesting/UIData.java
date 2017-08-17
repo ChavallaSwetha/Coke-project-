@@ -43,6 +43,24 @@ public class UIData {
 		private HashMap<String, String> mapdataUI = new HashMap<String,String>();
 		public void setCustUI(String namesUI, String custUI){
 			namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
+			/*StringBuilder formedstring = new StringBuilder();
+			char[] store = namesUI.toCharArray();
+			String uiStore = null;
+			
+			for (int i=0; i< store.length; i++){
+				boolean seggre = Character.isLetter(store[i]);
+				if (seggre){
+					  formedstring.append(uiStore);
+				}
+			}
+			char[] storeonlyalphas = uiStore.toCharArray();
+			for (int j=0; j< storeonlyalphas.length; j++){
+				boolean stores = Character.isDigit(storeonlyalphas[j]);
+				if (stores){
+					formedstring.append(formedstring.append(uiStore));
+				}
+				
+			}*/
 			mapdataUI.put(namesUI.toLowerCase(), custUI);
 			
 		}
@@ -51,10 +69,16 @@ public class UIData {
 			return uICust;
 			}
 
+			/*private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
+			public void setRailUI(String namesUI, String railUI){
+				namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
+				mapdataFromUI.put(namesUI.toLowerCase(), railUI);
+				
+			}*/ // for old app.
 			private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
 			public void setRailUI(String namesUI, String railUI){
 				namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
-				mapdataFromUI.put(namesUI.toLowerCase(), railUI.toLowerCase());
+				mapdataFromUI.put(namesUI.toLowerCase(), railUI.toUpperCase());
 				
 			}
 				public String getRailUI(String namesUI){

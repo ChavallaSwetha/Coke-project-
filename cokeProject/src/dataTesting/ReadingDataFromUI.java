@@ -19,7 +19,7 @@ public class ReadingDataFromUI {
 		Float totalUI = null;
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(".//*[@id='sidebar-panel']/ul/li[3]/a/img")).click(); // Datagrid
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		WebElement customerData = driver.findElement(By.xpath(
 				".//*[@id='shell-view']/section/section/div/div/div/div[3]/div/div[1]/div/div[1]/div/div/table/tbody"));
 		Thread.sleep(3000);

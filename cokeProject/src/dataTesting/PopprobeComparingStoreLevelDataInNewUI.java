@@ -18,10 +18,10 @@ public class PopprobeComparingStoreLevelDataInNewUI {
 		String[] countriesFromUI = { "BARBADOS"};//,"BAHAMAS","FRENCH GUIANA","GUYANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO" }; 
 		String[] countriesFromExcel = {"Barbados"};//,"Bahamas","French Guiana","Guyana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
 		String date = "2017 - 6";
-		String channelFromXL = "premise";
-		String channel = "ON PREMISE";
+		String channelFromXL = "tradicional";
+		String channel = "HOME MARKET TRADITIONAL";
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
-		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/All_Countries_Premise_Data_June.xls";
+		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Belize_Haiti_Country_Level_June.xls";
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
 			System.setProperty("webdriver.chrome.driver",

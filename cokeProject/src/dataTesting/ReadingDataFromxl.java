@@ -65,7 +65,8 @@ public class ReadingDataFromxl {
 					String remove = "Enrejado";
 					String railAfterConvert = railFromXL.replace(remove, "");
 					String railAfterConverting = railAfterConvert.replaceAll(" ", "");
-					xlDataArray[9] = railAfterConverting.toLowerCase();
+					//xlDataArray[9] = railAfterConverting;
+					xlDataArray[9] = railAfterConverting.toUpperCase();
 					xlDataArray[5] = iceValue;
 					xlDataArray[6] = storeName;
 					xlDataArray[7] = survyNO;

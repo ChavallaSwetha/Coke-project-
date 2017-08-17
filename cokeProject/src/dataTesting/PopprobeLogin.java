@@ -31,7 +31,7 @@ public class PopprobeLogin {
 	  /*Select Year and Month from dropdown. Select Country from dropdown. Select
 	  Channel from dropdown.*/
 	 
-		 public void selectDropDowns(WebDriver driver, String date, String country, String channel)
+		public void selectDropDowns(WebDriver driver, String date, String country, String channel)
 	  // public void selectDropDowns(WebDriver driver, String date, String country) // for Belize
 			throws InterruptedException, IOException {
 			 Thread.sleep(3000);
