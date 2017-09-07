@@ -22,6 +22,7 @@ public static void main(String[] args) throws InterruptedException, BiffExceptio
 		String date = "2017 - 2";
 		String channelFromXL ="premise";
 		String channel = "ON PREMISE";
+		String mpaChannelXL = "Portafolio Prioritario";
 		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results February 2017.xls";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/All_Countries_Traditional_Data.xls";
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
@@ -40,8 +41,8 @@ public static void main(String[] args) throws InterruptedException, BiffExceptio
 			ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
 			UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 			ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
-			XLData xldata = storeAndIce.readingDataFromXL(readFilePath,countriesFromExcel[i],channelFromXL);
-			missingStores.comparingAndWritingData(writeFilePath,writeWorkBook,dataUI, xldata,countriesFromUI[i],channel,i);
+			//XLData xldata = storeAndIce.readingDataFromXL(readFilePath,countriesFromExcel[i],channelFromXL, mpaChannelXL);
+			//missingStores.comparingAndWritingData(writeFilePath,writeWorkBook,dataUI, xldata,countriesFromUI[i],channel,i);
 			login.logout(driver);
 			
 			

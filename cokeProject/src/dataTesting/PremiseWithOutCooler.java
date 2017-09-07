@@ -1,4 +1,5 @@
 package dataTesting;
+
 import java.io.IOException;
 
 import jxl.read.biff.BiffException;
@@ -6,8 +7,9 @@ import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
+
 public class PremiseWithOutCooler {
-         
+       
 	public void compareCountryLevelCoolerData(WritableSheet writeSheet, String readFilePath, String 
 
 			date, 
@@ -146,7 +148,7 @@ public class PremiseWithOutCooler {
 					writeSheet.addCell(result);
 					Label counTry6 = new Label(0, 18, xldata.getCOUNTRY());
 					writeSheet.addCell(counTry6);
-					Label daTe6 = new Label(1, 15, date);
+					Label daTe6 = new Label(1, 18, date);
 					writeSheet.addCell(daTe6);
 					Label chaNNel6 = new Label(2, 18, xldata.getCHANNEL());
 					writeSheet.addCell(chaNNel6);

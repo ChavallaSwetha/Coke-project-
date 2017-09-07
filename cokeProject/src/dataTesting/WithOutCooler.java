@@ -25,12 +25,7 @@ public class WithOutCooler {
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
          
-		/*File writeFile = new File(writeFilePath);
-	      Workbook wrkBook = Workbook.getWorkbook(writeFile);
-		  WritableWorkbook wwbook = Workbook.createWorkbook(writeFile, wrkBook);
-		
-	      WritableSheet writeSheet =   wwbook.getSheet(xldata.getCOUNTRY());*/
-	     Label counTry = new Label(0, 14, xldata.getCOUNTRY());
+		Label counTry = new Label(0, 14, xldata.getCOUNTRY());
 		writeSheet.addCell(counTry);
 		Label daTe = new Label(1, 14, date);
 		writeSheet.addCell(daTe);

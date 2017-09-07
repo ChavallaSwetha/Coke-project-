@@ -1,108 +1,15 @@
-/*package dataTesting;
-
-
-import java.io.File;
-
-import java.io.IOException;
-
-
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-
-import jxl.read.biff.BiffException;
-
-
- * Using function readingDataFromXL() read data from XL (Storenames,country,date,ICE,channel,subchannel and cooler values)
- 
-
-public class ReadingDataFromxl {
-	public XLData readingDataFromXL(String readingFile, String countryFromXL, String channelFromXL)
-			throws BiffException, IOException {
-		XLData xlData = new XLData();
-		File fs = new File(readingFile);
-		Workbook wb = Workbook.getWorkbook(fs);
-		Sheet sh = wb.getSheet("Stores");
-		int row = sh.getRows();
-		int rowsCountXL = row;
-		System.out.println("No of rows in XL" + "     " + rowsCountXL);
-		for (int rwXL = 1; rwXL < rowsCountXL; rwXL++) {
-			String[] xlDataArray = new String[10];
-			Cell conTryXL = sh.getCell(20, rwXL);
-			xlDataArray[1] = conTryXL.getContents();
-
-			if (xlDataArray[1].equals(countryFromXL)) {
-
-				String S = " sin ";
-				Cell collr = sh.getCell(8, rwXL);
-				String channelXLbeforeconverting = collr.getContents();
-				String channelXL = channelXLbeforeconverting.toLowerCase();
-				String channelXLAfterconverting = null;
-				if (channelXL.endsWith(channelFromXL)) {
-					System.out.println("excel row chaneel " + channelXL);
-					if (channelXLbeforeconverting.contains(S)) {
-						channelXLAfterconverting = "no";
-					} else {
-						channelXLAfterconverting = "yes";
-					}
-
-					Cell survyNo = sh.getCell(0, rwXL);
-					String survyNO = survyNo.getContents();
-					Cell strNameXL = sh.getCell(2, rwXL);
-					String storeName = strNameXL.getContents();
-					Cell icXL = sh.getCell(9, rwXL);
-					String iceValueFromXL = icXL.getContents();
-					String iceValue = iceValueFromXL.replace('%', 'f');
-					xlDataArray[0] = channelXLAfterconverting;
-					Cell dtXL = sh.getCell(5, rwXL);
-					xlDataArray[2] = dtXL.getContents();
-					Cell chanlXL = sh.getCell(26, rwXL);
-					xlDataArray[3] = chanlXL.getContents();
-					Cell subChXL = sh.getCell(28, rwXL);
-					xlDataArray[4] = subChXL.getContents();
-					Cell railXL = sh.getCell(4, rwXL);
-					String railFromXL = railXL.getContents();
-					String remove = "Enrejado";
-					String railAfterConvert = railFromXL.replace(remove, "");
-					String railAfterConverting = railAfterConvert.replaceAll(" ", "");
-					//xlDataArray[9] = railAfterConverting;
-					xlDataArray[9] = railAfterConverting.toUpperCase();
-					xlDataArray[5] = iceValue;
-					xlDataArray[6] = storeName;
-					xlDataArray[7] = survyNO;
-					xlDataArray[8] = channelXLbeforeconverting;
-					System.out.println("storesfromXL" + "      " + xlDataArray[6]);
-					xlData.setICEvalues(storeName, xlDataArray);
-				}
-			}
-		}
-
-		System.out.println("Reading data from XL");
-		System.out.println(xlData);
-
-		return xlData;
-	}
-
-}*/
-
 package dataTesting;
 
 import java.io.File;
-
 import java.io.IOException;
 
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
-
 import jxl.read.biff.BiffException;
 
-/*
- * Using function readingDataFromXL() read data from XL (Storenames,country,date,ICE,channel,subchannel and cooler values)
- */
-
-public class ReadingDataFromxl {
-	public XLData readingDataFromXL(String readingFile, String countryFromXL, String channelFromXL, String mpaChannelXL,String  soviChannelXL,String refregiratioChannelXL,String commuNionChannelXL,String colDAChannelXL, String comBoChannelXL)
+public class ReadingDataForPremiseFromxl {
+	public XLData readingDataFromXL(String readingFile, String countryFromXL, String channelFromXL, String mpaChannelXL,String  soviChannelXL,String refregiratioChannelXL,String commuNionChannelXL,String priCeChannelXL,String freshNESsChannelXL)
 			throws BiffException, IOException {
 		
 		String kpisAfterConverting = null;
@@ -135,7 +42,7 @@ public class ReadingDataFromxl {
 					String[] dataFromXL = xlData.getICEvalues(storeName);
 
 					if (dataFromXL == null) {
-						dataFromXL = new String[23];
+						dataFromXL = new String[20];
 						xlData.setICEvalues(storeName, dataFromXL);
 
 					}
@@ -164,12 +71,12 @@ public class ReadingDataFromxl {
 						String iceCOMMXL = icXL.getContents();
 						String iceCOMMValue = iceCOMMXL.replace('%', 'f');
 						dataFromXL[7] = iceCOMMValue;
-					} else if (kpis.equals(colDAChannelXL)) {
+					} else if (kpis.equals(priCeChannelXL)) {
 						Cell icXL = sh.getCell(9, rwXL);
 						String icePRICXL = icXL.getContents();
 						String icePRICValue = icePRICXL.replace('%', 'f');
 						dataFromXL[8] = icePRICValue;
-					} else if (kpis.equals(comBoChannelXL)) {
+					} else if (kpis.equals(freshNESsChannelXL)) {
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceFRESHXL = icXL.getContents();
 						String iceFRESHValue = iceFRESHXL.replace('%', 'f');

@@ -8,16 +8,32 @@ public class XLData {
 	private HashMap<String, String[]> xlMap = new HashMap<String, String[]>();
 
 	public String toString() {
-		return xlMap.toString();
+		Set<String> keys = xlMap.keySet();
+		StringBuilder str = new StringBuilder(" ");
+		for (String key : keys) {
+			String[] vaues = xlMap.get(key);
+			str.append("{key:");
+			str.append(key);
+			str.append("[");
+			for (String value : vaues) {
+				str.append("'");
+				str.append(value);
+				str.append("'");
+			}
+			str.append("]");
+			str.append("\n");
+		}
+		return str.toString();
 	}
 
 	public void setICEvalues(String storeNameXL, String[] IceXL) {
-		storeNameXL = storeNameXL.replaceAll("[ ,.&()/'-]", "");
-		xlMap.put(storeNameXL.toLowerCase(), IceXL);
+		storeNameXL = storeNameXL.replaceAll("[ ,.&()/'-]", "").toLowerCase();
+		xlMap.put(storeNameXL, IceXL);
 	}
 
 	public String[] getICEvalues(String storenameXL) {
-			return xlMap.get(storenameXL);
+		storenameXL = storenameXL.replaceAll("[ ,.&()/'-]", "").toLowerCase();
+		return xlMap.get(storenameXL);
 	}
 	
 	public String[] getXLStore(){
