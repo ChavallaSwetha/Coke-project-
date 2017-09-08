@@ -1,36 +1,23 @@
 package dataTesting;
 
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
+
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 public class WithAndWithOutCooler {
-	public void compareCountryLevelCoolerData(WritableSheet writeSheet,String readFilePath, String date,int i,
+	public void compareCountryLevelCoolerData(WritableSheet writeSheet, String readFilePath, String date, int i,
 			UIAndXLCountryLevelData uiData1, UIAndXLCountryLevelData xldata)
 			throws BiffException, IOException, RowsExceededException, WriteException, InterruptedException {
 		Thread.sleep(8000);
-		
-		
-		System.out.println("WithandWithoutCooler sheet no"+"   "+i);
-		
-		
-		
+
+		System.out.println("WithandWithoutCooler sheet no" + "   " + i);
+
 		Label countryHeading = new Label(0, 0, "COUNTRY");
 		writeSheet.addCell(countryHeading);
 		Label dateHeading = new Label(1, 0, "DATE");
@@ -65,7 +52,7 @@ public class WithAndWithOutCooler {
 		Label result;
 		float diffBetweentotalUIICEAndIceValueXL = Math.abs(xldata.getMPA() - uiData1.getMPA());
 		if (diffBetweentotalUIICEAndIceValueXL >= 0.5) {
-		result = new Label(7, wr, "Mismatch");
+			result = new Label(7, wr, "Mismatch");
 		} else {
 			result = new Label(7, wr, "Match");
 		}
@@ -149,7 +136,7 @@ public class WithAndWithOutCooler {
 		writeSheet.addCell(mpaFromUI5);
 		float diffBetweentotalUIICEAndIceValueXL5 = Math.abs(xldata.getPRICE() - uiData1.getPRICE());
 		if (diffBetweentotalUIICEAndIceValueXL5 >= 0.5) {
-		result = new Label(7, 5, "Mismatch");
+			result = new Label(7, 5, "Mismatch");
 		} else {
 			result = new Label(7, 5, "Match");
 		}
@@ -187,7 +174,7 @@ public class WithAndWithOutCooler {
 		writeSheet.addCell(iCEXL7);
 		Label kpI7 = new Label(3, 7, xldata.getKPItotal());
 		writeSheet.addCell(kpI7);
-		System.out.println("7th row"+"   "+xldata.getKPItotal());
+		System.out.println("7th row" + "   " + xldata.getKPItotal());
 		Label mpaFromUI7 = new Label(6, 7, String.valueOf(uiData1.getTOTAL()));
 		writeSheet.addCell(mpaFromUI7);
 		float diffBetweentotalUIICEAndIceValueXL7 = Math.abs(xldata.getTOTAL() - uiData1.getTOTAL());
@@ -196,8 +183,8 @@ public class WithAndWithOutCooler {
 		} else {
 			result = new Label(7, 7, "Match");
 		}
-		
+
 		writeSheet.addCell(result);
-		
+
 	}
 }

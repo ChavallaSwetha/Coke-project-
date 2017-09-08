@@ -79,6 +79,7 @@ public class UIAndXLCountryLevelData {
 	public float getTOTAL() {
 		return totalUI;
 	}
+
 	public void setTOTALYES(float total) {
 		totalUI = total;
 	}
@@ -94,6 +95,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPImpa() {
 		return kpiXLmpa;
 	}
+
 	public void setKPIsovi(String kpi) {
 		kpiXLsovi = kpi;
 	}
@@ -101,6 +103,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPIsovi() {
 		return kpiXLsovi;
 	}
+
 	public void setKPIref(String kpi) {
 		kpiXLref = kpi;
 	}
@@ -108,6 +111,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPIref() {
 		return kpiXLref;
 	}
+
 	public void setKPIcomm(String kpi) {
 		kpiXLcomm = kpi;
 	}
@@ -115,6 +119,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPIcomm() {
 		return kpiXLcomm;
 	}
+
 	public void setKPIprice(String kpi) {
 		kpiXLprice = kpi;
 	}
@@ -122,6 +127,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPIprice() {
 		return kpiXLprice;
 	}
+
 	public void setKPIfresh(String kpi) {
 		kpiXLfresh = kpi;
 	}
@@ -129,6 +135,7 @@ public class UIAndXLCountryLevelData {
 	public String getKPIfresh() {
 		return kpiXLfresh;
 	}
+
 	public void setKPItotal(String kpi) {
 		kpiXLtotal = kpi;
 	}
@@ -136,52 +143,65 @@ public class UIAndXLCountryLevelData {
 	public String getKPItotal() {
 		return kpiXLtotal;
 	}
-    
-	public void setCOUNTRY(String xlCountry){
+
+	public void setCOUNTRY(String xlCountry) {
 		country = xlCountry;
 	}
-	public String getCOUNTRY(){
+
+	public String getCOUNTRY() {
 		return country;
 	}
-	public void setCHANNEL(String xlChannel){
+
+	public void setCHANNEL(String xlChannel) {
 		channel = xlChannel;
 	}
-	public String getCHANNEL(){
+
+	public String getCHANNEL() {
 		return channel;
 	}
-	public void setPID(String xlPid){
+
+	public void setPID(String xlPid) {
 		pid = xlPid;
 	}
-	public String getPID(){
+
+	public String getPID() {
 		return pid;
-		
+
 	}
-	public void setPIDT(String xlPidt){
+
+	public void setPIDT(String xlPidt) {
 		pidt = xlPidt;
 	}
-	public String getPIDT(){
+
+	public String getPIDT() {
 		return pidt;
-		
+
 	}
-	public void setPIDTYes(String xlPidt){
+
+	public void setPIDTYes(String xlPidt) {
 		pidTYes = xlPidt;
 	}
-	public String getPIDTYes(){
+
+	public String getPIDTYes() {
 		return pidTYes;
-		
+
 	}
-	public void setPIDTNo(String xlPidt){
+
+	public void setPIDTNo(String xlPidt) {
 		pidTNo = xlPidt;
 	}
-	public String getPIDTNo(){
+
+	public String getPIDTNo() {
 		return pidTNo;
-		
+
 	}
-	public void setKPItotalYES(String kpi){
+
+	public void setKPItotalYES(String kpi) {
 		kpiXLtotal = kpi;
 	}
-	public String getKPItotalYES(){
+
+	public String getKPItotalYES() {
 		return kpiXLtotal;
-		
+
 	}
 }

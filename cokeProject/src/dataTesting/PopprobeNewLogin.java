@@ -72,7 +72,9 @@ public class PopprobeNewLogin {
 			driver.findElement(
 					By.xpath("html/body/layout/div/nav-bar/md-toolbar/div/div/div[3]/div[4]/md-menu/button"))
 					.click();
-			Thread.sleep(3000);
+
+			Thread.sleep(2000);
 			driver.findElement(By.linkText("LOGOUT")).click();
 		}
 }
+

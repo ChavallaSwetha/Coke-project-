@@ -102,7 +102,7 @@ import jxl.read.biff.BiffException;
  */
 
 public class ReadingDataFromxl {
-	public XLData readingDataFromXL(String readingFile, String countryFromXL, String channelFromXL, String mpaChannelXL,String  soviChannelXL,String refregiratioChannelXL,String commuNionChannelXL,String colDAChannelXL, String comBoChannelXL)
+	public XLData readingDataFromXL(String readingFile, String countryFromXL, String channelFromXL, String mpaChannelXL,String  soviChannelXL,String refregiratioChannelXL,String commuNionChannelXL,String colDAChannelXL,String comBOChannelXL)
 			throws BiffException, IOException {
 		
 		String kpisAfterConverting = null;
@@ -142,66 +142,81 @@ public class ReadingDataFromxl {
 
 					Cell collr = sh.getCell(8, rwXL);
 					String kpis = collr.getContents();
-					
+					// String kpis = kpi.toLowerCase();
 
 					if (kpis.equals(mpaChannelXL)) {
+						dataFromXL[4] = kpis;
+						// System.out.println("Channel mpa"+" "+xlDataArray[4]);
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceMPAXL = icXL.getContents();
 						String iceMPAValue = iceMPAXL.replace('%', 'f');
-						dataFromXL[4] = iceMPAValue;
+						dataFromXL[17] = iceMPAValue;
+						System.out.println("iceMPAValue"+" "+iceMPAValue);
+
 					} else if (kpis.equals(soviChannelXL)) {
+						dataFromXL[5] = kpis;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceSOVIXL = icXL.getContents();
 						String iceSOVIValue = iceSOVIXL.replace('%', 'f');
-						dataFromXL[5] = iceSOVIValue;
+						dataFromXL[18] = iceSOVIValue;
+						System.out.println("iceSOVIValue"+" "+iceSOVIValue);
 					} else if (kpis.equals(refregiratioChannelXL)) {
+						dataFromXL[6] = kpis;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceREFXL = icXL.getContents();
 						String iceREFValue = iceREFXL.replace('%', 'f');
-						dataFromXL[6] = iceREFValue;
+						dataFromXL[19] = iceREFValue;
 					} else if (kpis.equals(commuNionChannelXL)) {
+						dataFromXL[7] = kpis;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceCOMMXL = icXL.getContents();
 						String iceCOMMValue = iceCOMMXL.replace('%', 'f');
-						dataFromXL[7] = iceCOMMValue;
+						dataFromXL[20] = iceCOMMValue;
 					} else if (kpis.equals(colDAChannelXL)) {
+						dataFromXL[8] = kpis;
 						Cell icXL = sh.getCell(9, rwXL);
 						String icePRICXL = icXL.getContents();
 						String icePRICValue = icePRICXL.replace('%', 'f');
-						dataFromXL[8] = icePRICValue;
-					} else if (kpis.equals(comBoChannelXL)) {
+						dataFromXL[21] = icePRICValue;
+					} else if (kpis.equals(comBOChannelXL)) {
+						dataFromXL[9] = kpis;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceFRESHXL = icXL.getContents();
 						String iceFRESHValue = iceFRESHXL.replace('%', 'f');
-						dataFromXL[9] = iceFRESHValue;
+						dataFromXL[22] = iceFRESHValue;
 					} else if (kpis.contains(channelFromXL)) {
+						
 						if (kpis.contains(S)) {
+							//System.out.println("excel row chaneel " + kpis);
 							kpisAfterConverting = "no";
 						} else {
 							kpisAfterConverting = "yes";
 						}
-      					dataFromXL[1] = country;
+
+						dataFromXL[1] = country;
 						dataFromXL[2] = channelXL;
 						dataFromXL[3] = storeName;
-						dataFromXL[10] = kpisAfterConverting;
+						dataFromXL[10] = kpis;
+						dataFromXL[11] = kpisAfterConverting;
 						Cell survyNo = sh.getCell(0, rwXL);
 						String survyNO = survyNo.getContents();
 						dataFromXL[16] = survyNO;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceValueFromXL = icXL.getContents();
 						String iceValue = iceValueFromXL.replace('%', 'f');
-						dataFromXL[14] = iceValue;
+						dataFromXL[15] = iceValue;
+						System.out.println("iceValue"+" "+iceValue);
 						Cell dtXL = sh.getCell(5, rwXL);
-						dataFromXL[11] = dtXL.getContents();
+						dataFromXL[12] = dtXL.getContents();
 						//Cell subChXL = sh.getCell(28, rwXL);
-						Cell subChXL = sh.getCell(26, rwXL);
-						dataFromXL[12] = subChXL.getContents();
+						Cell subChXL = sh.getCell(26, rwXL); // For Jan Data
+						dataFromXL[13] = subChXL.getContents();
 						Cell railXL = sh.getCell(4, rwXL);
 						String railFromXL = railXL.getContents();
 						String remove = "Enrejado";
 						String railAfterConvert = railFromXL.replace(remove, "");
 						String railAfterConverting = railAfterConvert.replaceAll(" ", "");
-						dataFromXL[13] = railAfterConverting.toUpperCase();
+						dataFromXL[14] = railAfterConverting.toUpperCase();
 
 					}
 

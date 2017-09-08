@@ -113,16 +113,16 @@ public class ReadingDataFromUI {
 			System.out.println(str);
 			
 			String rowData = columns.get(1).getText();
-		
 			String totalInUI = columns.get(7).getText();
 			totalUIAfterConvertingTofloat = Float.parseFloat(totalInUI);
 			storeName = rowData;
 			totalUI = totalUIAfterConvertingTofloat;
 			dataUI.setTotalUI(storeName, totalUI);
-			
+
 			String custSK = columns.get(2).getText();
 			storeName = rowData;
 			dataUI.setCustUI(storeName, custSK);
+
 			
 			String railing = columns.get(4).getText();
 			storeName = rowData;
@@ -187,7 +187,7 @@ public class ReadingDataFromUI {
 			 }
 			dataUI.setCOMMUI(rowData, commUI);;
 			
-		   // String price = columns.get(12).getText();// Traditional
+		    //String price = columns.get(12).getText();// Traditional
 		    String price = columns.get(15).getText();
 			System.out.println("UI PRICE Value"+" "+price);
 			if ( price.contains("NA")){
@@ -216,6 +216,11 @@ public class ReadingDataFromUI {
 			dataUI.setFRESHUI(rowData, freshUI);;
 			
 			
+
+			
+			
+			
+
 			
 		}
 		//dataUI.getTotalUI(storeName);
@@ -223,12 +228,14 @@ public class ReadingDataFromUI {
 		dataUI.getRowsCountUI();
 		dataUI.getRailUI(storeName);
 		dataUI.getCoolUI(storeName);
+
 		//dataUI.getMPAUI(storeName);
 		//dataUI.getSOVIUI(storeName);
 		//dataUI.getREFUI(storeName);
 		//dataUI.getCOMMUI(storeName);
 		//dataUI.getPRICEUI(storeName);
 		//dataUI.getFRESHUI(storeName);
+
 		System.out.println("Reading Data from UI");
 		return dataUI; 
 	}	

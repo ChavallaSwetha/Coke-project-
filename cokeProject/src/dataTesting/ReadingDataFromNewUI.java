@@ -69,6 +69,7 @@ public class ReadingDataFromNewUI {
 	}
 	
 	driver.findElement(By.xpath("/html/body/layout/div/md-content/md-content[2]/ui-view/ui-view/section/md-content/div[2]/md-card/md-card-content/md-toolbar/div/div[2]/md-grid-list/md-grid-tile[5]/figure/button")).click();// next button
+
 	}
 	//dataUI.getTotalUI(storeName);
 	dataUI.getRowsCountUI();

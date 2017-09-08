@@ -32,7 +32,11 @@ public class UIData {
 	public Float getTotalUI(String namesUI) {
 		Float uITotal = mapUIdata.get(namesUI);
 		return uITotal;
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/ChavallaSwetha/Coke-project-.git
 		}
 		
 		public String toString(){
@@ -43,6 +47,7 @@ public class UIData {
 		private HashMap<String, String> mapdataUI = new HashMap<String,String>();
 		public void setCustUI(String namesUI, String custUI){
 			namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
+<<<<<<< HEAD
 			StringBuilder formedstring = new StringBuilder();
 			char[] store = namesUI.toCharArray();
 			String uiStore = null;
@@ -61,13 +66,34 @@ public class UIData {
 				}
 				
 			}
-			mapdataUI.put(namesUI.toLowerCase(), custUI);
+=======
+			/*StringBuilder formedstring = new StringBuilder();
+			char[] store = namesUI.toCharArray();
+			String uiStore = null;
 			
-		}
+			for (int i=0; i< store.length; i++){
+				boolean seggre = Character.isLetter(store[i]);
+				if (seggre){
+					  formedstring.append(uiStore);
+				}
+			}
+			char[] storeonlyalphas = uiStore.toCharArray();
+			for (int j=0; j< storeonlyalphas.length; j++){
+				boolean stores = Character.isDigit(storeonlyalphas[j]);
+				if (stores){
+					formedstring.append(formedstring.append(uiStore));
+				}
+				
+			}*/
+
+	/*		mapdataUI.put(namesUI.toLowerCase(), custUI);
+			
+		
 			public String getCustUI(String namesUI){
 			String uICust= mapdataUI.get(namesUI);
 			return uICust;
 			}
+
 
 			private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
 			public void setRailUI(String namesUI, String railUI){
@@ -75,6 +101,7 @@ public class UIData {
 				mapdataFromUI.put(namesUI.toLowerCase(), railUI);
 				
 			} // for old app.
+
 			private HashMap<String, String> mapdataFromUI = new HashMap<String,String>();
 			public void setRailUI(String namesUI, String railUI){
 				namesUI = namesUI.replaceAll("[ ,.&()/'-]", "");
@@ -105,6 +132,7 @@ public class UIData {
 			}
 
 			
+<<<<<<< HEAD
 }*/
 
 package dataTesting;
@@ -306,3 +334,6 @@ public class UIData {
 	
 
 }
+
+
+

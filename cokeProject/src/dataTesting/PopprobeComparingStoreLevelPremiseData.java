@@ -14,8 +14,8 @@ import jxl.write.WriteException;
 public class PopprobeComparingStoreLevelPremiseData {
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
 
-		String[] countriesFromUI = { "BAHAMAS"  ,"BARBADOS","FRENCH GUIANA","GUYANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
-		String[] countriesFromExcel = { "Bahamas" ,"Barbados","French Guiana","Guyana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago"};
+		String[] countriesFromUI = { "BAHAMAS" };// ,"BARBADOS","FRENCH GUIANA","GUYANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
+		String[] countriesFromExcel = { "Bahamas" };//,"Barbados","French Guiana","Guyana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago"};
 		String date = "2017 - 1";
 		String channelFromXL = "On Premise";
 		String channel = "ON PREMISE";
@@ -43,7 +43,7 @@ public class PopprobeComparingStoreLevelPremiseData {
 			UIData dataUI = namesAndTotal.readingDataFromUI(driver);
 			ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 			XLData xldata = storeAndIce.readingDataFromXL(readFilePath, countriesFromExcel[i], channelFromXL,
-					mpaChannelXL, soviChannelXL, refregiratioChannelXL, commuNionChannelXL, colDAvChannelXL, comBoChannelXL
+					mpaChannelXL, soviChannelXL, refregiratioChannelXL, commuNionChannelXL,   colDAvChannelXL, comBoChannelXL
 					);
 			compare.comparingAndWritingData(writeFilePath, writeWorkBook, dataUI, xldata, countriesFromUI[i], channel,
 					i);

@@ -12,8 +12,7 @@ public class ReadingCountryLevelPremiseXLData {
 
 	public UIAndXLCountryLevelData readingCountryLevelXLData(String readFilePath, String country, 
 
-			String channel,
-						String cooler,String withAndWithoutCooler) throws BiffException, IOException {
+			String channel,	String cooler,String withAndWithoutCooler) throws BiffException, IOException {
 					UIAndXLCountryLevelData xlData = new UIAndXLCountryLevelData();
 
 					File readFile = new File(readFilePath);
@@ -182,4 +181,8 @@ public class ReadingCountryLevelPremiseXLData {
 					return xlData;
 
 				}
+
 }
+
+
+

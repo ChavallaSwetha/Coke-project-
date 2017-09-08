@@ -8,11 +8,10 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-
 public class ReadingCountryLevelXLData {
 
 	public UIAndXLCountryLevelData readingCountryLevelXLData(String readFilePath, String country, String channel,
-			String cooler,String withAndWithoutCooler) throws BiffException, IOException {
+			String cooler, String withAndWithoutCooler) throws BiffException, IOException {
 		UIAndXLCountryLevelData xlData = new UIAndXLCountryLevelData();
 
 		File readFile = new File(readFilePath);
@@ -32,6 +31,14 @@ public class ReadingCountryLevelXLData {
 		String pidT = "1";
 		String pidTY = "2";
 		String pidTN = "3";
+		/*
+		 * String mpa = "Portafolio Prioritario"; String refregiratio =
+		 * "Refrigeración"; String commuNion = "Disponibilidad en Frío"; String
+		 * priCe = "Comunicación"; String freshNESs = "Combos"; String toTal =
+		 * "ICE Total On Premise"; String totalYes = "ICE con Nevera On Premise"
+		 * ; String totalNo = "ICE sin Nevera On Premise"; String pidT = "4";
+		 * String pidTY = "5"; String pidTN = "6";
+		 */
 
 		String[] countryXL = new String[rowsXL];
 		String[] channelXL = new String[rowsXL];
@@ -116,39 +123,38 @@ public class ReadingCountryLevelXLData {
 							float xlIce = Float.parseFloat(iCE);
 							xlData.setFRESH(xlIce);
 							xlData.setKPIfresh(kpi);
-							
+
 						}
 					}
-					if ("NULL".equals(withAndWithoutCooler)){
-					if (idXL[r].equals(pidT)) {
+					if ("NULL".equals(withAndWithoutCooler)) {
+						if (idXL[r].equals(pidT)) {
 							if (kpiXL[r].equals(toTal)) {
-							String kpi = kpiXL[r];
-							String icEXL = iceXL[r];
-							String iCE = icEXL.replace('%', 'f');
-							float xlIce = Float.parseFloat(iCE);
-							xlData.setTOTAL(xlIce);
-							xlData.setKPItotal(kpi);
-							xlData.setPIDT(pidT);
-                            
+								String kpi = kpiXL[r];
+								String icEXL = iceXL[r];
+								String iCE = icEXL.replace('%', 'f');
+								float xlIce = Float.parseFloat(iCE);
+								xlData.setTOTAL(xlIce);
+								xlData.setKPItotal(kpi);
+								xlData.setPIDT(pidT);
+
+							}
 						}
-					} 
-				} else if ("YES".equals(withAndWithoutCooler)){
-					if (idXL[r].equals(pidTY)) {
-					if (kpiXL[r].equals(totalYes)) {
-							String kpi = kpiXL[r];
-							String icEXL = iceXL[r];
-							String iCE = icEXL.replace('%', 'f');
-							float xlIce = Float.parseFloat(iCE);
-							xlData.setTOTALYES(xlIce);
-							xlData.setKPItotal(kpi);
-							xlData.setPIDTYes(pidTY);
+					} else if ("YES".equals(withAndWithoutCooler)) {
+						if (idXL[r].equals(pidTY)) {
+							if (kpiXL[r].equals(totalYes)) {
+								String kpi = kpiXL[r];
+								String icEXL = iceXL[r];
+								String iCE = icEXL.replace('%', 'f');
+								float xlIce = Float.parseFloat(iCE);
+								xlData.setTOTALYES(xlIce);
+								xlData.setKPItotal(kpi);
+								xlData.setPIDTYes(pidTY);
+							}
+
 						}
-							
-						}
-					}
-				else if ("NO".equals(withAndWithoutCooler)){
+					} else if ("NO".equals(withAndWithoutCooler)) {
 						if (idXL[r].equals(pidTN)) {
-								if (kpiXL[r].equals(totalNo)) {
+							if (kpiXL[r].equals(totalNo)) {
 								String kpi = kpiXL[r];
 								String icEXL = iceXL[r];
 								String iCE = icEXL.replace('%', 'f');
@@ -156,10 +162,10 @@ public class ReadingCountryLevelXLData {
 								xlData.setTOTAL(xlIce);
 								xlData.setKPItotal(kpi);
 								xlData.setPIDTNo(pidTN);
-	                            
+
 							}
-						} 
-					} 
+						}
+					}
 				}
 			}
 		}
