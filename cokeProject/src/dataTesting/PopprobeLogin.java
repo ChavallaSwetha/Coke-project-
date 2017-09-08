@@ -34,7 +34,7 @@ public class PopprobeLogin {
 		public void selectDropDowns(WebDriver driver, String date, String country, String channel)
 	  // public void selectDropDowns(WebDriver driver, String date, String country) // for Belize
 			throws InterruptedException, IOException {
-			 Thread.sleep(3000);
+			 Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='filter-view']/section/div/div/div[1]/div[1]/div[1]/div/button")).click();
 		// Date dropdown
 		Thread.sleep(3000);

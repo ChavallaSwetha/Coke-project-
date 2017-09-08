@@ -21,13 +21,13 @@ public class ComparingStoreLevelDataAndWritingXL {
 	public HashMap<TraditionalKPIs, Integer[]> traditionalProperties = new HashMap<TraditionalKPIs, Integer[]>();
 
 	{
-		traditionalProperties.put(TraditionalKPIs.TOTAL, new Integer[] { 5, 6, 7, 15 });
-		traditionalProperties.put(TraditionalKPIs.MPA, new Integer[] { 15, 16, 17, 17 });
-		traditionalProperties.put(TraditionalKPIs.SOVI, new Integer[]{ 18, 19, 20, 18});
-		traditionalProperties.put(TraditionalKPIs.REF, new Integer[]{ 21, 22, 23, 19});
-		traditionalProperties.put(TraditionalKPIs.COMM, new Integer[]{ 24, 25, 26, 20});
-		traditionalProperties.put(TraditionalKPIs.PRICE, new Integer[]{ 27, 28, 29, 21});
-		traditionalProperties.put(TraditionalKPIs.FRESH, new Integer[]{ 30, 31, 32, 22});
+		traditionalProperties.put(TraditionalKPIs.TOTAL, new Integer[] { 5, 6, 7, 14 });
+		traditionalProperties.put(TraditionalKPIs.MPA, new Integer[] { 15, 16, 17, 4 });
+		traditionalProperties.put(TraditionalKPIs.SOVI, new Integer[]{ 18, 19, 20, 5});
+		traditionalProperties.put(TraditionalKPIs.REF, new Integer[]{ 21, 22, 23, 6});
+		traditionalProperties.put(TraditionalKPIs.COMM, new Integer[]{ 24, 25, 26, 7});
+		traditionalProperties.put(TraditionalKPIs.PRICE, new Integer[]{ 27, 28, 29, 8});
+		traditionalProperties.put(TraditionalKPIs.FRESH, new Integer[]{ 30, 31, 32, 9});
 		 
 	}
 
@@ -138,15 +138,15 @@ public class ComparingStoreLevelDataAndWritingXL {
 				 */
 				Label countryFromXL = new Label(a, z1 + 1, xlValues[1]);
 				writeSheet.addCell(countryFromXL);
-				Label dateFromXL = new Label(b, z1 + 1, xlValues[12]);
+				Label dateFromXL = new Label(b, z1 + 1, xlValues[11]);
 				writeSheet.addCell(dateFromXL);
 				Label storeNameFromUI = new Label(c, z1 + 1, xlValues[3]);
 				writeSheet.addCell(storeNameFromUI);
 				Label channelFromXL = new Label(d, z1 + 1, xlValues[2]);
 				writeSheet.addCell(channelFromXL);
-				Label subChannelFromXL = new Label(e, z1 + 1, xlValues[13]);
+				Label subChannelFromXL = new Label(e, z1 + 1, xlValues[12]);
 				writeSheet.addCell(subChannelFromXL);
-				Label cooleRXL = new Label(j, z1 + 1, xlValues[11]);
+				Label cooleRXL = new Label(j, z1 + 1, xlValues[10]);
 				writeSheet.addCell(cooleRXL);
 				Label railUI = new Label(n, z1 + 1, dataUI.getRailUI(storeName).toLowerCase());
 				writeSheet.addCell(railUI);
@@ -176,7 +176,7 @@ public class ComparingStoreLevelDataAndWritingXL {
 				writeSheet.addCell(fresUI);*/
 
 				String coolerFromUI = dataUI.getCoolUI(storeName);
-				String coolerFromXL = xlValues[11];
+				String coolerFromXL = xlValues[10];
 				Boolean resultOfCooler = Objects.equal(coolerFromXL, coolerFromUI);
 				String coolerResult;
 				if (resultOfCooler) {

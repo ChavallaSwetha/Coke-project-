@@ -145,45 +145,44 @@ public class ReadingDataFromxl {
 					// String kpis = kpi.toLowerCase();
 
 					if (kpis.equals(mpaChannelXL)) {
-						dataFromXL[4] = kpis;
 						// System.out.println("Channel mpa"+" "+xlDataArray[4]);
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceMPAXL = icXL.getContents();
 						String iceMPAValue = iceMPAXL.replace('%', 'f');
-						dataFromXL[17] = iceMPAValue;
+						dataFromXL[4] = iceMPAValue;
 						System.out.println("iceMPAValue"+" "+iceMPAValue);
 
 					} else if (kpis.equals(soviChannelXL)) {
-						dataFromXL[5] = kpis;
+						
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceSOVIXL = icXL.getContents();
 						String iceSOVIValue = iceSOVIXL.replace('%', 'f');
-						dataFromXL[18] = iceSOVIValue;
+						dataFromXL[5] = iceSOVIValue;
 						System.out.println("iceSOVIValue"+" "+iceSOVIValue);
 					} else if (kpis.equals(refregiratioChannelXL)) {
-						dataFromXL[6] = kpis;
+						
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceREFXL = icXL.getContents();
 						String iceREFValue = iceREFXL.replace('%', 'f');
-						dataFromXL[19] = iceREFValue;
+						dataFromXL[6] = iceREFValue;
 					} else if (kpis.equals(commuNionChannelXL)) {
-						dataFromXL[7] = kpis;
+						
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceCOMMXL = icXL.getContents();
 						String iceCOMMValue = iceCOMMXL.replace('%', 'f');
-						dataFromXL[20] = iceCOMMValue;
+						dataFromXL[7] = iceCOMMValue;
 					} else if (kpis.equals(colDAChannelXL)) {
-						dataFromXL[8] = kpis;
+						
 						Cell icXL = sh.getCell(9, rwXL);
 						String icePRICXL = icXL.getContents();
 						String icePRICValue = icePRICXL.replace('%', 'f');
-						dataFromXL[21] = icePRICValue;
+						dataFromXL[8] = icePRICValue;
 					} else if (kpis.equals(comBOChannelXL)) {
-						dataFromXL[9] = kpis;
+						
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceFRESHXL = icXL.getContents();
 						String iceFRESHValue = iceFRESHXL.replace('%', 'f');
-						dataFromXL[22] = iceFRESHValue;
+						dataFromXL[9] = iceFRESHValue;
 					} else if (kpis.contains(channelFromXL)) {
 						
 						if (kpis.contains(S)) {
@@ -196,27 +195,27 @@ public class ReadingDataFromxl {
 						dataFromXL[1] = country;
 						dataFromXL[2] = channelXL;
 						dataFromXL[3] = storeName;
-						dataFromXL[10] = kpis;
-						dataFromXL[11] = kpisAfterConverting;
+						//dataFromXL[10] = kpis;
+						dataFromXL[10] = kpisAfterConverting;
 						Cell survyNo = sh.getCell(0, rwXL);
 						String survyNO = survyNo.getContents();
 						dataFromXL[16] = survyNO;
 						Cell icXL = sh.getCell(9, rwXL);
 						String iceValueFromXL = icXL.getContents();
 						String iceValue = iceValueFromXL.replace('%', 'f');
-						dataFromXL[15] = iceValue;
+						dataFromXL[14] = iceValue;
 						System.out.println("iceValue"+" "+iceValue);
 						Cell dtXL = sh.getCell(5, rwXL);
-						dataFromXL[12] = dtXL.getContents();
+						dataFromXL[11] = dtXL.getContents();
 						//Cell subChXL = sh.getCell(28, rwXL);
 						Cell subChXL = sh.getCell(26, rwXL); // For Jan Data
-						dataFromXL[13] = subChXL.getContents();
+						dataFromXL[12] = subChXL.getContents();
 						Cell railXL = sh.getCell(4, rwXL);
 						String railFromXL = railXL.getContents();
 						String remove = "Enrejado";
 						String railAfterConvert = railFromXL.replace(remove, "");
 						String railAfterConverting = railAfterConvert.replaceAll(" ", "");
-						dataFromXL[14] = railAfterConverting.toUpperCase();
+						dataFromXL[13] = railAfterConverting.toUpperCase();
 
 					}
 
