@@ -150,7 +150,7 @@ public class ReadingDataFromxl {
 						String iceMPAXL = icXL.getContents();
 						String iceMPAValue = iceMPAXL.replace('%', 'f');
 						dataFromXL[4] = iceMPAValue;
-						System.out.println("iceMPAValue"+" "+iceMPAValue);
+						//System.out.println("iceMPAValue"+" "+iceMPAValue);
 
 					} else if (kpis.equals(soviChannelXL)) {
 						
@@ -158,7 +158,7 @@ public class ReadingDataFromxl {
 						String iceSOVIXL = icXL.getContents();
 						String iceSOVIValue = iceSOVIXL.replace('%', 'f');
 						dataFromXL[5] = iceSOVIValue;
-						System.out.println("iceSOVIValue"+" "+iceSOVIValue);
+						//System.out.println("iceSOVIValue"+" "+iceSOVIValue);
 					} else if (kpis.equals(refregiratioChannelXL)) {
 						
 						Cell icXL = sh.getCell(9, rwXL);
@@ -224,8 +224,8 @@ public class ReadingDataFromxl {
 			}
 		}
 
-		// System.out.println("Reading data from XL");
-		System.out.println(xlData);
+		System.out.println("Reading data from XL");
+		//System.out.println(xlData);
 
 		return xlData;
 

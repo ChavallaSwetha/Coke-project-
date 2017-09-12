@@ -14,12 +14,12 @@ import jxl.write.WriteException;
 public class PopprobeComparingStoreLevelPremiseData {
 	public static void main(String[] args) throws InterruptedException, BiffException, IOException, WriteException {
 
-		String[] countriesFromUI = { "BAHAMAS" };// ,"BARBADOS","FRENCH GUIANA","GUYANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
-		String[] countriesFromExcel = { "Bahamas" };//,"Barbados","French Guiana","Guyana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago"};
+		String[] countriesFromUI = {"BAHAMAS","GUADELOUPE", "BARBADOS","FRENCH GUIANA","GUYANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"};
+		String[] countriesFromExcel = { "Bahamas","Guadeloupe","Barbados","French Guiana","Guyana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago"};
 		String date = "2017 - 1";
 		String channelFromXL = "On Premise";
 		String channel = "ON PREMISE";
-
+		String channelLoop = "premise";
 		String mpaChannelXL = "Portafolio Prioritario";
 		String soviChannelXL = "SOVI";
 		String refregiratioChannelXL = "Refrigeración";
@@ -40,11 +40,12 @@ public class PopprobeComparingStoreLevelPremiseData {
 			login.selectDropDowns(driver, date, countriesFromUI[i], channel);
 			ComparingStoreLevelPremiseDataAndWritingXL compare = new ComparingStoreLevelPremiseDataAndWritingXL();
 			ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
-			UIData dataUI = namesAndTotal.readingDataFromUI(driver);
+			UIData dataUI = namesAndTotal.readingDataFromUI(driver, channelLoop);
 			ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 			XLData xldata = storeAndIce.readingDataFromXL(readFilePath, countriesFromExcel[i], channelFromXL,
 					mpaChannelXL, soviChannelXL, refregiratioChannelXL, commuNionChannelXL,   colDAvChannelXL, comBoChannelXL
 					);
+			
 			compare.comparingAndWritingData(writeFilePath, writeWorkBook, dataUI, xldata, countriesFromUI[i], channel,
 					i);
 			login.logout(driver);

@@ -25,7 +25,7 @@ public class XLData {
 		}
 		return str.toString();
 	}
-
+   // For the method
 	public void setICEvalues(String storeNameXL, String[] IceXL) {
 		storeNameXL = storeNameXL.replaceAll("[ ,.&()/'-]", "").toLowerCase();
 		xlMap.put(storeNameXL, IceXL);
