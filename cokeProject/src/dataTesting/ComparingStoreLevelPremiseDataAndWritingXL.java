@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import com.google.common.base.Objects;
 
-import dataTesting.ComparingStoreLevelDataAndWritingXL.TraditionalKPIs;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;

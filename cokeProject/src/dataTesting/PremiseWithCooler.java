@@ -9,13 +9,6 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 
-import java.io.IOException;
-
-import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WriteException;
-import jxl.write.biff.RowsExceededException;
 
 public class PremiseWithCooler {
 

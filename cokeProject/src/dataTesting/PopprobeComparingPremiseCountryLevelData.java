@@ -24,8 +24,8 @@ public class PopprobeComparingPremiseCountryLevelData {
 		WebDriver driver = new ChromeDriver();
 		String readFilePath = "C:/Users/Swetha/Downloads/Caribbean ICE Results June 2017.xls";
 		
-		String[] country = {"BARBADOS","BAHAMAS","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
-		String[] compareCountry = {"Barbados","Bahamas","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
+		String[] country = {"BARBADOS","BAHAMAS","FRENCH GUIANA","GUADELOUPE","JAMAICA","MARTINIQUE","SURINAME","TRINIDAD Y TOBAGO"  };
+		String[] compareCountry = {"Barbados","Bahamas","French Guiana","Guadeloupe","Jamaica","Martinique","Suriname","Trinidad & Tobago" };
 		/*String[] country = { "FRENCH GUIANA","GUADELOUPE"}; String[]
 				  compareCountry = { "French Guiana","Guadeloupe"};*/
 		

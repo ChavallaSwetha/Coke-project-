@@ -27,11 +27,12 @@ public class PopprobeMissingStoresInUIAndXL {
 		 * "Trinidad & Tobago" };
 		 */
 		String[] countriesFromUI = { "BELIZE", "HAITI" };
-		String[] countriesFromExcel = { "Belize", "Haiti" };
+		//String[] countriesFromExcel = { "Belize", "Haiti" };
 		String date = "2017 - 6";
-		String channelFromXL = "tradicional";
+		//String channelFromXL = "tradicional";
 		String channel = "HOME MARKET TRADITIONAL";
-		String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
+		//String channelLoop = "traditional";
+		//String readFilePath = "C:/Users/Mona Lisa/Downloads/Caribbean ICE Results June 2017.xls";
 		String writeFilePath = "C:/Users/Mona Lisa/Downloads/Data_of_Popprobe/Belize_Haiti_Missing_Store_List_June.xls";
 		FileOutputStream fileOutput = new FileOutputStream(writeFilePath);
 		WritableWorkbook writeWorkBook = Workbook.createWorkbook(fileOutput);
@@ -45,10 +46,10 @@ public class PopprobeMissingStoresInUIAndXL {
 
 			login.selectDropDowns(driver, date, countriesFromUI[i], channel);
 			// login.selectDropDowns(driver,date, countriesFromUI[i]);
-			ComparingMissingStores missingStores = new ComparingMissingStores();
-			ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
-			UIData dataUI = namesAndTotal.readingDataFromUI(driver);
-			ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
+			//ComparingMissingStores missingStores = new ComparingMissingStores();
+			//ReadingDataFromUI namesAndTotal = new ReadingDataFromUI();
+			//UIData dataUI = namesAndTotal.readingDataFromUI(driver, channelLoop);
+			//ReadingDataFromxl storeAndIce = new ReadingDataFromxl();
 			//XLData xldata = storeAndIce.readingDataFromXL(readFilePath, countriesFromExcel[i], channelFromXL);
 			//missingStores.comparingAndWritingData(writeFilePath, writeWorkBook, dataUI, xldata, countriesFromUI[i],
 			//		channel, i);

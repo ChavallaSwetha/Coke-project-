@@ -1,15 +1,13 @@
 package dataTesting;
 
-import java.awt.Desktop.Action;
+
 import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class ReadingDataFromNewUI {
 
@@ -53,7 +51,7 @@ public class ReadingDataFromNewUI {
 		System.out.println("totalUIAfterConvertingTofloat"+"  "+totalUIAfterConvertingTofloat);
 		storeName = rowData;
 		totalUI = totalUIAfterConvertingTofloat;
-		dataUI.setTotalUI(storeName, totalUI);
+		//dataUI.setTotalUI(storeName, totalUI);
 		String railing = columns.get(3).getText();
 		storeName = rowData;
 		dataUI.setRailUI(storeName, railing);
